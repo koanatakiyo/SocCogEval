@@ -9,25 +9,33 @@ from typing import Optional
 # ── API Keys ────────────────────────────────────────────────────────────────
 
 def _load_key(filename: str, env_var: str) -> str:
-    """Load API key from file or environment variable."""
+    """Load API key from file in APIkeys/ directory, or from env var."""
     root = Path(__file__).resolve().parent.parent
-    key_file = root / filename
+    key_file = root / "APIkeys" / filename
     if key_file.exists():
-        return key_file.read_text().strip()
+        text = key_file.read_text().strip()
+        # Strip surrounding quotes and inline comments
+        text = text.split("#")[0].strip().strip('"').strip("'")
+        return text
     return os.environ.get(env_var, "")
 
 
 OPENAI_API_KEY = _load_key("api_key_openai.txt", "OPENAI_API_KEY")
 DEEPSEEK_API_KEY = _load_key("api_key_deepseek.txt", "DEEPSEEK_API_KEY")
+GEMINI_API_KEY = _load_key("api_key_gemini.txt", "GEMINI_API_KEY")
+GROK_API_KEY = _load_key("api_key_grok.txt", "GROK_API_KEY")
 
-# Also support apiyi proxy (used by FutureMap/KnowledgeClaw)
-APIYI_API_KEY = _load_key("api_key_apiyi.txt", "APIYI_API_KEY")
+# ── Local Model Paths ─────────────────────────────────────────────────────
+LOCAL_MODEL_CACHE = Path("/mnt/ssd1/yandan/transformer_cache")
+QWEN_MODEL_PATH = str(LOCAL_MODEL_CACHE / "qwen3-122b-fp8")
+LLAMA_MODEL_PATH = str(LOCAL_MODEL_CACHE / "llama4-scout")
 
-# ── Local Qwen Server ──────────────────────────────────────────────────────
-# Qwen 3 122B runs locally via vLLM/Ollama with OpenAI-compatible endpoint.
-# Override with env QWEN_BASE_URL if your server runs elsewhere.
+# ── Local vLLM Server ─────────────────────────────────────────────────────
+# Local models served via vLLM with OpenAI-compatible endpoint.
+# Qwen on port 8000, Llama on port 8001. Override with env vars.
 QWEN_BASE_URL = os.environ.get("QWEN_BASE_URL", "http://localhost:8000/v1")
-QWEN_API_KEY = os.environ.get("QWEN_API_KEY", "not-needed")  # local server
+LLAMA_BASE_URL = os.environ.get("LLAMA_BASE_URL", "http://localhost:8001/v1")
+LOCAL_API_KEY = "not-needed"  # local vLLM server needs no real key
 
 # ── Frozen API Parameters (from working_plan_v3.md §11.1) ──────────────────
 
@@ -38,19 +46,19 @@ PROBE_MAX_TOKENS = 512
 ALLOCATION_MAX_TOKENS = 256
 
 # ── Model Strategy ──────────────────────────────────────────────────────────
-# Primary: Qwen 3 122B (local) — free unlimited, all pilot + main experiment
-# Local 2: Llama 4 Scout (local) — second local model family
-# API 1: GPT-5.3 mini (OpenAI) — cloud cross-model validation
-# API 2: DeepSeek v3.2 (cloud) — cheap cloud cross-model check
-# API 3: Gemini 3.1 Flash (Google) — fifth model family
-# Backup: Grok — if needed
-PRIMARY_MODEL = "qwen3-122b"             # Local Qwen 3 122B (主力)
-MODEL_LLAMA = "llama-4-scout"            # Local Llama 4 Scout
-MODEL_GPT = "gpt-5.3-mini"              # GPT-5.3 mini (API)
-MODEL_DEEPSEEK = "deepseek-chat"         # DeepSeek v3.2 (API)
-MODEL_GEMINI = "gemini-3.1-flash"        # Gemini 3.1 Flash (API)
-MODEL_GROK = "grok-4.1-fast"            # Grok (backup)
-PILOT_MODEL = "qwen3-122b"              # Same as primary (free, unlimited)
+# Primary: Qwen 3 122B FP8 (local vLLM) — free unlimited
+# Local 2: Llama 4 Scout (local vLLM) — second local model family
+# API 1: GPT (OpenAI) — cloud cross-model validation
+# API 2: DeepSeek v3 (cloud) — cheap cloud cross-model check
+# API 3: Gemini Flash (Google) — fifth model family
+# Backup: Grok (xAI) — if needed
+PRIMARY_MODEL = "qwen3-122b-fp8"         # Local Qwen 3 122B FP8 (主力)
+MODEL_LLAMA = "llama4-scout"             # Local Llama 4 Scout
+MODEL_GPT = "gpt-4o-mini"               # GPT (API)
+MODEL_DEEPSEEK = "deepseek-chat"         # DeepSeek v3 (API)
+MODEL_GEMINI = "gemini-2.0-flash"        # Gemini Flash (API)
+MODEL_GROK = "grok-2"                   # Grok (backup)
+PILOT_MODEL = PRIMARY_MODEL              # Same as primary (free, unlimited)
 
 # ── Paths ───────────────────────────────────────────────────────────────────
 

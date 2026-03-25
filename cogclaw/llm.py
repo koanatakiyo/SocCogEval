@@ -1,12 +1,12 @@
 """LLM API client wrapper supporting multiple providers.
 
 Model strategy:
-- Qwen 3 122B (local): Primary model, free unlimited
-- Llama 4 Scout (local): Second local model family
-- GPT-5.3 mini (OpenAI API): Cloud cross-model validation
-- DeepSeek v3.2 (API): Cheap cloud cross-model check
-- Gemini 3.1 Flash (API): Fifth model family
-- Grok (backup)
+- Qwen 3 122B FP8 (local vLLM): Primary model, free unlimited
+- Llama 4 Scout (local vLLM): Second local model family
+- GPT (OpenAI API): Cloud cross-model validation
+- DeepSeek v3 (API): Cheap cloud cross-model check
+- Gemini Flash (Google API): Fifth model family
+- Grok (xAI API): Backup
 """
 
 import json
@@ -49,88 +49,52 @@ def _is_grok_model(model: str) -> bool:
 
 # ── Clients (lazy singletons) ──────────────────────────────────────────────
 
-_qwen_client: Optional[openai.OpenAI] = None
-_openai_client: Optional[openai.OpenAI] = None
-_deepseek_client: Optional[openai.OpenAI] = None
-_llama_client: Optional[openai.OpenAI] = None
-_apiyi_client: Optional[openai.OpenAI] = None
+_clients: dict[str, openai.OpenAI] = {}
 
 
-def _get_qwen_client() -> openai.OpenAI:
-    """Local Qwen 3 122B via OpenAI-compatible endpoint (vLLM/Ollama)."""
-    global _qwen_client
-    if _qwen_client is None:
-        _qwen_client = openai.OpenAI(
-            api_key=config.QWEN_API_KEY,
-            base_url=config.QWEN_BASE_URL,
-        )
-    return _qwen_client
-
-
-def _get_openai_client() -> openai.OpenAI:
-    """OpenAI API client for GPT models."""
-    global _openai_client
-    if _openai_client is None:
-        key = config.OPENAI_API_KEY
-        if not key:
-            raise ValueError("OPENAI_API_KEY not set. Put it in api_key_openai.txt or env.")
-        _openai_client = openai.OpenAI(api_key=key)
-    return _openai_client
-
-
-def _get_deepseek_client() -> openai.OpenAI:
-    global _deepseek_client
-    if _deepseek_client is None:
-        key = config.DEEPSEEK_API_KEY
-        if not key:
-            raise ValueError("DEEPSEEK_API_KEY not set. Put it in api_key_deepseek.txt or env.")
-        _deepseek_client = openai.OpenAI(
-            api_key=key,
-            base_url="https://api.deepseek.com",
-        )
-    return _deepseek_client
-
-
-def _get_llama_client() -> openai.OpenAI:
-    """Llama 4 Scout — local via vLLM/Ollama or cloud via apiyi/together."""
-    global _llama_client
-    if _llama_client is None:
-        # Try local first (same server, different model name), fallback to apiyi
-        llama_base = os.environ.get("LLAMA_BASE_URL", config.QWEN_BASE_URL)
-        llama_key = os.environ.get("LLAMA_API_KEY", config.QWEN_API_KEY)
-        _llama_client = openai.OpenAI(api_key=llama_key, base_url=llama_base)
-    return _llama_client
-
-
-def _get_apiyi_client() -> openai.OpenAI:
-    """Apiyi proxy client (for Gemini, Grok, etc.)."""
-    global _apiyi_client
-    if _apiyi_client is None:
-        key = config.APIYI_API_KEY
-        if not key:
-            raise ValueError("APIYI_API_KEY not set. Put it in api_key_apiyi.txt or env.")
-        _apiyi_client = openai.OpenAI(
-            api_key=key,
-            base_url="https://api.apiyi.com/v1",
-        )
-    return _apiyi_client
+def _get_client(name: str, api_key: str, base_url: Optional[str] = None) -> openai.OpenAI:
+    """Get or create a named client singleton."""
+    if name not in _clients:
+        kwargs = {"api_key": api_key}
+        if base_url:
+            kwargs["base_url"] = base_url
+        _clients[name] = openai.OpenAI(**kwargs)
+    return _clients[name]
 
 
 def _get_client_for_model(model: str) -> openai.OpenAI:
     """Route model name to the correct client."""
     if _is_qwen_model(model):
-        return _get_qwen_client()
-    elif _is_deepseek_model(model):
-        return _get_deepseek_client()
-    elif _is_openai_model(model):
-        return _get_openai_client()
+        return _get_client("qwen", config.LOCAL_API_KEY, config.QWEN_BASE_URL)
+
     elif _is_llama_model(model):
-        return _get_llama_client()
-    elif _is_gemini_model(model) or _is_grok_model(model):
-        return _get_apiyi_client()
+        return _get_client("llama", config.LOCAL_API_KEY, config.LLAMA_BASE_URL)
+
+    elif _is_deepseek_model(model):
+        if not config.DEEPSEEK_API_KEY:
+            raise ValueError("DEEPSEEK_API_KEY not set. Put it in APIkeys/api_key_deepseek.txt or env.")
+        return _get_client("deepseek", config.DEEPSEEK_API_KEY, "https://api.deepseek.com/v1")
+
+    elif _is_openai_model(model):
+        if not config.OPENAI_API_KEY:
+            raise ValueError("OPENAI_API_KEY not set. Put it in APIkeys/api_key_openai.txt or env.")
+        return _get_client("openai", config.OPENAI_API_KEY)
+
+    elif _is_gemini_model(model):
+        if not config.GEMINI_API_KEY:
+            raise ValueError("GEMINI_API_KEY not set. Put it in APIkeys/api_key_gemini.txt or env.")
+        return _get_client(
+            "gemini", config.GEMINI_API_KEY,
+            "https://generativelanguage.googleapis.com/v1beta/openai/",
+        )
+
+    elif _is_grok_model(model):
+        if not config.GROK_API_KEY:
+            raise ValueError("GROK_API_KEY not set. Put it in APIkeys/api_key_grok.txt or env.")
+        return _get_client("grok", config.GROK_API_KEY, "https://api.x.ai/v1")
+
     else:
-        # Fallback: apiyi proxy
-        return _get_apiyi_client()
+        raise ValueError(f"Unknown model: {model}. Cannot route to provider.")
 
 
 # ── Core Chat Function ──────────────────────────────────────────────────────
