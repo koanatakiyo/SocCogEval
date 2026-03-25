@@ -20,6 +20,7 @@ from .agent import Agent
 from .config import ExperimentConfig, DATA_DIR
 from .memory import extract_memory
 from .network import Network
+from .probes import run_pre_battery, run_post_battery, run_periodic_probes
 
 logger = logging.getLogger(__name__)
 
@@ -221,20 +222,32 @@ class Orchestrator:
             n_rounds: Number of rounds (default from config)
             n_turns_per_conversation: Turns per pair conversation
             probe_interval: Run probes every N rounds
-            probe_fn: Optional function(agents, round_num) -> dict for probes
+            probe_fn: Optional function(agents, round_num) -> dict for probes.
+                       If None, uses built-in periodic probes.
         """
         n_rounds = n_rounds or self.config.interaction.n_rounds
-
-        if self.config.interaction.n_rounds == 0:
-            logger.info("No-interaction condition: skipping all rounds")
-            return self.rounds
+        scenario = self.config.scenario
 
         if self.run_dir is None:
             self.setup_run_dir()
 
+        # ── Pre-test battery ──
+        logger.info("Running pre-test battery (BFI-10, conformity, allocation)...")
+        pre_data = run_pre_battery(self.agents, scenario)
+        self._save_json(pre_data, "pre_measurements.json")
+
+        if self.config.interaction.n_rounds == 0:
+            logger.info("No-interaction condition: skipping all rounds")
+            # Still run post-test for seed-only / pure baseline
+            logger.info("Running post-test battery...")
+            post_data = run_post_battery(self.agents, scenario)
+            self._save_json(post_data, "post_measurements.json")
+            self._save_final()
+            return self.rounds
+
         logger.info(
             f"Starting experiment: {self.config.condition_name} | "
-            f"{self.config.scenario} | {n_rounds} rounds | "
+            f"{scenario} | {n_rounds} rounds | "
             f"model={self.config.model}"
         )
 
@@ -242,9 +255,14 @@ class Orchestrator:
             record = self.run_round(round_num, n_turns_per_conversation)
 
             # Run probes at intervals
-            if probe_fn and round_num % probe_interval == 0:
-                logger.info(f"Running probes at round {round_num}")
-                record.probe_responses = probe_fn(self.agents, round_num)
+            if round_num % probe_interval == 0:
+                logger.info(f"Running periodic probes at round {round_num}")
+                if probe_fn:
+                    record.probe_responses = probe_fn(self.agents, round_num)
+                else:
+                    record.probe_responses = run_periodic_probes(
+                        self.agents, round_num, scenario
+                    )
 
             # Save incrementally
             self._save_round(record)
@@ -255,9 +273,21 @@ class Orchestrator:
                 f"{len(record.conversations)} conversations)"
             )
 
+        # ── Post-test battery ──
+        logger.info("Running post-test battery (all instruments)...")
+        post_data = run_post_battery(self.agents, scenario)
+        self._save_json(post_data, "post_measurements.json")
+
         # Save final state
         self._save_final()
         return self.rounds
+
+    def _save_json(self, data: dict, filename: str):
+        """Save a dict as JSON to the run directory."""
+        if self.run_dir is None:
+            return
+        with open(self.run_dir / filename, "w") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
 
     def _save_round(self, record: RoundRecord):
         """Save a round's data to disk."""

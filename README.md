@@ -51,21 +51,80 @@ SocCogBench is the first benchmark specifically measuring "socially induced cros
 ### C3: Methodology -- SRM + FSIP + S1/S2 (Section 5)
 
 **Component 1: Social-Relational Memory Protocol (SRM)**
-- Standardized extraction: fixed prompt converts each conversation to 3-facet JSON (episodic / social / self-relevant)
+- Hypergraph-structured memory: agents as entity nodes, interactions as hyperedges
+- RRF (Reciprocal Rank Fusion) retrieval combining graph traversal + semantic search
 - Validated >90% field-level extraction consistency in pilot
-- Reusable template for any multi-agent simulation needing structured memory
 
 **Component 2: Factorial Social Interaction Protocol (FSIP)**
 - 5 conditions crossing connectivity x seed x interaction
 - Sub-topic rotation (prevents 30-round content exhaustion)
 - Network-topology-aware pair selection algorithm
-- Reusable factorial design template for multi-agent social experiments
 
 **Component 3: Dual-Process Ablation (S1/S2)**
 - S1: direct response
-- S2: internal deliberation before responding ("How does the other agent see me? How might they react?")
+- S2: structured deliberation using fork-based ReasoningGraph (position trajectory, relationship history, contradiction detection, convergence trend analysis)
 - Tests whether deliberation modulates divergence rate and cross-task transfer strength
-- Connects to dual-process theory from cognitive science
+
+---
+
+## Architecture
+
+CogClaw integrates techniques from five reference codebases into a unified experiment pipeline:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│              CogClaw Experiment Pipeline                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌──────────────┐  ┌──────────────┐  ┌────────────────────┐   │
+│  │ HypergraphMem│  │ ReasoningGraph│ │ ExperienceLibrary  │   │
+│  │ (memory.py)  │  │ (reasoning.py)│ │ (experience.py)    │   │
+│  │              │  │              │  │                    │   │
+│  │ • NetworkX   │  │ • Fork from  │  │ • Advantage-       │   │
+│  │   DiGraph    │  │   memory     │  │   weighted         │   │
+│  │ • Entity +   │  │ • Structured │  │   retrieval        │   │
+│  │   hyperedge  │  │   context    │  │ • Token Jaccard    │   │
+│  │   nodes      │  │   builder    │  │   dedup            │   │
+│  │ • RRF        │  │ • Trend      │  │ • EMA advantage    │   │
+│  │   retrieval  │  │   detection  │  │   updates          │   │
+│  └──────┬───────┘  └──────┬───────┘  └────────┬───────────┘   │
+│         │                 │                    │               │
+│         └────────┬────────┴────────────────────┘               │
+│                  ▼                                              │
+│  ┌──────────────────────────────────────────────────────────┐  │
+│  │ Agent (agent.py)                                         │  │
+│  │ • Identical initialization (no personality/stance/bias)  │  │
+│  │ • respond() — S1 direct response                        │  │
+│  │ • respond_s2() — S2 structured deliberation              │  │
+│  │ • answer_probe() — measurement interface                 │  │
+│  └──────────────────────────┬───────────────────────────────┘  │
+│                             │                                   │
+│  ┌──────────────────────────┴───────────────────────────────┐  │
+│  │ Orchestrator (orchestrator.py)                            │  │
+│  │ • Pre-test battery → 30 rounds → Post-test battery       │  │
+│  │ • Periodic probes every 5 rounds                         │  │
+│  │ • Memory extraction after each conversation              │  │
+│  │ • Incremental save (JSON per round)                      │  │
+│  └──────────────────────────┬───────────────────────────────┘  │
+│                             │                                   │
+│  ┌──────────────────────────┴───────────────────────────────┐  │
+│  │ SocCogBench Probes (probes.py)                            │  │
+│  │ • Allocation task (5-dim)    • Prediction task            │  │
+│  │ • Conformity test (10 MCQ)   • BFI-10 personality         │  │
+│  │ • Belief/common ground probes • Consistency check          │  │
+│  └──────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Adapted from:**
+
+| Source | What We Took |
+|--------|-------------|
+| **HyperGraphRAG** (NeurIPS 2025) | Hypergraph storage model, RRF retrieval, entity merging |
+| **FutureMap** | Fork-based ReasoningGraph, structured context builder, ExperienceLibrary with advantage-weighted retrieval |
+| **KnowledgeClaw** | Entity extraction pipeline, ReACT multi-round reasoning pattern |
+| **MiroFish** | Agent profile generation patterns, real-time graph memory updates |
+| **OASIS** | Interview/probe action pattern, trace logging for reproducibility |
 
 ---
 
@@ -98,18 +157,23 @@ SocCogBench is the first benchmark specifically measuring "socially induced cros
 ## Project Structure
 
 ```
-cogclaw/
+cogsociety/
 ├── cogclaw/                         # Core pipeline package
-│   ├── config.py                    # Configuration (API params, model strategy)
-│   ├── llm.py                       # Multi-provider LLM client (Qwen/GPT/DeepSeek/Llama/apiyi)
-│   ├── agent.py                     # Agent class + SocialRelationalMemory (SRM)
-│   ├── memory.py                    # Memory extraction (LLM -> JSON) + consistency validation
+│   ├── config.py                    # Configuration (API params, model strategy, paths)
+│   ├── llm.py                       # Multi-provider LLM client (6 providers)
+│   ├── agent.py                     # Agent class with HypergraphMemory + S2 reasoning
+│   ├── memory.py                    # HypergraphMemory (graph + vector + RRF) + extraction
+│   ├── reasoning.py                 # Fork-based ReasoningGraph for S2 deliberation
+│   ├── experience.py                # Advantage-weighted ExperienceLibrary
+│   ├── probes.py                    # SocCogBench measurement battery
 │   ├── network.py                   # Network topology (all-to-all, segregated, none)
-│   ├── orchestrator.py              # Conversation orchestrator (FSIP implementation)
+│   ├── orchestrator.py              # Conversation orchestrator with pre/post measurement
 │   └── conditions.py                # 5-condition factorial design factory
 ├── scenarios/                       # Scenario prompts and measurement instruments
 │   ├── greenfield.py                # Community grant (context, seeds A/B, probes, allocation)
 │   └── riverton.py                  # AI transition (context, seeds A/B, probes, allocation)
+├── scripts/
+│   └── serve_local_models.sh        # vLLM launcher for local models (GPU 6/7)
 ├── configs/                         # Generated experiment configs (5 conditions x 2 scenarios)
 ├── data/                            # Experiment output data
 ├── benchmark_datasets/              # Downloaded reference datasets
@@ -117,22 +181,17 @@ cogclaw/
 │   ├── CogMir/                      # Conformity/herd effect items (Layer 2)
 │   ├── ToMBench/                    # Theory of Mind reference
 │   └── CogBench/                    # Cognitive psychology (citation)
+├── FutureMap-main/                  # Reference: reasoning graph, experience library
+├── HyperGraphRAG/                   # Reference: hypergraph storage, RRF retrieval
+├── KnowledgeClaw/                   # Reference: entity extraction, ReACT reasoning
+├── MiroFish-main/                   # Reference: agent profiles, graph memory updates
+├── oasis/                           # Reference: interview actions, trace logging
 ├── run_experiment.py                # Main experiment runner
 ├── toy_test.py                      # Quick validation (4 agents x 5 rounds)
+├── requirements.txt                 # Python dependencies
 ├── working_plan_v3.md               # Canonical research plan (FROZEN)
 └── benchmark_analysis.md            # Dataset analysis and evaluation strategy
 ```
-
-### Reference Codebases
-
-| Directory | Project | Relevance |
-|-----------|---------|-----------|
-| `FutureMap-main/` | Prediction engine with LLM reasoning | LLM client patterns, JSON repair |
-| `KnowledgeClaw/` | Knowledge graph engine | Storage, retrieval, graph patterns |
-| `MiroFish-main/` | Multi-agent simulation orchestrator | Profile generation, OASIS integration |
-| `oasis/` | OASIS social media simulation | Agent/environment/network patterns |
-| `openclaw-main/` | AI assistant framework | Provider/model selection patterns |
-| `HyperGraphRAG/` | Hypergraph-based RAG (NeurIPS 2025) | Future: hypergraph memory (Paper 2) |
 
 ---
 
@@ -147,25 +206,30 @@ pip install -r requirements.txt
 
 ### API Keys
 
-Place API key files in the project root (`/home/yandan/cogclaw/`):
+Place API key files in `APIkeys/`:
 
-| File | What | When needed |
-|------|------|-------------|
-| *(none needed)* | Qwen 3 122B + Llama 4 Scout run locally | Always (local models) |
-| `api_key_openai.txt` | OpenAI API key for GPT-5.3 mini | Cross-model validation |
-| `api_key_deepseek.txt` | DeepSeek API key | Cross-model check |
-| `api_key_apiyi.txt` | Apiyi proxy key (for Gemini 3.1 Flash / Grok) | Fifth model + backup |
+| File | Provider | When needed |
+|------|----------|-------------|
+| `api_key_openai.txt` | OpenAI | Cross-model validation |
+| `api_key_deepseek.txt` | DeepSeek | Cross-model check |
+| `api_key_gemini.txt` | Google Gemini | Fifth model family |
+| `api_key_grok.txt` | xAI Grok | Backup |
 
-Or set environment variables instead:
+Or set environment variables: `OPENAI_API_KEY`, `DEEPSEEK_API_KEY`, `GEMINI_API_KEY`, `GROK_API_KEY`.
+
+### Local Models (vLLM)
+
+Models stored at `/mnt/ssd1/yandan/transformer_cache/`:
 
 ```bash
-export OPENAI_API_KEY="sk-..."
-export DEEPSEEK_API_KEY="sk-..."
-export APIYI_API_KEY="sk-..."
+# Serve Qwen3-122B-FP8 on GPU 6 (port 8000)
+./scripts/serve_local_models.sh qwen
 
-# Local model servers (defaults shown):
-export QWEN_BASE_URL="http://localhost:8000/v1"    # vLLM / Ollama for Qwen
-export LLAMA_BASE_URL="http://localhost:8000/v1"    # vLLM / Ollama for Llama
+# Serve Llama4-Scout on GPU 7 (port 8001)
+./scripts/serve_local_models.sh llama
+
+# Both simultaneously
+./scripts/serve_local_models.sh both
 ```
 
 ### Run Toy Test
@@ -175,7 +239,7 @@ export LLAMA_BASE_URL="http://localhost:8000/v1"    # vLLM / Ollama for Llama
 python toy_test.py
 
 # Or specify a model explicitly
-python toy_test.py --model qwen3-122b
+python toy_test.py --model qwen3-122b-fp8
 python toy_test.py --model deepseek-chat
 
 # Memory extraction consistency validation (target: >90%)
@@ -185,28 +249,21 @@ python toy_test.py --consistency-test
 ### Run Full Experiment
 
 ```bash
-# Single condition (uses primary model by default)
+# Single condition
 python run_experiment.py --condition 2 --scenario greenfield
 
-# Cross-model validation run
-python run_experiment.py --condition 2 --scenario greenfield --model gpt-5.3-mini
+# Cross-model validation
+python run_experiment.py --condition 2 --scenario greenfield --model gpt-4o-mini
 python run_experiment.py --condition 2 --scenario greenfield --model deepseek-chat
-python run_experiment.py --condition 2 --scenario greenfield --model llama-4-scout
-
-# Override round count (e.g., for pilot)
-python run_experiment.py --condition 2 --scenario greenfield --n-rounds 10
-
-# All 5 conditions for one scenario
-python run_experiment.py --all --scenario greenfield
 
 # With S2 deliberate reasoning ablation
 python run_experiment.py --condition 2 --scenario greenfield --s2
 
+# All 5 conditions for one scenario
+python run_experiment.py --all --scenario greenfield
+
 # Generate all config files
 python run_experiment.py --generate-configs
-
-# Run from config file
-python run_experiment.py --config-file configs/condition_2_segreg_asym_seed_greenfield.json
 ```
 
 ### Output Structure
@@ -214,19 +271,34 @@ python run_experiment.py --config-file configs/condition_2_segreg_asym_seed_gree
 ```
 data/<run_name>/
 ├── config.json                # Experiment configuration
+├── pre_measurements.json      # SocCogBench pre-test (BFI-10, conformity, allocation)
 ├── rounds/
 │   ├── round_001.json         # Conversations + probe responses per round
-│   ├── round_002.json
+│   ├── round_005.json         # Includes periodic belief/common-ground probes
 │   └── ...
 ├── memories/
-│   ├── Alex.json              # Agent's social-relational memory (SRM output)
-│   ├── Blake.json
+│   ├── Alex.json              # Agent's hypergraph memory (SRM output)
 │   └── ...
-├── post_measurements.json     # SocCogBench: allocation, prediction, belief, conformity
+├── post_measurements.json     # SocCogBench post-test (all instruments)
 └── summary.json               # Run summary statistics
 ```
 
 ---
+
+## Model Strategy
+
+Six model families across local and API providers:
+
+| Model | Type | Port/Endpoint | Role | Cost |
+|-------|------|---------------|------|------|
+| **Qwen3-122B-FP8** | Local vLLM (GPU 6) | `localhost:8000` | Primary (主力) | Free |
+| **Llama4-Scout** | Local vLLM (GPU 7) | `localhost:8001` | Second local family | Free |
+| **GPT-4o-mini** | OpenAI API | Direct | Cloud cross-model | ~$30-50 |
+| **DeepSeek-chat** | DeepSeek API | Direct | Cheap cloud check | ~$10-20 |
+| **Gemini-2.0-flash** | Google API | Direct | Fifth model family | Minimal |
+| **Grok-2** | xAI API | Direct | Backup | -- |
+
+Auto-routing: model name in config determines which provider client is used.
 
 ## Technical Specifications
 
@@ -240,44 +312,11 @@ data/<run_name>/
 | Agents per run | 8 (identically initialized) |
 | Rounds per run | 30 |
 
-## Model Strategy
-
-Five model families support cross-model robustness claims:
-
-| Model | Type | Role | Routing | Cost |
-|-------|------|------|---------|------|
-| **Qwen 3 122B** | Local | Primary (主力). All pilot + main experiment | `localhost:8000/v1` | Free |
-| **Llama 4 Scout** | Local | Second local model family | `localhost:8000/v1` | Free |
-| **GPT-5.3 mini** | API | Cloud cross-model validation | OpenAI API | ~$30-50 |
-| **DeepSeek v3.2** | API | Cloud cross-model check | DeepSeek API | ~$10-20 |
-| **Gemini 3.1 Flash** | API | Fifth model family | Apiyi proxy | Minimal |
-| Grok | Backup | If needed | Apiyi proxy | -- |
-
-Key advantage: Two local models (Qwen + Llama) = unlimited repeats, no budget constraints. Main condition goes to 10+ repeats.
-
-## Agent Design
-
-Agents are **identically initialized** with:
-- Same base model and prompting template
-- Same role structure (community member / employee)
-- Brief name and role label
-- Behavioral instruction: "Express your genuine thoughts honestly"
-- **NO** personality, stance, ideology, or knowledge base injected
-
-After each conversation, **Social-Relational Memory (SRM)** extraction:
-```json
-{
-  "episodic": { "event": "...", "context": "...", "my_response": "..." },
-  "social": { "participants": [...], "their_stances": {...}, "group_dynamics": "..." },
-  "self_relevant": { "how_they_see_me": "...", "my_evolution": "..." }
-}
-```
-
 ## SocCogBench Measurement Battery
 
 | Layer | When | Instrument | Source |
 |-------|------|-----------|--------|
-| 1 | Post | 5-dim allocation task | Own design |
+| 1 | Pre/Post | 5-dim allocation task | Own design |
 | 1 | Post | Prediction of others' allocations | Own design |
 | 2 | Pre/Post | BFI-10 personality instrument | PsychoBench |
 | 2 | Pre/Post | Conformity test (10 MCQ + majority pressure) | CogMir |
