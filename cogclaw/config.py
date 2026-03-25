@@ -17,12 +17,17 @@ def _load_key(filename: str, env_var: str) -> str:
     return os.environ.get(env_var, "")
 
 
-ANTHROPIC_API_KEY = _load_key("api_key_anthropic.txt", "ANTHROPIC_API_KEY")
-DEEPSEEK_API_KEY = _load_key("api_key_deepseek.txt", "DEEPSEEK_API_KEY")
 OPENAI_API_KEY = _load_key("api_key_openai.txt", "OPENAI_API_KEY")
+DEEPSEEK_API_KEY = _load_key("api_key_deepseek.txt", "DEEPSEEK_API_KEY")
 
 # Also support apiyi proxy (used by FutureMap/KnowledgeClaw)
 APIYI_API_KEY = _load_key("api_key_apiyi.txt", "APIYI_API_KEY")
+
+# ── Local Qwen Server ──────────────────────────────────────────────────────
+# Qwen 3 122B runs locally via vLLM/Ollama with OpenAI-compatible endpoint.
+# Override with env QWEN_BASE_URL if your server runs elsewhere.
+QWEN_BASE_URL = os.environ.get("QWEN_BASE_URL", "http://localhost:8000/v1")
+QWEN_API_KEY = os.environ.get("QWEN_API_KEY", "not-needed")  # local server
 
 # ── Frozen API Parameters (from working_plan_v3.md §11.1) ──────────────────
 
@@ -32,9 +37,20 @@ CONVERSATION_MAX_TOKENS = 1024
 PROBE_MAX_TOKENS = 512
 ALLOCATION_MAX_TOKENS = 256
 
-PRIMARY_MODEL = "claude-sonnet-4-20250514"
-CROSSCHECK_MODEL = "deepseek-chat"       # DeepSeek-V3
-PILOT_MODEL = "deepseek-chat"            # DeepSeek-V3 for cost savings
+# ── Model Strategy ──────────────────────────────────────────────────────────
+# Primary: Qwen 3 122B (local) — free unlimited, all pilot + main experiment
+# Local 2: Llama 4 Scout (local) — second local model family
+# API 1: GPT-5.3 mini (OpenAI) — cloud cross-model validation
+# API 2: DeepSeek v3.2 (cloud) — cheap cloud cross-model check
+# API 3: Gemini 3.1 Flash (Google) — fifth model family
+# Backup: Grok — if needed
+PRIMARY_MODEL = "qwen3-122b"             # Local Qwen 3 122B (主力)
+MODEL_LLAMA = "llama-4-scout"            # Local Llama 4 Scout
+MODEL_GPT = "gpt-5.3-mini"              # GPT-5.3 mini (API)
+MODEL_DEEPSEEK = "deepseek-chat"         # DeepSeek v3.2 (API)
+MODEL_GEMINI = "gemini-3.1-flash"        # Gemini 3.1 Flash (API)
+MODEL_GROK = "grok-4.1-fast"            # Grok (backup)
+PILOT_MODEL = "qwen3-122b"              # Same as primary (free, unlimited)
 
 # ── Paths ───────────────────────────────────────────────────────────────────
 
