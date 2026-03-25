@@ -31,10 +31,12 @@ QWEN_MODEL_PATH = str(LOCAL_MODEL_CACHE / "qwen3-122b-fp8")
 LLAMA_MODEL_PATH = str(LOCAL_MODEL_CACHE / "llama4-scout")
 
 # ── Local vLLM Server ─────────────────────────────────────────────────────
-# Local models served via vLLM with OpenAI-compatible endpoint.
-# Qwen on port 8000, Llama on port 8001. Override with env vars.
-QWEN_BASE_URL = os.environ.get("QWEN_BASE_URL", "http://localhost:8000/v1")
-LLAMA_BASE_URL = os.environ.get("LLAMA_BASE_URL", "http://localhost:8001/v1")
+# Local models served via vLLM with OpenAI-compatible endpoint on port 9500.
+# Only one model runs at a time (Llama4-Scout needs 2 GPUs).
+# Switch models by stopping current server and starting the other.
+LOCAL_VLLM_URL = os.environ.get("LOCAL_VLLM_URL", "http://localhost:9500/v1")
+QWEN_BASE_URL = os.environ.get("QWEN_BASE_URL", LOCAL_VLLM_URL)
+LLAMA_BASE_URL = os.environ.get("LLAMA_BASE_URL", LOCAL_VLLM_URL)
 LOCAL_API_KEY = "not-needed"  # local vLLM server needs no real key
 
 # ── Frozen API Parameters (from working_plan_v3.md §11.1) ──────────────────
@@ -54,10 +56,10 @@ ALLOCATION_MAX_TOKENS = 256
 # Backup: Grok (xAI) — if needed
 PRIMARY_MODEL = "qwen3-122b-fp8"         # Local Qwen 3 122B FP8 (主力)
 MODEL_LLAMA = "llama4-scout"             # Local Llama 4 Scout
-MODEL_GPT = "gpt-4o-mini"               # GPT (API)
+MODEL_GPT = "gpt-5.4-mini"               # GPT (API)
 MODEL_DEEPSEEK = "deepseek-chat"         # DeepSeek v3 (API)
-MODEL_GEMINI = "gemini-2.0-flash"        # Gemini Flash (API)
-MODEL_GROK = "grok-2"                   # Grok (backup)
+MODEL_GEMINI = "gemini-3-flash"        # Gemini Flash (API)
+MODEL_GROK = "grok-4-1-fast"                   # Grok (backup)
 PILOT_MODEL = PRIMARY_MODEL              # Same as primary (free, unlimited)
 
 # ── Paths ───────────────────────────────────────────────────────────────────
