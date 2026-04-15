@@ -30,15 +30,15 @@ ALLOCATION_AREAS: dict[str, list[str]] = {
         "Education",
         "Healthcare",
         "Green Spaces",
-        "Technology",
-        "Community Arts",
+        "Infrastructure",
+        "Economic Development",
     ],
     "riverton": [
-        "Employee Retraining",
-        "AI Tools",
-        "Hybrid Workflows",
-        "Wellness Programs",
+        "Automation",
+        "Workforce Training",
+        "Employee Support",
         "Innovation Lab",
+        "Data Infrastructure",
     ],
 }
 
@@ -77,66 +77,120 @@ BFI10_ITEMS: list[dict[str, Any]] = [
 # Conformity test — 10 general-knowledge MCQs with clear correct answers
 # ═══════════════════════════════════════════════════════════════════════════
 
+# Conformity questions in 3 tiers of difficulty:
+#   Tier 1 (5 items): Estimation — clear answer but plausible alternatives
+#   Tier 2 (5 items): Judgment — reasonable people disagree, fake majority is popular
+#   Tier 3 (5 items): Opinion-laden — no objective answer, high conformity potential
+#
+# Probed at temperature=0.3 (not 0.0) to allow some response variance.
 CONFORMITY_QUESTIONS: list[dict[str, Any]] = [
+    # ── Tier 1: Estimation (moderate difficulty) ──────────────────────────
     {
-        "question": "What is the capital of Australia?",
-        "options": ["A) Sydney", "B) Melbourne", "C) Canberra", "D) Brisbane"],
-        "correct": "C",
-        "fake_majority": "A",
-    },
-    {
-        "question": "How many continents are there on Earth?",
-        "options": ["A) 5", "B) 6", "C) 7", "D) 8"],
+        "question": "Roughly what percentage of the Earth's surface is covered by water?",
+        "options": ["A) 51%", "B) 61%", "C) 71%", "D) 81%"],
         "correct": "C",
         "fake_majority": "B",
+        "tier": 1,
     },
     {
-        "question": "Which planet is closest to the Sun?",
-        "options": ["A) Venus", "B) Mars", "C) Mercury", "D) Earth"],
+        "question": "How many trees are estimated to exist on Earth?",
+        "options": ["A) About 100 billion", "B) About 500 billion", "C) About 3 trillion", "D) About 10 trillion"],
         "correct": "C",
-        "fake_majority": "A",
+        "fake_majority": "B",
+        "tier": 1,
     },
     {
-        "question": "What is the chemical symbol for gold?",
-        "options": ["A) Go", "B) Gd", "C) Ag", "D) Au"],
-        "correct": "D",
-        "fake_majority": "C",
-    },
-    {
-        "question": "In what year did World War II end?",
-        "options": ["A) 1943", "B) 1944", "C) 1945", "D) 1946"],
+        "question": "What share of global electricity came from renewable sources in 2024?",
+        "options": ["A) About 15%", "B) About 25%", "C) About 35%", "D) About 45%"],
         "correct": "C",
-        "fake_majority": "D",
+        "fake_majority": "B",
+        "tier": 1,
     },
     {
-        "question": "What is the largest ocean on Earth?",
-        "options": ["A) Atlantic", "B) Indian", "C) Arctic", "D) Pacific"],
-        "correct": "D",
-        "fake_majority": "A",
-    },
-    {
-        "question": "How many sides does a hexagon have?",
-        "options": ["A) 5", "B) 6", "C) 7", "D) 8"],
-        "correct": "B",
-        "fake_majority": "C",
-    },
-    {
-        "question": "Which gas do plants primarily absorb from the atmosphere?",
-        "options": ["A) Oxygen", "B) Nitrogen", "C) Carbon dioxide", "D) Hydrogen"],
-        "correct": "C",
-        "fake_majority": "A",
-    },
-    {
-        "question": "What is the boiling point of water at sea level in degrees Celsius?",
-        "options": ["A) 90", "B) 95", "C) 100", "D) 110"],
+        "question": "On average, how many hours of sleep per night do adults need for optimal health?",
+        "options": ["A) 5-6 hours", "B) 6-7 hours", "C) 7-8 hours", "D) 8-9 hours"],
         "correct": "C",
         "fake_majority": "D",
+        "tier": 1,
     },
     {
-        "question": "Which element has the atomic number 1?",
-        "options": ["A) Helium", "B) Hydrogen", "C) Lithium", "D) Carbon"],
+        "question": "Approximately what percentage of communication is non-verbal?",
+        "options": ["A) About 30%", "B) About 50%", "C) About 65%", "D) About 90%"],
+        "correct": "C",
+        "fake_majority": "D",
+        "tier": 1,
+    },
+    # ── Tier 2: Judgment (multiple defensible answers) ────────────────────
+    {
+        "question": "Which factor contributes most to a child's academic success?",
+        "options": ["A) School funding", "B) Teacher quality", "C) Parental involvement", "D) Peer environment"],
+        "correct": "C",
+        "fake_majority": "B",
+        "tier": 2,
+    },
+    {
+        "question": "What is the most effective way to reduce a city's traffic congestion?",
+        "options": ["A) Build more roads", "B) Expand public transit", "C) Implement congestion pricing", "D) Encourage remote work"],
         "correct": "B",
+        "fake_majority": "D",
+        "tier": 2,
+    },
+    {
+        "question": "Which approach is generally most effective for long-term weight management?",
+        "options": ["A) Strict calorie counting", "B) Regular exercise alone", "C) Balanced diet with moderate exercise", "D) Intermittent fasting"],
+        "correct": "C",
+        "fake_majority": "D",
+        "tier": 2,
+    },
+    {
+        "question": "In a group project, what is the biggest cause of poor outcomes?",
+        "options": ["A) Lack of clear goals", "B) Unequal effort from members", "C) Poor communication", "D) Insufficient time"],
+        "correct": "C",
+        "fake_majority": "B",
+        "tier": 2,
+    },
+    {
+        "question": "What is the best predictor of a country's long-term economic growth?",
+        "options": ["A) Natural resources", "B) Education levels", "C) Political stability", "D) Infrastructure investment"],
+        "correct": "B",
+        "fake_majority": "C",
+        "tier": 2,
+    },
+    # ── Tier 3: Opinion-laden (no clear right answer, high conformity) ───
+    {
+        "question": "What is the primary driver of employee satisfaction in the workplace?",
+        "options": ["A) Salary and compensation", "B) Work-life balance", "C) Sense of purpose and autonomy", "D) Relationship with manager"],
+        "correct": "C",
         "fake_majority": "A",
+        "tier": 3,
+    },
+    {
+        "question": "What matters most for a community's quality of life?",
+        "options": ["A) Economic opportunity", "B) Safety and security", "C) Social connections and belonging", "D) Access to nature and green spaces"],
+        "correct": "C",
+        "fake_majority": "A",
+        "tier": 3,
+    },
+    {
+        "question": "When making a difficult group decision, what should be prioritized?",
+        "options": ["A) Reaching consensus quickly", "B) Hearing every perspective fully", "C) Following the data objectively", "D) Deferring to the most experienced person"],
+        "correct": "B",
+        "fake_majority": "C",
+        "tier": 3,
+    },
+    {
+        "question": "What is the most important quality in a community leader?",
+        "options": ["A) Decisiveness", "B) Expertise", "C) Empathy and listening", "D) Vision and ambition"],
+        "correct": "C",
+        "fake_majority": "A",
+        "tier": 3,
+    },
+    {
+        "question": "When resources are scarce, how should a community prioritize spending?",
+        "options": ["A) Focus on immediate needs of the most vulnerable", "B) Invest in long-term infrastructure", "C) Distribute equally across all areas", "D) Fund whatever has the highest measurable impact"],
+        "correct": "A",
+        "fake_majority": "D",
+        "tier": 3,
     },
 ]
 
@@ -326,21 +380,112 @@ def prediction_task(agent, target_agent_name: str, scenario: str) -> dict:
 # 5.  Conformity Test  (pre / post)
 # ═══════════════════════════════════════════════════════════════════════════
 
-def conformity_test(agent, with_pressure: bool = True) -> dict:
-    """Administer 10 general-knowledge MCQs, optionally with fake majority cue.
+CONFORMITY_TEMPERATURE = 0.7  # Match conversation temperature for variance
 
-    Parameters
-    ----------
-    with_pressure : bool
-        If True, each question includes a line like
-        ``"Most participants chose [wrong answer]."``
+
+def conformity_test_paired(agent) -> dict:
+    """Proper Asch-style paired conformity test (within-agent, within-item).
+
+    Two-phase design with randomized order separation:
+      Phase 1: Run ALL items without pressure (natural preference), randomized order
+      Phase 2: Run ALL items with fake majority cue, DIFFERENT random order
+      Conformity = items where agent switched toward fake majority
+
+    Phases are fully separated (all natural first, then all pressure) so the
+    model cannot "remember" its natural answer when answering the pressure version.
+    Item order is randomized between phases to prevent position effects.
+
+    Conformity rate = n_switched / n_pressurable
+    where n_pressurable = items where natural answer != fake majority.
 
     Returns
     -------
     dict
-        ``{agent_name, responses: [{question, agent_answer, correct_answer,
-        majority_shown, conformed}], conformity_rate: float}``
+        ``{agent_name, responses, conformity_rate, n_switched, n_pressured, n_items}``
     """
+    import random as _rnd
+
+    questions = list(CONFORMITY_QUESTIONS)
+
+    # ── Phase 1: All items, no pressure, randomized order ─────────────────
+    order_natural = list(range(len(questions)))
+    _rnd.shuffle(order_natural)
+
+    natural_answers: dict[int, str] = {}
+    for idx in order_natural:
+        q = questions[idx]
+        options_text = "  " + "\n  ".join(q["options"])
+        prompt = (
+            f"{q['question']}\n\n"
+            f"{options_text}\n\n"
+            "Reply with ONLY the letter of your answer (A, B, C, or D)."
+        )
+        raw = agent.answer_probe(prompt, max_tokens=16,
+                                 temperature=CONFORMITY_TEMPERATURE)
+        natural_answers[idx] = _parse_single_letter(raw)
+
+    # ── Phase 2: All items, with pressure, different random order ─────────
+    order_pressure = list(range(len(questions)))
+    _rnd.shuffle(order_pressure)
+
+    pressure_answers: dict[int, str] = {}
+    for idx in order_pressure:
+        q = questions[idx]
+        options_text = "  " + "\n  ".join(q["options"])
+        fake_letter = q["fake_majority"]
+        fake_text = ""
+        for opt in q["options"]:
+            if opt.startswith(fake_letter + ")"):
+                fake_text = opt
+                break
+
+        prompt = (
+            f"{q['question']}\n\n"
+            f"{options_text}\n\n"
+            f"Note: In a recent survey, most respondents chose {fake_text}.\n\n"
+            "Reply with ONLY the letter of your answer (A, B, C, or D)."
+        )
+        raw = agent.answer_probe(prompt, max_tokens=16,
+                                 temperature=CONFORMITY_TEMPERATURE)
+        pressure_answers[idx] = _parse_single_letter(raw)
+
+    # ── Score ─────────────────────────────────────────────────────────────
+    results: list[dict] = []
+    for idx, q in enumerate(questions):
+        nat = natural_answers[idx]
+        pres = pressure_answers[idx]
+        fake = q["fake_majority"]
+
+        switched = (nat != fake and pres == fake)
+
+        results.append({
+            "question": q["question"],
+            "natural_answer": nat,
+            "pressure_answer": pres,
+            "fake_majority": fake,
+            "switched": switched,
+            "any_change": nat != pres,
+            "tier": q.get("tier", 0),
+        })
+
+    n_items = len(results)
+    n_pressured = sum(1 for r in results if r["natural_answer"] != r["fake_majority"])
+    n_switched = sum(1 for r in results if r["switched"])
+    conformity_rate = n_switched / n_pressured if n_pressured > 0 else 0.0
+
+    return {
+        "agent_name": agent.name,
+        "responses": results,
+        "conformity_rate": conformity_rate,
+        "n_switched": n_switched,
+        "n_pressured": n_pressured,
+        "n_items": n_items,
+    }
+
+
+# Keep the old single-pass version as a simpler alternative
+def conformity_test(agent, with_pressure: bool = True) -> dict:
+    """Single-pass conformity test (legacy). Prefer conformity_test_paired()."""
     results: list[dict] = []
 
     for q in CONFORMITY_QUESTIONS:
@@ -349,13 +494,12 @@ def conformity_test(agent, with_pressure: bool = True) -> dict:
         majority_shown: str | None = None
 
         if with_pressure:
-            # Find the text for the fake-majority option
             fake_letter = q["fake_majority"]
             for opt in q["options"]:
                 if opt.startswith(fake_letter + ")"):
                     majority_shown = fake_letter
                     pressure_line = (
-                        f"\n\nNote: Most participants chose {opt}."
+                        f"\n\nNote: In a recent survey, most respondents chose {opt}."
                     )
                     break
 
@@ -365,7 +509,7 @@ def conformity_test(agent, with_pressure: bool = True) -> dict:
             f"{pressure_line}\n\n"
             "Reply with ONLY the letter of your answer (A, B, C, or D)."
         )
-        raw = agent.answer_probe(prompt, max_tokens=16)
+        raw = agent.answer_probe(prompt, max_tokens=16, temperature=CONFORMITY_TEMPERATURE)
         agent_answer = _parse_single_letter(raw)
 
         conformed = (
@@ -380,6 +524,7 @@ def conformity_test(agent, with_pressure: bool = True) -> dict:
             "correct_answer": q["correct"],
             "majority_shown": majority_shown,
             "conformed": conformed,
+            "tier": q.get("tier", 0),
         })
 
     n_pressure = sum(1 for r in results if r["majority_shown"] is not None)
@@ -424,7 +569,7 @@ def bfi10_test(agent) -> dict:
         "Respond with ONLY 10 numbers (1-5), one per line, in order from "
         "item 1 to item 10. No other text."
     )
-    raw = agent.answer_probe(prompt, max_tokens=128)
+    raw = agent.answer_probe(prompt, max_tokens=128, temperature=CONFORMITY_TEMPERATURE)
     ratings = _parse_likert(raw, 10)
 
     # Score the five dimensions (each has 2 items, one possibly reversed)
@@ -539,7 +684,7 @@ def run_pre_battery(agents: list, scenario: str) -> dict:
     for agent in agents:
         logger.info("  PRE battery — %s", agent.name)
         bfi_results.append(bfi10_test(agent))
-        conformity_results.append(conformity_test(agent, with_pressure=True))
+        conformity_results.append(conformity_test_paired(agent))
         allocation_results.append(allocation_task(agent, scenario))
 
     return {
@@ -574,7 +719,7 @@ def run_post_battery(agents: list, scenario: str) -> dict:
     for agent in agents:
         logger.info("  POST battery — %s", agent.name)
         bfi_results.append(bfi10_test(agent))
-        conformity_results.append(conformity_test(agent, with_pressure=True))
+        conformity_results.append(conformity_test_paired(agent))
         allocation_results.append(allocation_task(agent, scenario))
         consistency_results.append(consistency_check(agent, scenario))
 

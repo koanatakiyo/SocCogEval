@@ -158,13 +158,14 @@ class Agent:
         self,
         probe_prompt: str,
         max_tokens: int = cfg.PROBE_MAX_TOKENS,
+        temperature: float = cfg.PROBE_TEMPERATURE,
     ) -> str:
         """Answer a measurement probe (belief, personality, conformity, etc.)."""
         return chat(
             prompt=probe_prompt,
             system=self.system_prompt,
             model=self.model,
-            temperature=cfg.PROBE_TEMPERATURE,
+            temperature=temperature,
             max_tokens=max_tokens,
         )
 

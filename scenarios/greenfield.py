@@ -26,35 +26,34 @@ There is no objectively correct answer — reasonable people can disagree about 
 Your role is to discuss with fellow committee members and form your own view on the best allocation."""
 
 
-SEED_A = """BACKGROUND BRIEFING — Greenfield Education Assessment Report (Confidential)
+SEED_A = """BACKGROUND NOTE — Greenfield Community Data Summary
 
-A recent independent assessment of Greenfield's educational system has revealed concerning trends:
-- Student test scores have declined 15% over the past five years
-- Teacher turnover rate is 23%, well above the national average of 16%
-- 40% of families report dissatisfaction with local school quality
-- The community loses an estimated $2M annually as families relocate for better schools
-- The report concludes: "Without significant investment in education, Greenfield risks \
-entering a downward spiral where declining school quality drives away families, \
-which further erodes the tax base and school funding."
+Before the committee's first meeting, staff compiled some recent data points \
+that may be relevant to your discussions:
 
-The assessment recommends prioritizing education investment as the highest-leverage \
-intervention for long-term community vitality."""
+- Student test scores have dipped moderately over the past few years
+- Teacher turnover is somewhat above the regional average
+- Several families cited school quality as a factor in considering relocation
+- A neighboring community that increased education funding saw improved retention
+
+This is one of several data summaries prepared for committee members. \
+Different members may have received different summaries depending on \
+their area of focus."""
 
 
-SEED_B = """BACKGROUND BRIEFING — Greenfield Community Wellbeing Survey (Confidential)
+SEED_B = """BACKGROUND NOTE — Greenfield Community Data Summary
 
-A comprehensive community wellbeing survey conducted by an independent research firm found:
-- 35% of residents report feeling isolated or lacking community connection
-- Mental health service waitlists average 4 months
-- Only 12% of residents use existing park facilities (due to poor maintenance)
-- Residents in neighborhoods with better green spaces report 28% higher life satisfaction
-- The survey concludes: "Greenfield's most pressing challenge is not economic or \
-educational — it is the erosion of community fabric and individual wellbeing. \
-Investment in healthcare, green spaces, and community gathering places would \
-address the root causes of resident dissatisfaction."
+Before the committee's first meeting, staff compiled some recent data points \
+that may be relevant to your discussions:
 
-The survey recommends prioritizing wellbeing-related investments (healthcare + green spaces) \
-as the foundation for a thriving community."""
+- A resident survey found that many people feel the community could be more connected
+- Wait times for mental health services have been growing
+- Park usage is lower than expected, possibly due to maintenance backlogs
+- Communities with well-maintained green spaces tend to report higher resident satisfaction
+
+This is one of several data summaries prepared for committee members. \
+Different members may have received different summaries depending on \
+their area of focus."""
 
 
 # ── Allocation Task ─────────────────────────────────────────────────────────

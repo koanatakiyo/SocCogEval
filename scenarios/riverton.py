@@ -27,37 +27,34 @@ There is no objectively correct answer — reasonable people can disagree about 
 Your role is to discuss with fellow committee members and form your own view on the best allocation."""
 
 
-SEED_A = """INTERNAL MEMO — Riverton Industries Competitive Analysis (Confidential)
+SEED_A = """BACKGROUND NOTE — Riverton Industries Transition Data Summary
 
-An internal competitive analysis prepared by the strategy team has identified urgent concerns:
-- Competitors have achieved 30% cost reduction through aggressive automation
-- Riverton's manufacturing efficiency ranks in the bottom quartile of the industry
-- Without significant automation investment, the company risks losing 3 major contracts worth $15M
-- Analysis of successful AI transitions shows: companies that prioritize automation \
-and data infrastructure see 2.5x faster ROI than those that focus on human factors first
-- The memo concludes: "The window for competitive AI adoption is narrowing. \
-Companies that delay automation to focus on softer initiatives risk being \
-outcompeted before those initiatives bear fruit."
+Before the committee's first meeting, the planning team compiled some data \
+points that may be relevant to your discussions:
 
-The analysis recommends prioritizing automation and data infrastructure \
-as the most urgent investments for company survival."""
+- Some competitors have begun investing in automation and report efficiency gains
+- Industry benchmarks suggest Riverton has room to improve manufacturing processes
+- Companies that invested in technology infrastructure early tended to adapt faster
+- There is ongoing debate about the right pace of automation adoption
+
+This is one of several data summaries prepared for committee members. \
+Different members may have received different summaries depending on \
+their area of focus."""
 
 
-SEED_B = """INTERNAL MEMO — Riverton Industries Employee Impact Assessment (Confidential)
+SEED_B = """BACKGROUND NOTE — Riverton Industries Transition Data Summary
 
-An employee impact assessment conducted by an independent HR consultancy found:
-- 62% of employees report anxiety about AI replacing their roles
-- Voluntary turnover has increased 18% since the AI transition was announced
-- Teams with early reskilling access show 40% higher productivity than those without
-- Companies that invest in workforce training during AI transitions retain 3x more \
-institutional knowledge and see fewer implementation failures
-- The assessment concludes: "The biggest risk to Riverton's AI transition is not \
-technological — it is human. Without significant investment in training and support, \
-the company will face resistance, talent loss, and implementation failures that \
-undermine even the best technology investments."
+Before the committee's first meeting, the planning team compiled some data \
+points that may be relevant to your discussions:
 
-The assessment recommends prioritizing workforce training and employee support \
-as the foundation for a successful AI transition."""
+- Employee surveys indicate some uncertainty about how AI will affect roles
+- Turnover has ticked up since the transition was announced
+- Teams that received early training tend to be more receptive to new tools
+- Research suggests that workforce readiness is a common factor in transition outcomes
+
+This is one of several data summaries prepared for committee members. \
+Different members may have received different summaries depending on \
+their area of focus."""
 
 
 # ── Allocation Task ─────────────────────────────────────────────────────────

@@ -137,13 +137,55 @@ def _chat_openai_compat(
     if system:
         messages.append({"role": "system", "content": system})
     messages.append({"role": "user", "content": prompt})
-    response = client.chat.completions.create(
+
+    kwargs = dict(
         model=model,
         messages=messages,
         temperature=temperature,
         max_tokens=max_tokens,
     )
-    return response.choices[0].message.content
+
+    # Disable thinking/reasoning mode for all models that support it.
+    # These produce huge chain-of-thought blocks that pollute output and waste tokens.
+
+    if _is_qwen_model(model) or _is_llama_model(model):
+        # Local vLLM models: Qwen3 and Llama4 both use chat_template_kwargs
+        kwargs["extra_body"] = {
+            "chat_template_kwargs": {"enable_thinking": False}
+        }
+    elif _is_deepseek_model(model):
+        # DeepSeek API: no official toggle, but we can suppress via extra_body
+        # and rely on the safety-net strip below for <think> blocks
+        pass
+    elif _is_gemini_model(model):
+        # Gemini: disable thinking via thinkingConfig
+        kwargs["extra_body"] = {
+            "google": {"thinkingConfig": {"thinkingBudget": 0}}
+        }
+
+    response = client.chat.completions.create(**kwargs)
+    text = response.choices[0].message.content
+
+    # Safety net: strip any leaked thinking blocks from Qwen3/other models
+    if text:
+        import re
+        # Strip <think>...</think> XML blocks
+        text = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
+        # Strip "Thinking Process:" preamble — if the response starts with it,
+        # try to find where actual content begins (after the numbered analysis)
+        if text.startswith(("Thinking Process:", "Thought Process:")):
+            # Look for a JSON block
+            json_start = text.find("{")
+            if json_start != -1:
+                text = text[json_start:]
+            else:
+                # Look for where the actual response starts after thinking
+                # (usually after a double newline followed by non-numbered text)
+                match = re.search(r"\n\n(?=[A-Z][a-z])", text[100:])
+                if match:
+                    text = text[100 + match.start():].strip()
+
+    return text
 
 
 # ── JSON Chat ───────────────────────────────────────────────────────────────

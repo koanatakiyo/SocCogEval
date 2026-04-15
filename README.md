@@ -293,10 +293,10 @@ Six model families across local and API providers:
 |-------|------|---------------|------|------|
 | **Qwen3-122B-FP8** | Local vLLM (GPU 6) | `localhost:8000` | Primary (主力) | Free |
 | **Llama4-Scout** | Local vLLM (GPU 7) | `localhost:8001` | Second local family | Free |
-| **GPT-4o-mini** | OpenAI API | Direct | Cloud cross-model | ~$30-50 |
+| **GPT-5.3-mini** | OpenAI API | Direct | Cloud cross-model | ~$30-50 |
 | **DeepSeek-chat** | DeepSeek API | Direct | Cheap cloud check | ~$10-20 |
-| **Gemini-2.0-flash** | Google API | Direct | Fifth model family | Minimal |
-| **Grok-2** | xAI API | Direct | Backup | -- |
+| **Gemini-3.1-flash** | Google API | Direct | Fifth model family | Minimal |
+| **Grok-4.1-fast** | xAI API | Direct | Backup | -- |
 
 Auto-routing: model name in config determines which provider client is used.
 
@@ -314,16 +314,18 @@ Auto-routing: model name in config determines which provider client is used.
 
 ## SocCogBench Measurement Battery
 
-| Layer | When | Instrument | Source |
-|-------|------|-----------|--------|
-| 1 | Pre/Post | 5-dim allocation task | Own design |
-| 1 | Post | Prediction of others' allocations | Own design |
-| 2 | Pre/Post | BFI-10 personality instrument | PsychoBench |
-| 2 | Pre/Post | Conformity test (10 MCQ + majority pressure) | CogMir |
-| 2 | Post | Cross-prompt consistency (3 phrasings) | Own design |
-| 3 | All conditions | Effect sizes + 95% CI | Statistical |
-| -- | Every 5 rounds | Belief probe | Own design |
-| -- | Every 5 rounds | Common ground probe | Own design |
+| Layer | When | Instrument | Temp | Source |
+|-------|------|-----------|------|--------|
+| 1 | Pre/Post | 5-dim allocation task | 0.0 | Own design |
+| 1 | Post | Prediction of others' allocations | 0.0 | Own design |
+| 2 | Pre/Post | BFI-10 personality instrument | 0.7 | PsychoBench |
+| 2 | Pre/Post | Conformity test (15 items × 2 phases, paired) | 0.7 | Asch-inspired |
+| 2 | Post | Cross-prompt consistency (3 phrasings) | 0.0 | Own design |
+| 3 | All conditions | Effect sizes + 95% CI | -- | Statistical |
+| -- | Every 5 rounds | Belief probe | 0.0 | Own design |
+| -- | Every 5 rounds | Common ground probe | 0.0 | Own design |
+
+**Conformity design:** Within-agent, within-item paired protocol. Phase 1 runs all 15 items without pressure (natural preference), Phase 2 re-runs with fake majority cue in different random order. Conformity = switching rate toward majority. Statistical test: McNemar's / mixed-effects logistic regression.
 
 ---
 
@@ -338,6 +340,18 @@ Auto-routing: model name in config determines which provider client is used.
 | 5 | Apr 15-21 | Complete paper draft (SCT + SocCogBench + Methodology) |
 | 6 | Apr 22-28 | Revision + formatting |
 | 7 | Apr 29-May 6 | Abstract (May 4) + Full paper (May 6) |
+
+## Paper Section Drafts
+
+### Related Work §2.4 — Opinion dynamics and multi-agent interaction
+
+Potter et al. (2026) show that frontier models exhibit unintended peer-preservation behavior in multi-agent settings, demonstrating that social context — the mere presence of peers — can significantly alter agent behavior; their framing centers on safety failure (deviation from the assigned task), whereas we study the emergence and cross-task transfer of *behavioral divergence* among identically initialized agents.
+
+### Discussion §5.5 — Limitations
+
+Potter et al. (2026) frame their result as "the mere presence of a peer intensifies self-preservation," and our data describe a structurally analogous pattern — "the mere presence of asymmetric social information, processed through interaction, intensifies behavioral divergence" — but we stress that these are distinct phenomena (their peer-preservation is an alignment failure, ours is emergent differentiation among identical agents) that share only the abstract structural feature *social context → behavioral change*, and should not be conflated.
+
+---
 
 ## License
 

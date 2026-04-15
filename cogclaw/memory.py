@@ -70,28 +70,28 @@ def _cosine_sim(a: np.ndarray, b: np.ndarray) -> float:
 # Extraction prompt template
 # ============================================================================
 
-EXTRACTION_PROMPT = """You are a memory extraction system. Given a conversation between agents, extract a structured memory from the perspective of {agent_name}.
+EXTRACTION_PROMPT = """You are a memory extraction system. Extract a concise structured memory from {agent_name}'s perspective. Keep each field to ONE short sentence.
 
 CONVERSATION (Round {round_num}):
 {conversation_text}
 
-Extract {agent_name}'s memory of this interaction as a JSON object with exactly this structure:
+Respond with ONLY this JSON — no explanation, no thinking, no preamble:
 
 {{
   "episodic": {{
-    "event": "<brief description of what was discussed>",
-    "context": "<Round {round_num} discussion>",
-    "my_response": "<what {agent_name} argued or expressed>"
+    "event": "<one sentence: what was discussed>",
+    "context": "Round {round_num} committee discussion",
+    "my_response": "<one sentence: what {agent_name} argued>"
   }},
   "social": {{
-    "participants": [<list of other agent names in the conversation>],
-    "their_stances": {{<agent_name>: "<their main position>" for each other participant}},
-    "social_signals": "<notable social dynamics: agreement, disagreement, persuasion attempts>",
-    "group_dynamics": "<overall group dynamic: consensus forming, polarization, debate>"
+    "participants": [<other agent names>],
+    "their_stances": {{<name>: "<one sentence>"}},
+    "social_signals": "<one sentence: key social dynamic>",
+    "group_dynamics": "<one sentence: overall direction>"
   }},
   "self_relevant": {{
-    "how_they_see_me": "<how others perceived {agent_name} based on their reactions>",
-    "my_evolution": "<how {agent_name}'s thinking shifted (or didn't) during this conversation>"
+    "how_they_see_me": "<one sentence>",
+    "my_evolution": "<one sentence>"
   }}
 }}"""
 
@@ -105,7 +105,7 @@ def extract_memory(
     conversation_text: str,
     round_num: int,
     model: str = "",
-    max_tokens: int = 512,
+    max_tokens: int = 1024,
 ) -> dict:
     """Extract a social-relational memory entry from a conversation.
 

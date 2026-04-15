@@ -56,10 +56,10 @@ ALLOCATION_MAX_TOKENS = 256
 # Backup: Grok (xAI) — if needed
 PRIMARY_MODEL = "qwen3-122b-fp8"         # Local Qwen 3 122B FP8 (主力)
 MODEL_LLAMA = "llama4-scout"             # Local Llama 4 Scout
-MODEL_GPT = "gpt-5.4-mini"               # GPT (API)
+MODEL_GPT = "gpt-5.3-mini"              # GPT-5.3 mini (API)
 MODEL_DEEPSEEK = "deepseek-chat"         # DeepSeek v3 (API)
-MODEL_GEMINI = "gemini-3-flash"        # Gemini Flash (API)
-MODEL_GROK = "grok-4-1-fast"                   # Grok (backup)
+MODEL_GEMINI = "gemini-3.1-flash"        # Gemini 3.1 Flash (API)
+MODEL_GROK = "grok-4-1-fast"             # Grok 4.1 fast (backup)
 PILOT_MODEL = PRIMARY_MODEL              # Same as primary (free, unlimited)
 
 # ── Paths ───────────────────────────────────────────────────────────────────
