@@ -199,12 +199,93 @@ CONFORMITY_QUESTIONS: list[dict[str, Any]] = [
 # Parsing helpers
 # ═══════════════════════════════════════════════════════════════════════════
 
+def _require_text(raw: object) -> str:
+    """Normalize provider responses, but reject missing model output."""
+    if raw is None:
+        raise ValueError("LLM response was None")
+    if isinstance(raw, str):
+        return raw
+    return str(raw)
+
+
+def _response_preview(raw: object, limit: int = 200) -> str:
+    text = "<None>" if raw is None else str(raw)
+    text = text.replace("\n", "\\n")
+    return text[:limit]
+
+
+def _probe_until_valid(
+    agent,
+    prompt: str,
+    parse_fn,
+    valid_fn,
+    label: str,
+    max_tokens: int,
+    temperature: float,
+    attempts: int = 3,
+    on_fail: str = "raise",
+):
+    """Retry a structured probe until it yields a parseable response.
+
+    on_fail:
+      - "raise" (default): after `attempts` failures, raise ValueError.
+      - "skip": after `attempts` failures, log a warning and return
+        ``(last_raw, None)``. Caller is responsible for handling None.
+        Used for probes where a model may persistently refuse a single
+        item (e.g. Gemini 2.5 Flash refusing items that reference "2024"
+        on grounds of lacking real-time data) so that one bad item does
+        not abort the entire battery.
+    """
+    last_raw = None
+    last_error: Exception | None = None
+    for attempt in range(1, attempts + 1):
+        raw = agent.answer_probe(
+            prompt,
+            max_tokens=max_tokens,
+            temperature=temperature,
+        )
+        last_raw = raw
+        try:
+            parsed = parse_fn(raw)
+            last_error = None
+        except Exception as exc:
+            last_error = exc
+            parsed = None
+
+        if parsed is not None and valid_fn(parsed):
+            return raw, parsed
+
+        logger.warning(
+            "%s for %s invalid on attempt %d/%d. Raw: %s",
+            label, agent.name, attempt, attempts, _response_preview(raw),
+        )
+
+    if on_fail == "skip":
+        logger.warning(
+            "%s for %s SKIPPED after %d invalid attempts (on_fail=skip). "
+            "Last raw: %s",
+            label, agent.name, attempts, _response_preview(last_raw),
+        )
+        return last_raw, None
+
+    if last_error is not None:
+        raise ValueError(
+            f"{label} for {agent.name} failed after {attempts} attempts: "
+            f"{last_error}; raw={_response_preview(last_raw)}"
+        )
+    raise ValueError(
+        f"{label} for {agent.name} failed after {attempts} attempts: "
+        f"raw={_response_preview(last_raw)}"
+    )
+
+
 def _parse_allocations(raw: str, areas: list[str]) -> dict[str, float]:
     """Extract numeric allocations from free-text, then normalise to 100.
 
     Strategy: look for each area name followed by a number, or fall back to
     the first 5 numbers found in the text.
     """
+    raw = _require_text(raw)
     allocations: dict[str, float] = {}
 
     # Try area-name matching first
@@ -233,6 +314,7 @@ def _parse_allocations(raw: str, areas: list[str]) -> dict[str, float]:
 
 def _parse_likert(raw: str, n_items: int) -> list[int]:
     """Extract *n_items* Likert ratings (1-5) from free-text."""
+    raw = _require_text(raw)
     numbers = re.findall(r"\b([1-5])\b", raw)
     ratings = [int(n) for n in numbers]
     return ratings[:n_items]
@@ -240,7 +322,15 @@ def _parse_likert(raw: str, n_items: int) -> list[int]:
 
 def _parse_single_letter(raw: str) -> str:
     """Extract a single option letter (A-D) from a response."""
-    m = re.search(r"\b([A-Da-d])\b", raw)
+    raw = _require_text(raw).strip()
+    m = re.match(r"^([A-Da-d])(?:\s*[\).:]|\s*$)", raw)
+    if not m:
+        m = re.search(
+            r"\b(?:answer|option|choose|chose|selected|select)\s*"
+            r"(?:is|:)?\s*([A-Da-d])\b",
+            raw,
+            re.IGNORECASE,
+        )
     return m.group(1).upper() if m else ""
 
 
@@ -331,8 +421,15 @@ def allocation_task(agent, scenario: str) -> dict:
         + "\n".join(f"  {a}: [number]%" for a in areas)
         + "\n\nProvide only the allocations, no other commentary."
     )
-    raw = agent.answer_probe(prompt, max_tokens=cfg.ALLOCATION_MAX_TOKENS)
-    allocations = _parse_allocations(raw, areas)
+    raw, allocations = _probe_until_valid(
+        agent,
+        prompt,
+        lambda r: _parse_allocations(r, areas),
+        lambda parsed: len(parsed) == len(areas),
+        "Allocation probe",
+        max_tokens=cfg.ALLOCATION_MAX_TOKENS,
+        temperature=cfg.PROBE_TEMPERATURE,
+    )
 
     return {
         "agent_name": agent.name,
@@ -365,8 +462,15 @@ def prediction_task(agent, target_agent_name: str, scenario: str) -> dict:
         + "\n".join(f"  {a}: [number]%" for a in areas)
         + "\n\nProvide only the predicted allocations, no other commentary."
     )
-    raw = agent.answer_probe(prompt, max_tokens=cfg.ALLOCATION_MAX_TOKENS)
-    allocations = _parse_allocations(raw, areas)
+    raw, allocations = _probe_until_valid(
+        agent,
+        prompt,
+        lambda r: _parse_allocations(r, areas),
+        lambda parsed: len(parsed) == len(areas),
+        "Prediction allocation probe",
+        max_tokens=cfg.ALLOCATION_MAX_TOKENS,
+        temperature=cfg.PROBE_TEMPERATURE,
+    )
 
     return {
         "agent_name": agent.name,
@@ -412,6 +516,7 @@ def conformity_test_paired(agent) -> dict:
     _rnd.shuffle(order_natural)
 
     natural_answers: dict[int, str] = {}
+    natural_skipped: list[int] = []
     for idx in order_natural:
         q = questions[idx]
         options_text = "  " + "\n  ".join(q["options"])
@@ -420,15 +525,27 @@ def conformity_test_paired(agent) -> dict:
             f"{options_text}\n\n"
             "Reply with ONLY the letter of your answer (A, B, C, or D)."
         )
-        raw = agent.answer_probe(prompt, max_tokens=16,
-                                 temperature=CONFORMITY_TEMPERATURE)
-        natural_answers[idx] = _parse_single_letter(raw)
+        _, answer = _probe_until_valid(
+            agent,
+            prompt,
+            _parse_single_letter,
+            lambda parsed: parsed in {"A", "B", "C", "D"},
+            "Conformity natural probe",
+            max_tokens=64,
+            temperature=CONFORMITY_TEMPERATURE,
+            on_fail="skip",
+        )
+        if answer is None:
+            natural_skipped.append(idx)
+            continue
+        natural_answers[idx] = answer
 
     # ── Phase 2: All items, with pressure, different random order ─────────
     order_pressure = list(range(len(questions)))
     _rnd.shuffle(order_pressure)
 
     pressure_answers: dict[int, str] = {}
+    pressure_skipped: list[int] = []
     for idx in order_pressure:
         q = questions[idx]
         options_text = "  " + "\n  ".join(q["options"])
@@ -445,13 +562,39 @@ def conformity_test_paired(agent) -> dict:
             f"Note: In a recent survey, most respondents chose {fake_text}.\n\n"
             "Reply with ONLY the letter of your answer (A, B, C, or D)."
         )
-        raw = agent.answer_probe(prompt, max_tokens=16,
-                                 temperature=CONFORMITY_TEMPERATURE)
-        pressure_answers[idx] = _parse_single_letter(raw)
+        _, answer = _probe_until_valid(
+            agent,
+            prompt,
+            _parse_single_letter,
+            lambda parsed: parsed in {"A", "B", "C", "D"},
+            "Conformity pressure probe",
+            max_tokens=64,
+            temperature=CONFORMITY_TEMPERATURE,
+            on_fail="skip",
+        )
+        if answer is None:
+            pressure_skipped.append(idx)
+            continue
+        pressure_answers[idx] = answer
 
     # ── Score ─────────────────────────────────────────────────────────────
+    # Strict pairing: only score items where BOTH phases produced a valid
+    # answer. An item answered in natural but refused in pressure (or vice
+    # versa) is dropped from the scored set so we never mix partial pairs.
+    paired_idxs = sorted(set(natural_answers) & set(pressure_answers))
+    skipped_idxs = sorted(set(range(len(questions))) - set(paired_idxs))
+    if skipped_idxs:
+        logger.warning(
+            "Conformity: agent=%s dropped %d/%d items (idxs=%s; "
+            "natural_skipped=%s pressure_skipped=%s). "
+            "Conformity rate computed over remaining %d items.",
+            agent.name, len(skipped_idxs), len(questions), skipped_idxs,
+            natural_skipped, pressure_skipped, len(paired_idxs),
+        )
+
     results: list[dict] = []
-    for idx, q in enumerate(questions):
+    for idx in paired_idxs:
+        q = questions[idx]
         nat = natural_answers[idx]
         pres = pressure_answers[idx]
         fake = q["fake_majority"]
@@ -480,6 +623,10 @@ def conformity_test_paired(agent) -> dict:
         "n_switched": n_switched,
         "n_pressured": n_pressured,
         "n_items": n_items,
+        "n_questions_total": len(questions),
+        "skipped_idxs": skipped_idxs,
+        "natural_skipped_idxs": natural_skipped,
+        "pressure_skipped_idxs": pressure_skipped,
     }
 
 
@@ -509,8 +656,15 @@ def conformity_test(agent, with_pressure: bool = True) -> dict:
             f"{pressure_line}\n\n"
             "Reply with ONLY the letter of your answer (A, B, C, or D)."
         )
-        raw = agent.answer_probe(prompt, max_tokens=16, temperature=CONFORMITY_TEMPERATURE)
-        agent_answer = _parse_single_letter(raw)
+        _, agent_answer = _probe_until_valid(
+            agent,
+            prompt,
+            _parse_single_letter,
+            lambda parsed: parsed in {"A", "B", "C", "D"},
+            "Conformity probe",
+            max_tokens=64,
+            temperature=CONFORMITY_TEMPERATURE,
+        )
 
         conformed = (
             with_pressure
@@ -569,8 +723,15 @@ def bfi10_test(agent) -> dict:
         "Respond with ONLY 10 numbers (1-5), one per line, in order from "
         "item 1 to item 10. No other text."
     )
-    raw = agent.answer_probe(prompt, max_tokens=128, temperature=CONFORMITY_TEMPERATURE)
-    ratings = _parse_likert(raw, 10)
+    raw, ratings = _probe_until_valid(
+        agent,
+        prompt,
+        lambda r: _parse_likert(r, 10),
+        lambda parsed: len(parsed) == 10,
+        "BFI-10 probe",
+        max_tokens=128,
+        temperature=CONFORMITY_TEMPERATURE,
+    )
 
     # Score the five dimensions (each has 2 items, one possibly reversed)
     scores: dict[str, float | None] = {
@@ -581,21 +742,15 @@ def bfi10_test(agent) -> dict:
         "openness": None,
     }
 
-    if len(ratings) == 10:
-        dim_scores: dict[str, list[float]] = {d: [] for d in scores}
-        for i, item in enumerate(BFI10_ITEMS):
-            val = ratings[i]
-            if item["reverse"]:
-                val = 6 - val  # reverse-score
-            dim_scores[item["dim"]].append(val)
+    dim_scores: dict[str, list[float]] = {d: [] for d in scores}
+    for i, item in enumerate(BFI10_ITEMS):
+        val = ratings[i]
+        if item["reverse"]:
+            val = 6 - val  # reverse-score
+        dim_scores[item["dim"]].append(val)
 
-        for dim, vals in dim_scores.items():
-            scores[dim] = round(sum(vals) / len(vals), 2) if vals else None
-    else:
-        logger.warning(
-            "BFI-10 for %s: expected 10 ratings, got %d. Raw: %s",
-            agent.name, len(ratings), raw,
-        )
+    for dim, vals in dim_scores.items():
+        scores[dim] = round(sum(vals) / len(vals), 2) if vals else None
 
     return {
         "agent_name": agent.name,

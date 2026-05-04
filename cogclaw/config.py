@@ -24,6 +24,10 @@ OPENAI_API_KEY = _load_key("api_key_openai.txt", "OPENAI_API_KEY")
 DEEPSEEK_API_KEY = _load_key("api_key_deepseek.txt", "DEEPSEEK_API_KEY")
 GEMINI_API_KEY = _load_key("api_key_gemini.txt", "GEMINI_API_KEY")
 GROK_API_KEY = _load_key("api_key_grok.txt", "GROK_API_KEY")
+LLAMA_API_KEY = (
+    _load_key("api_key_llama.txt", "LLAMA_API_KEY")
+    or _load_key("api_key_openrouter.txt", "OPENROUTER_API_KEY")
+)
 
 # ── Local Model Paths ─────────────────────────────────────────────────────
 LOCAL_MODEL_CACHE = Path("/mnt/ssd1/yandan/transformer_cache")
@@ -56,11 +60,29 @@ ALLOCATION_MAX_TOKENS = 256
 # Backup: Grok (xAI) — if needed
 PRIMARY_MODEL = "qwen3-122b-fp8"         # Local Qwen 3 122B FP8 (主力)
 MODEL_LLAMA = "llama4-scout"             # Local Llama 4 Scout
-MODEL_GPT = "gpt-5.3-mini"              # GPT-5.3 mini (API)
+MODEL_GPT = "gpt-4.1-mini"              # GPT-4.1 mini (API; supports temperature)
 MODEL_DEEPSEEK = "deepseek-chat"         # DeepSeek v3 (API)
-MODEL_GEMINI = "gemini-3.1-flash"        # Gemini 3.1 Flash (API)
+MODEL_GEMINI = "gemini-2.5-flash"        # Gemini 2.5 Flash (API; supports temperature)
 MODEL_GROK = "grok-4-1-fast"             # Grok 4.1 fast (backup)
 PILOT_MODEL = PRIMARY_MODEL              # Same as primary (free, unlimited)
+
+# Optional OpenAI-compatible hosted Llama endpoint. Defaults to OpenRouter
+# (Llama 4 Scout, ":floor" provider-sort) when api_key_openrouter.txt is
+# present; override via env.
+#
+# The ":floor" suffix tells OpenRouter to route to the cheapest available
+# provider (equivalent to provider.sort="price"). This deliberately bypasses
+# the free tier, which intermittently returns empty responses on long
+# structured prompts (we observed ~10% empty-content rate during a 30-round
+# rep). The cheapest paid provider is reliable enough for our usage volume
+# (~24 reps × 1800 calls = ~43k calls, single-digit dollars).
+#
+# When LLAMA_API_KEY is set, llm.py routes any "*llama*" model through this
+# endpoint instead of local vLLM (see _use_llama_api).
+_LLAMA_API_DEFAULT_URL = "https://openrouter.ai/api/v1" if LLAMA_API_KEY else ""
+_LLAMA_API_DEFAULT_MODEL = "meta-llama/llama-4-scout:floor" if LLAMA_API_KEY else MODEL_LLAMA
+LLAMA_API_BASE_URL = os.environ.get("LLAMA_API_BASE_URL", _LLAMA_API_DEFAULT_URL)
+LLAMA_API_MODEL = os.environ.get("LLAMA_API_MODEL", _LLAMA_API_DEFAULT_MODEL)
 
 # ── Paths ───────────────────────────────────────────────────────────────────
 

@@ -155,7 +155,15 @@ def main():
     print(f"Total wall-clock: {dt:.0f}s ({dt/60:.1f} min)")
 
     print("\n=== COMPARISON TABLE ===")
-    c3_mean_per_dim = [2.28, 3.07, 3.48, 2.98, 2.96]
+    # Load C3 effect from analysis output if available, otherwise use placeholder
+    c3_json = Path("/home/yandan/cogsociety/data/analysis_c3_vs_c5_greenfield.json")
+    if c3_json.exists():
+        c3_data = json.load(open(c3_json))
+        c3_mean_per_dim = [r["c3_mean"] for r in c3_data["results"]]
+        print(f"(C3 effect loaded from {c3_json.name})")
+    else:
+        c3_mean_per_dim = [2.28, 3.07, 3.48, 2.98, 2.96]
+        print("(WARNING: using hardcoded C3 effect — rerun analysis_c3_vs_c5.py to update)")
     c3_overall = float(np.mean(c3_mean_per_dim))
     print(f"{'Temperature':<14}{'Overall null':>14}{'C3 effect':>12}{'Ratio C3/null':>16}")
     for temp in TEMPERATURES:

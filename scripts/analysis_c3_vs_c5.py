@@ -78,48 +78,111 @@ def null_divergence_mean(X: np.ndarray, rng: np.random.Generator, n_perm=N_PERM_
 
 
 def hedges_g(x: np.ndarray, y: np.ndarray) -> float:
+    # Mirror analysis_part1_contrasts.HEDGES_G_SD_FLOOR. Returns NaN when the
+    # pooled SD is too small for d to be interpretable (typically the C5
+    # constant-baseline case).
     nx, ny = len(x), len(y)
     if nx < 2 or ny < 2:
-        return 0.0
+        return float("nan")
     mx, my = float(np.mean(x)), float(np.mean(y))
     vx, vy = float(np.var(x, ddof=1)), float(np.var(y, ddof=1))
     s_pool = math.sqrt(((nx - 1) * vx + (ny - 1) * vy) / (nx + ny - 2))
-    if s_pool == 0:
-        return 0.0
+    if s_pool < 0.05:
+        return float("nan")
     d = (mx - my) / s_pool
     df = nx + ny - 2
     j = 1 - 3 / (4 * df - 1)  # Hedges' small-sample correction
     return d * j
 
 
-def bootstrap_contrast(c3_rep: np.ndarray, c5_rep: np.ndarray, rng: np.random.Generator):
-    """Stratified bootstrap on (C3 mean − C5 mean) per dimension.
+def _prep_c3_rep(run: dict):
+    """Split a C3 rep into (X_a, X_b) — agent allocations for group 0 and 1."""
+    a_mask = np.array([g == 0 for g in run["groups"]])
+    b_mask = np.array([g == 1 for g in run["groups"]])
+    return run["X"][a_mask], run["X"][b_mask]
 
-    c3_rep:  (n_c3_reps, n_areas)  observed |mean_A − mean_B| per C3 rep
-    c5_rep:  (n_c5_reps, n_areas)  expected |mean_A − mean_B| under random splits per C5 rep
-    Returns array shape (n_areas, 5): [delta, ci_lo, ci_hi, hedges_g, dim_idx]
+
+def bootstrap_contrast(
+    c3_runs: list[dict], c5_runs: list[dict], rng: np.random.Generator
+):
+    """Agent-stratified cluster bootstrap on (C3 div − C5 null) per dimension.
+
+    Implements §4.3.4: "95% bootstrap CI, stratified by agent, ≥ 10,000 resamples."
+    Two levels of resampling per iteration:
+      (cluster)   resample reps with replacement
+      (within)    within each sampled rep, resample agents with replacement
+                  separately in group A and group B (stratified) — this is
+                  what makes agent-level variance propagate into the CI.
+
+    For C5, which has no real groups, the "within-rep" step instead performs
+    a random 4-vs-4 partition of the 8 agents AND resamples agents with
+    replacement within each of those halves (to match the C3 variance
+    structure under the null).
+
+    Returns (res, c3_divs, c5_nulls) where:
+      res        — (n_areas, 5): [delta, ci_lo, ci_hi, hedges_g, dim_idx]
+      c3_divs    — (n_c3_reps, n_areas) observed rep-level divergences
+      c5_nulls   — (n_c5_reps, n_areas) expected null divergences per C5 rep
     """
-    n_areas = c3_rep.shape[1]
-    n3, n5 = c3_rep.shape[0], c5_rep.shape[0]
+    n_areas = c3_runs[0]["X"].shape[1]
+    n3, n5 = len(c3_runs), len(c5_runs)
+
+    # Pre-split C3 reps into group-A / group-B agent matrices
+    c3_split = [_prep_c3_rep(r) for r in c3_runs]
+
+    # Point estimates for Hedges' g and the display row
+    c3_divs = np.vstack([
+        np.abs(Xa.mean(0) - Xb.mean(0)) for (Xa, Xb) in c3_split
+    ])
+    c5_nulls = np.vstack([null_divergence_mean(r["X"], rng) for r in c5_runs])
+
+    diffs = np.empty((N_BOOT, n_areas))
+    for k in range(N_BOOT):
+        # ── C3: resample reps, then resample agents within each group of each sampled rep
+        rep_sample_c3 = rng.integers(0, n3, n3)
+        c3_vals = np.empty((n3, n_areas))
+        for out_i, rep_i in enumerate(rep_sample_c3):
+            Xa, Xb = c3_split[rep_i]
+            na, nb = len(Xa), len(Xb)
+            a_boot = rng.integers(0, na, na)
+            b_boot = rng.integers(0, nb, nb)
+            c3_vals[out_i] = np.abs(Xa[a_boot].mean(0) - Xb[b_boot].mean(0))
+        c3_mean_k = c3_vals.mean(0)
+
+        # ── C5: resample reps, within each draw random 4-vs-4 split + agent resample
+        rep_sample_c5 = rng.integers(0, n5, n5)
+        c5_vals = np.empty((n5, n_areas))
+        for out_i, rep_i in enumerate(rep_sample_c5):
+            X = c5_runs[rep_i]["X"]
+            n = X.shape[0]
+            half = n // 2
+            perm = rng.permutation(n)
+            a_idx, b_idx = perm[:half], perm[half : 2 * half]
+            # resample within each half
+            a_boot = rng.integers(0, half, half)
+            b_boot = rng.integers(0, half, half)
+            c5_vals[out_i] = np.abs(X[a_idx][a_boot].mean(0) - X[b_idx][b_boot].mean(0))
+        c5_mean_k = c5_vals.mean(0)
+
+        diffs[k] = c3_mean_k - c5_mean_k
+
     out = np.empty((n_areas, 5))
     for j in range(n_areas):
-        a = c3_rep[:, j]
-        b = c5_rep[:, j]
-        diffs = np.empty(N_BOOT)
-        for k in range(N_BOOT):
-            ai = rng.integers(0, n3, n3)
-            bi = rng.integers(0, n5, n5)
-            diffs[k] = a[ai].mean() - b[bi].mean()
-        lo, hi = np.percentile(diffs, [100 * ALPHA / 2, 100 * (1 - ALPHA / 2)])
-        out[j] = [a.mean() - b.mean(), lo, hi, hedges_g(a, b), j]
-    return out
+        lo, hi = np.percentile(diffs[:, j], [100 * ALPHA / 2, 100 * (1 - ALPHA / 2)])
+        out[j] = [
+            c3_divs[:, j].mean() - c5_nulls[:, j].mean(),
+            lo, hi,
+            hedges_g(c3_divs[:, j], c5_nulls[:, j]),
+            j,
+        ]
+    return out, c3_divs, c5_nulls
 
 
 def main():
     rng = np.random.default_rng(SEED)
 
-    c3_dirs = sorted(DATA.glob(f"rep*_segreg_no_seed_{SCENARIO}_*"))
-    c5_dirs = sorted(DATA.glob(f"rep*_no_seed_no_interact_{SCENARIO}_*"))
+    c3_dirs = sorted(DATA.glob(f"rep[0-9][0-9]_segreg_no_seed_{SCENARIO}_*"))
+    c5_dirs = sorted(DATA.glob(f"rep[0-9][0-9]_no_seed_no_interact_{SCENARIO}_*"))
     print(f"C3 (Segreg+NoSeed) reps found: {len(c3_dirs)}")
     print(f"C5 (NoSeed+NoInteract) reps found: {len(c5_dirs)}")
     if not c3_dirs or not c5_dirs:
@@ -127,7 +190,7 @@ def main():
         sys.exit(1)
 
     print("\n--- C3 per-rep divergence (observed group A vs B) ---")
-    c3_per_rep = []
+    c3_runs = []
     for d in c3_dirs:
         run = load_run(d)
         if run is None:
@@ -135,26 +198,26 @@ def main():
         div = divergence_per_dim(run["X"], run["groups"], 0, 1)
         if np.isnan(div).any():
             print(f"  SKIP {d.name}: missing group_id"); continue
-        c3_per_rep.append(div)
+        c3_runs.append(run)
         print(f"  {d.name}: " + "  ".join(f"{a[:4]}={v:5.2f}" for a, v in zip(AREAS, div)))
-    c3_per_rep = np.vstack(c3_per_rep)
 
     print("\n--- C5 per-rep null divergence (mean over 1000 random 4-vs-4 splits) ---")
-    c5_per_rep = []
+    c5_runs = []
     for d in c5_dirs:
         run = load_run(d)
         if run is None:
             print(f"  SKIP {d.name}: no parseable allocation"); continue
         null_mean = null_divergence_mean(run["X"], rng)
-        c5_per_rep.append(null_mean)
+        c5_runs.append(run)
         print(f"  {d.name}: " + "  ".join(f"{a[:4]}={v:5.2f}" for a, v in zip(AREAS, null_mean)))
-    c5_per_rep = np.vstack(c5_per_rep)
 
-    print(f"\nShapes: C3 {c3_per_rep.shape}, C5 {c5_per_rep.shape}")
+    print(f"\nReps loaded: C3={len(c3_runs)}, C5={len(c5_runs)}")
+    print("Bootstrap: cluster-resampling reps, recomputing divergence from agent-level data per iteration")
+    print(f"  ({N_BOOT} iterations, {N_PERM_NULL} perm-null per C5 rep point estimate, 100 per boot iter)")
 
-    res = bootstrap_contrast(c3_per_rep, c5_per_rep, rng)
+    res, c3_per_rep, c5_per_rep = bootstrap_contrast(c3_runs, c5_runs, rng)
 
-    print("\n=== Part-1 contrast: C3 (interaction-only) − C5 (baseline null), Greenfield ===")
+    print(f"\n=== Part-1 contrast: C3 (interaction-only) − C5 (baseline null), {SCENARIO.title()} ===")
     header = f"{'Dimension':<22}{'C3 mean':>10}{'C5 mean':>10}{'Δ':>10}{'95% CI':>20}{'Hedges g':>11}{'  signal'}"
     print(header)
     print("-" * len(header))
@@ -195,8 +258,9 @@ def main():
 
     out = {
         "scenario": SCENARIO,
-        "n_c3_reps": int(c3_per_rep.shape[0]),
-        "n_c5_reps": int(c5_per_rep.shape[0]),
+        "n_c3_reps": len(c3_runs),
+        "n_c5_reps": len(c5_runs),
+        "bootstrap_method": "agent-stratified cluster bootstrap: resample reps with replacement, then within each sampled rep resample agents with replacement stratified by group (§4.3.4)",
         "n_bootstrap": N_BOOT,
         "n_perm_null": N_PERM_NULL,
         "alpha": ALPHA,
@@ -211,7 +275,7 @@ def main():
                 "delta": float(res[i, 0]),
                 "ci95_lo": float(res[i, 1]),
                 "ci95_hi": float(res[i, 2]),
-                "hedges_g": float(res[i, 3]),
+                "hedges_g": None if math.isnan(res[i, 3]) else float(res[i, 3]),
                 "ci_excludes_zero": bool(res[i, 1] > 0 or res[i, 2] < 0),
             }
             for i in range(len(AREAS))

@@ -47,9 +47,53 @@ def _is_grok_model(model: str) -> bool:
     return "grok" in model.lower()
 
 
+def _uses_max_completion_tokens(model: str) -> bool:
+    m = model.lower()
+    return _is_openai_model(model) and (
+        m.startswith("gpt-5") or m.startswith(("o1", "o3", "o4"))
+    )
+
+
+def _is_gpt5_model(model: str) -> bool:
+    return model.lower().startswith("gpt-5")
+
+
+def _uses_default_temperature_only(model: str) -> bool:
+    return _uses_max_completion_tokens(model)
+
+
+def _gemini_reasoning_effort(model: str) -> str | None:
+    m = model.lower()
+    if m.startswith("gemini-2.5"):
+        # Gemini 2.5 thinking consumes completion tokens unless disabled. The
+        # probe suite uses short max_tokens values, so keep these calls non-thinking.
+        return "none"
+    return None
+
+
+def _use_llama_api() -> bool:
+    """Whether Llama should be routed to a hosted OpenAI-compatible endpoint."""
+    return bool(config.LLAMA_API_BASE_URL or config.LLAMA_API_KEY)
+
+
+def _request_model_name(model: str) -> str:
+    """Map local canonical model names to provider-specific API model IDs."""
+    if _is_llama_model(model) and _use_llama_api():
+        return config.LLAMA_API_MODEL or model
+    return model
+
+
 # ── Clients (lazy singletons) ──────────────────────────────────────────────
 
 _clients: dict[str, openai.OpenAI] = {}
+_temperature_warning_models: set[str] = set()
+_NON_RETRYABLE_STATUS_CODES = {400, 401, 402, 403, 404}
+
+
+def _is_non_retryable_error(exc: Exception) -> bool:
+    """Return true for provider errors that another immediate retry cannot fix."""
+    status_code = getattr(exc, "status_code", None)
+    return isinstance(status_code, int) and status_code in _NON_RETRYABLE_STATUS_CODES
 
 
 def _get_client(name: str, api_key: str, base_url: Optional[str] = None) -> openai.OpenAI:
@@ -68,6 +112,12 @@ def _get_client_for_model(model: str) -> openai.OpenAI:
         return _get_client("qwen", config.LOCAL_API_KEY, config.QWEN_BASE_URL)
 
     elif _is_llama_model(model):
+        if _use_llama_api():
+            if not config.LLAMA_API_BASE_URL:
+                raise ValueError("LLAMA_API_BASE_URL not set for hosted Llama API.")
+            if not config.LLAMA_API_KEY:
+                raise ValueError("LLAMA_API_KEY not set. Put it in APIkeys/api_key_llama.txt or env.")
+            return _get_client("llama_api", config.LLAMA_API_KEY, config.LLAMA_API_BASE_URL)
         return _get_client("llama", config.LOCAL_API_KEY, config.LLAMA_BASE_URL)
 
     elif _is_deepseek_model(model):
@@ -110,14 +160,31 @@ def chat(
     """Send a chat completion request. Auto-routes to correct provider."""
     model = model or config.PILOT_MODEL
 
+    # OpenRouter Llama4-Scout intermittently returns empty content with
+    # finish_reason=stop; on a 30-round rep (~1800 LLM calls) a 3-attempt
+    # budget will eventually hit a triple-empty and kill the rep. Bump
+    # retries to 10 specifically for the Llama API path; other providers
+    # stay at the caller's default (typically 3).
+    if _is_llama_model(model) and _use_llama_api() and retries < 10:
+        retries = 10
+
     for attempt in range(retries):
         try:
             client = _get_client_for_model(model)
+            request_model = _request_model_name(model)
             return _chat_openai_compat(
-                client, prompt, system, model, temperature, max_tokens
+                client, prompt, system, request_model, temperature, max_tokens
             )
         except Exception as e:
-            wait = 2 ** attempt
+            if _is_non_retryable_error(e):
+                logger.warning(
+                    "LLM call failed with non-retryable status: %s",
+                    e,
+                )
+                raise
+            # Cap exponential backoff at 8s — protects all providers from a
+            # runaway 128s sleep on attempt 7+.
+            wait = min(2 ** attempt, 8)
             logger.warning(f"LLM call failed (attempt {attempt+1}/{retries}): {e}. Retrying in {wait}s...")
             if attempt < retries - 1:
                 time.sleep(wait)
@@ -141,14 +208,34 @@ def _chat_openai_compat(
     kwargs = dict(
         model=model,
         messages=messages,
-        temperature=temperature,
-        max_tokens=max_tokens,
     )
+    if _uses_default_temperature_only(model):
+        if model not in _temperature_warning_models:
+            logger.warning(
+                "%s does not support custom temperature in Chat Completions; "
+                "using provider default temperature.",
+                model,
+            )
+            _temperature_warning_models.add(model)
+    else:
+        kwargs["temperature"] = temperature
+
+    if _uses_max_completion_tokens(model):
+        kwargs["max_completion_tokens"] = max(max_tokens, 64)
+        kwargs["reasoning_effort"] = "minimal" if _is_gpt5_model(model) else "low"
+        if _is_gpt5_model(model):
+            kwargs["verbosity"] = "low"
+    else:
+        kwargs["max_tokens"] = max_tokens
+
+    gemini_reasoning_effort = _gemini_reasoning_effort(model)
+    if gemini_reasoning_effort:
+        kwargs["reasoning_effort"] = gemini_reasoning_effort
 
     # Disable thinking/reasoning mode for all models that support it.
     # These produce huge chain-of-thought blocks that pollute output and waste tokens.
 
-    if _is_qwen_model(model) or _is_llama_model(model):
+    if _is_qwen_model(model) or (_is_llama_model(model) and not _use_llama_api()):
         # Local vLLM models: Qwen3 and Llama4 both use chat_template_kwargs
         kwargs["extra_body"] = {
             "chat_template_kwargs": {"enable_thinking": False}
@@ -158,13 +245,22 @@ def _chat_openai_compat(
         # and rely on the safety-net strip below for <think> blocks
         pass
     elif _is_gemini_model(model):
-        # Gemini: disable thinking via thinkingConfig
-        kwargs["extra_body"] = {
-            "google": {"thinkingConfig": {"thinkingBudget": 0}}
-        }
+        # Gemini's OpenAI-compatible endpoint rejects provider-specific fields.
+        pass
 
     response = client.chat.completions.create(**kwargs)
-    text = response.choices[0].message.content
+    choice = response.choices[0]
+    text = choice.message.content
+    if text is None:
+        finish_reason = getattr(choice, "finish_reason", None)
+        raise RuntimeError(
+            f"LLM returned no text content (finish_reason={finish_reason})"
+        )
+    if not text.strip():
+        finish_reason = getattr(choice, "finish_reason", None)
+        raise RuntimeError(
+            f"LLM returned empty text content (finish_reason={finish_reason})"
+        )
 
     # Safety net: strip any leaked thinking blocks from Qwen3/other models
     if text:
