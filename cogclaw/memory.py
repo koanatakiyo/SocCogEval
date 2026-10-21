@@ -18,6 +18,7 @@ and cosine-similarity semantic ranking.
 
 import logging
 import re
+import threading
 import time
 from typing import Optional
 
@@ -33,20 +34,24 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 _ENCODER = None
 _ENCODER_NAME = "all-MiniLM-L6-v2"
+_ENCODER_LOCK = threading.Lock()
 
 
 def _get_encoder():
     """Return (and lazily load) the sentence-transformers encoder."""
     global _ENCODER
-    if _ENCODER is None:
-        try:
-            from sentence_transformers import SentenceTransformer
-            _ENCODER = SentenceTransformer(_ENCODER_NAME)
-            logger.info("Loaded sentence-transformer: %s", _ENCODER_NAME)
-        except ImportError:
-            logger.warning(
-                "sentence-transformers not installed; semantic search disabled"
-            )
+    if _ENCODER is not None:
+        return _ENCODER
+    with _ENCODER_LOCK:
+        if _ENCODER is None:
+            try:
+                from sentence_transformers import SentenceTransformer
+                _ENCODER = SentenceTransformer(_ENCODER_NAME)
+                logger.info("Loaded sentence-transformer: %s", _ENCODER_NAME)
+            except ImportError:
+                logger.warning(
+                    "sentence-transformers not installed; semantic search disabled"
+                )
     return _ENCODER
 
 
@@ -55,7 +60,13 @@ def _embed(texts: list[str]) -> np.ndarray:
     enc = _get_encoder()
     if enc is None:
         return np.empty((0, 0), dtype=np.float32)
-    return enc.encode(texts, show_progress_bar=False, convert_to_numpy=True)
+    # SentenceTransformer is a process-wide singleton. Serialize its short
+    # local encode calls so concurrent C6 extraction workers cannot race in a
+    # shared PyTorch module.
+    with _ENCODER_LOCK:
+        return enc.encode(
+            texts, show_progress_bar=False, convert_to_numpy=True
+        )
 
 
 def _cosine_sim(a: np.ndarray, b: np.ndarray) -> float:

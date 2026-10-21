@@ -1,0 +1,26 @@
+{
+  "condition_id": 1,
+  "condition_name": "open_seed",
+  "scenario": "greenfield",
+  "n_agents": 8,
+  "network": {
+    "topology": "all_to_all",
+    "n_groups": 1,
+    "group_size": 8
+  },
+  "seed": {
+    "use_seed": true,
+    "asymmetric": false,
+    "seed_a": "",
+    "seed_b": ""
+  },
+  "interaction": {
+    "n_rounds": 30,
+    "agents_per_conversation": 2,
+    "conversations_per_round": 4
+  },
+  "model": "",
+  "n_repeats": 7,
+  "use_s2": false,
+  "run_id": "rep00"
+}

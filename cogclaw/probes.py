@@ -849,12 +849,21 @@ def run_pre_battery(agents: list, scenario: str) -> dict:
     }
 
 
-def run_post_battery(agents: list, scenario: str) -> dict:
+def run_post_battery(
+    agents: list,
+    scenario: str,
+    include_prediction: bool = True,
+) -> dict:
     """Run the post-discussion measurement battery on all agents.
 
     Instruments: BFI-10, conformity test (with pressure), allocation task,
-    prediction task (each agent predicts every other agent), consistency
-    check.
+    consistency check, and—only when ``include_prediction`` is true—the
+    prediction task (each agent predicts every other agent).
+
+    Prediction is not applicable to zero-interaction conditions: its prompt
+    explicitly asks agents to reason "based on your interactions." Callers
+    should therefore pass ``include_prediction=False`` for those conditions
+    instead of forcing a model to invent observations it never received.
 
     Returns
     -------
@@ -878,20 +887,27 @@ def run_post_battery(agents: list, scenario: str) -> dict:
         allocation_results.append(allocation_task(agent, scenario))
         consistency_results.append(consistency_check(agent, scenario))
 
-        # Predict every other agent's allocation
-        for target_name in agent_names:
-            if target_name != agent.name:
-                prediction_results.append(
-                    prediction_task(agent, target_name, scenario)
-                )
+        if include_prediction:
+            # Predict every other agent's allocation
+            for target_name in agent_names:
+                if target_name != agent.name:
+                    prediction_results.append(
+                        prediction_task(agent, target_name, scenario)
+                    )
 
-    return {
+    result = {
         "bfi10": bfi_results,
         "conformity": conformity_results,
         "allocation": allocation_results,
         "prediction": prediction_results,
         "consistency": consistency_results,
     }
+    if not include_prediction:
+        result["prediction_status"] = {
+            "status": "not_applicable",
+            "reason": "condition_has_zero_interaction_rounds",
+        }
+    return result
 
 
 def run_periodic_probes(

@@ -37,7 +37,7 @@ from pathlib import Path
 
 import numpy as np
 
-DATA = Path("/home/yandan/cogsociety/data")
+DATA = (Path(__file__).resolve().parents[1] / "data")
 N_BOOT = 10_000
 N_PERM_NULL = 1_000
 ALPHA = 0.05

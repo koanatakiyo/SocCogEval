@@ -1,0 +1,35 @@
+{
+  "frozen_on": "2026-07-25",
+  "primary_endpoint": "BFI-10 L1 post-pre change",
+  "primary_contrast": "C2-C4 interaction-given-brief",
+  "independent_unit": "run/replica",
+  "signed_diagnostic": "per-factor post-pre change",
+  "brief_separation": "(C2 A-B) - (C4 A-B), per factor",
+  "bootstrap": {
+    "unit": "run",
+    "draws": 10000,
+    "ci": "percentile 95%, descriptive",
+    "seed_base": 4200
+  },
+  "icc": {
+    "estimator": "one-way random-effects ICC(1) on per-agent BFI L1 within condition",
+    "design_effect": "1 + (8-1)*max(0, sample ICC)",
+    "status": "descriptive"
+  },
+  "nosrm": {
+    "test": "two-sided exact permutation on 3v3 run means",
+    "minimum_p": 0.1,
+    "status": "exploratory"
+  },
+  "trace_gate": {
+    "required": "pre-treatment construction equivalence and identical probe constructors/settings",
+    "expected_difference": "treatment-induced C2 interaction memory/history at post-test",
+    "historical_token_trace": "unavailable"
+  },
+  "prohibited": [
+    "agent-level confirmatory Welch tests",
+    "post hoc exclusion of reversed variants",
+    "calling C6-C5 a generation effect",
+    "claiming historical token equality without logged tokens"
+  ]
+}

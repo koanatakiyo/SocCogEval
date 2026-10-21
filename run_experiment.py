@@ -137,7 +137,8 @@ def run_single(config: ExperimentConfig, run_id: str = "") -> Path:
 
     logger.info("=" * 70)
     logger.info(f"RUN: {config.condition_name} | {config.scenario} | "
-                f"model={config.model} | s2={config.use_s2} | id={run_id}")
+                f"model={config.model} | s2={config.use_s2} | "
+                f"memory={config.memory_mode} | id={run_id}")
     logger.info(f"Output: {run_dir}")
     logger.info("=" * 70)
 
@@ -163,11 +164,13 @@ def run_condition_repeats(
     n_repeats: int,
     model: str = "",
     use_s2: bool = False,
+    memory_mode: str = "srm",
     base_seed: int = 42,
 ):
     """Run N repeats of a single condition."""
     logger = logging.getLogger("cogclaw")
     config_template = make_condition(condition_id, scenario, model=model, use_s2=use_s2)
+    config_template.memory_mode = memory_mode
 
     logger.info(f"\n{'#' * 70}")
     logger.info(f"# Condition {condition_id} ({config_template.condition_name}) × "
@@ -178,6 +181,7 @@ def run_condition_repeats(
     for rep in range(n_repeats):
         random.seed(base_seed + rep)
         config = make_condition(condition_id, scenario, model=model, use_s2=use_s2)
+        config.memory_mode = memory_mode
         run_id = f"rep{rep:02d}"
         run_dir = run_single(config, run_id=run_id)
         run_dirs.append(str(run_dir))
@@ -185,17 +189,25 @@ def run_condition_repeats(
     return run_dirs
 
 
-def run_all_conditions(scenario: str, model: str = "", use_s2: bool = False):
+def run_all_conditions(
+    scenario: str,
+    model: str = "",
+    use_s2: bool = False,
+    memory_mode: str = "srm",
+):
     """Run all 5 conditions for one scenario with planned repeat counts."""
     # Repeat counts from working_plan_v3.md §4.2
     repeats = {1: 7, 2: 8, 3: 5, 4: 5, 5: 3}
 
     for cid in range(1, 6):
         n = repeats[cid]
-        run_condition_repeats(cid, scenario, n, model=model, use_s2=use_s2)
+        run_condition_repeats(
+            cid, scenario, n, model=model, use_s2=use_s2,
+            memory_mode=memory_mode,
+        )
 
 
-def run_full_experiment(model: str = ""):
+def run_full_experiment(model: str = "", memory_mode: str = "srm"):
     """Run all conditions × both scenarios (the complete experiment)."""
     logger = logging.getLogger("cogclaw")
 
@@ -208,7 +220,7 @@ def run_full_experiment(model: str = ""):
         logger.info(f"\n{'='*70}")
         logger.info(f"SCENARIO: {scenario.upper()}")
         logger.info(f"{'='*70}")
-        run_all_conditions(scenario, model=model)
+        run_all_conditions(scenario, model=model, memory_mode=memory_mode)
 
     return manifest
 
@@ -289,10 +301,16 @@ Examples:
                         help="Override number of rounds")
     parser.add_argument("--s2", action="store_true",
                         help="Enable S2 deliberate reasoning")
+    parser.add_argument("--memory-mode", choices=["srm", "verbatim", "none"],
+                        default="srm",
+                        help="Agent memory mode: SRM extraction, verbatim transcript excerpts, or no memory")
+    parser.add_argument("--no-srm", action="store_true",
+                        help="Disable SRM extraction and use verbatim transcript memory")
     parser.add_argument("--run-id", default="", help="Run identifier")
     parser.add_argument("--seed", type=int, default=42, help="Random seed")
 
     args = parser.parse_args()
+    memory_mode = "verbatim" if args.no_srm else args.memory_mode
 
     logger, log_file = setup_logging(
         label=f"cond{args.condition}" if args.condition else
@@ -304,7 +322,8 @@ Examples:
 
     logger.info("CogClaw Experiment Runner")
     logger.info(f"Settings: temp_conformity=0.7, temp_alloc=0.0, "
-                f"conformity=15-item paired, seeds=softened")
+                f"conformity=15-item paired, seeds=softened, "
+                f"memory={memory_mode}")
     logger.info(f"Args: {vars(args)}")
 
     random.seed(args.seed)
@@ -322,18 +341,22 @@ Examples:
             config.model = args.model
         if args.n_rounds is not None:
             config.interaction.n_rounds = args.n_rounds
+        config.memory_mode = memory_mode
         run_single(config, run_id=args.run_id)
         return
 
     # ── Full experiment ───────────────────────────────────────────────────
     if args.full:
-        run_full_experiment(model=args.model)
+        run_full_experiment(model=args.model, memory_mode=memory_mode)
         logger.info(f"\nFull experiment complete. Log: {log_file}")
         return
 
     # ── All conditions for one scenario ───────────────────────────────────
     if args.all:
-        run_all_conditions(args.scenario, model=args.model, use_s2=args.s2)
+        run_all_conditions(
+            args.scenario, model=args.model, use_s2=args.s2,
+            memory_mode=memory_mode,
+        )
         logger.info(f"\nAll conditions complete. Log: {log_file}")
         return
 
@@ -362,11 +385,13 @@ Examples:
             config = make_condition(args.condition, args.scenario,
                                    model=args.model, use_s2=args.s2)
             config.interaction.n_rounds = args.n_rounds
+            config.memory_mode = memory_mode
             run_single(config, run_id=args.run_id or f"rep{rep:02d}")
     else:
         run_condition_repeats(
             args.condition, args.scenario, n_repeats,
-            model=args.model, use_s2=args.s2, base_seed=args.seed,
+            model=args.model, use_s2=args.s2, memory_mode=memory_mode,
+            base_seed=args.seed,
         )
 
     logger.info(f"\nExperiment complete. Log: {log_file}")

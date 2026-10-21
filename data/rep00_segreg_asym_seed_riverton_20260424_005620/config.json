@@ -1,0 +1,26 @@
+{
+  "condition_id": 2,
+  "condition_name": "segreg_asym_seed",
+  "scenario": "riverton",
+  "n_agents": 8,
+  "network": {
+    "topology": "segregated",
+    "n_groups": 2,
+    "group_size": 4
+  },
+  "seed": {
+    "use_seed": true,
+    "asymmetric": true,
+    "seed_a": "",
+    "seed_b": ""
+  },
+  "interaction": {
+    "n_rounds": 30,
+    "agents_per_conversation": 2,
+    "conversations_per_round": 4
+  },
+  "model": "",
+  "n_repeats": 8,
+  "use_s2": false,
+  "run_id": "rep00"
+}

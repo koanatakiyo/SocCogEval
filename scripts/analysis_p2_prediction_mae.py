@@ -45,7 +45,7 @@ from pathlib import Path
 import numpy as np
 from scipy import stats
 
-DATA = Path("/home/yandan/cogsociety/data")
+DATA = (Path(__file__).resolve().parents[1] / "data")
 AREAS = {
     "greenfield": ["Education", "Healthcare", "Green Spaces", "Infrastructure", "Economic Development"],
     "riverton":   ["Automation", "Workforce Training", "Employee Support", "Innovation Lab", "Data Infrastructure"],

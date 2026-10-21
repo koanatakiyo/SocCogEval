@@ -38,7 +38,7 @@ N_AGENTS = 8
 N_PERM_NULL = 1_000
 SEED = 42
 AREAS = ["Education", "Healthcare", "Green Spaces", "Infrastructure", "Economic Development"]
-OUT = Path("/home/yandan/cogsociety/data/analysis_c5_temp_sweep.json")
+OUT = (Path(__file__).resolve().parents[1] / "data" / "analysis_c5_temp_sweep.json")
 
 
 def build_allocation_prompt() -> str:
@@ -156,7 +156,7 @@ def main():
 
     print("\n=== COMPARISON TABLE ===")
     # Load C3 effect from analysis output if available, otherwise use placeholder
-    c3_json = Path("/home/yandan/cogsociety/data/analysis_c3_vs_c5_greenfield.json")
+    c3_json = (Path(__file__).resolve().parents[1] / "data" / "analysis_c3_vs_c5_greenfield.json")
     if c3_json.exists():
         c3_data = json.load(open(c3_json))
         c3_mean_per_dim = [r["c3_mean"] for r in c3_data["results"]]

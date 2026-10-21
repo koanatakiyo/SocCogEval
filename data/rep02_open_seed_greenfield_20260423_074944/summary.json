@@ -1,0 +1,81 @@
+{
+  "config": {
+    "condition_id": 1,
+    "condition_name": "open_seed",
+    "scenario": "greenfield",
+    "n_agents": 8,
+    "network": {
+      "topology": "all_to_all",
+      "n_groups": 1,
+      "group_size": 8
+    },
+    "seed": {
+      "use_seed": true,
+      "asymmetric": false,
+      "seed_a": "",
+      "seed_b": ""
+    },
+    "interaction": {
+      "n_rounds": 30,
+      "agents_per_conversation": 2,
+      "conversations_per_round": 4
+    },
+    "model": "",
+    "n_repeats": 7,
+    "use_s2": false,
+    "run_id": "rep02"
+  },
+  "n_rounds_completed": 30,
+  "total_conversations": 120,
+  "total_duration_seconds": 25297.388961791992,
+  "agents": [
+    {
+      "id": 0,
+      "name": "Alex",
+      "group_id": 0,
+      "n_memories": 35
+    },
+    {
+      "id": 1,
+      "name": "Blake",
+      "group_id": 0,
+      "n_memories": 32
+    },
+    {
+      "id": 2,
+      "name": "Casey",
+      "group_id": 0,
+      "n_memories": 32
+    },
+    {
+      "id": 3,
+      "name": "Dana",
+      "group_id": 0,
+      "n_memories": 24
+    },
+    {
+      "id": 4,
+      "name": "Ellis",
+      "group_id": 0,
+      "n_memories": 29
+    },
+    {
+      "id": 5,
+      "name": "Finley",
+      "group_id": 0,
+      "n_memories": 23
+    },
+    {
+      "id": 6,
+      "name": "Gray",
+      "group_id": 0,
+      "n_memories": 33
+    },
+    {
+      "id": 7,
+      "name": "Harper",
+      "group_id": 0,
+      "n_memories": 32
+    }
+  ]
+}

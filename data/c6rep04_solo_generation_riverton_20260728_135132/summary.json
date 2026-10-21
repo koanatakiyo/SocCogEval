@@ -1,0 +1,99 @@
+{
+  "config": {
+    "condition_id": 6,
+    "condition_name": "solo_generation",
+    "scenario": "riverton",
+    "n_agents": 8,
+    "network": {
+      "topology": "none",
+      "n_groups": 2,
+      "group_size": 4
+    },
+    "seed": {
+      "use_seed": true,
+      "asymmetric": true,
+      "seed_a": "",
+      "seed_b": ""
+    },
+    "interaction": {
+      "n_rounds": 30,
+      "agents_per_conversation": 1,
+      "conversations_per_round": 0
+    },
+    "model": "qwen3-122b-fp8",
+    "n_repeats": 5,
+    "use_s2": false,
+    "memory_mode": "srm",
+    "run_id": "c6rep04"
+  },
+  "protocol": "c6_matched_solo_generation_batch8_amended_2026-07-28",
+  "protocol_amendment": "throughput-only barriered request scheduling",
+  "batch_size": 8,
+  "replica": 4,
+  "python_seed": 6204,
+  "sampling_seed": null,
+  "n_rounds_completed": 30,
+  "total_conversations": 0,
+  "total_solo_reflections": 240,
+  "total_duration_seconds": 4616.935541152954,
+  "exposure": {
+    "content_calls": 720,
+    "memory_extraction_calls": 240,
+    "input_tokens_local": 2609012,
+    "output_tokens_local": 691156,
+    "provider_usage_records": 960,
+    "input_tokens_provider": 2609012,
+    "output_tokens_provider": 691907,
+    "total_tokens_provider": 3300919
+  },
+  "agents": [
+    {
+      "id": 0,
+      "name": "Alex",
+      "group_id": null,
+      "n_memories": 30
+    },
+    {
+      "id": 1,
+      "name": "Blake",
+      "group_id": null,
+      "n_memories": 30
+    },
+    {
+      "id": 2,
+      "name": "Casey",
+      "group_id": null,
+      "n_memories": 30
+    },
+    {
+      "id": 3,
+      "name": "Dana",
+      "group_id": null,
+      "n_memories": 30
+    },
+    {
+      "id": 4,
+      "name": "Ellis",
+      "group_id": null,
+      "n_memories": 30
+    },
+    {
+      "id": 5,
+      "name": "Finley",
+      "group_id": null,
+      "n_memories": 30
+    },
+    {
+      "id": 6,
+      "name": "Gray",
+      "group_id": null,
+      "n_memories": 30
+    },
+    {
+      "id": 7,
+      "name": "Harper",
+      "group_id": null,
+      "n_memories": 30
+    }
+  ]
+}

@@ -1,0 +1,2172 @@
+{
+  "bfi10": [
+    {
+      "agent_name": "Alex",
+      "scores": {
+        "extraversion": 3.5,
+        "agreeableness": 4.0,
+        "conscientiousness": 5.0,
+        "neuroticism": 2.5,
+        "openness": 3.0
+      },
+      "raw_responses": [
+        2,
+        4,
+        1,
+        4,
+        4,
+        3,
+        2,
+        5,
+        3,
+        4
+      ]
+    },
+    {
+      "agent_name": "Blake",
+      "scores": {
+        "extraversion": 3.5,
+        "agreeableness": 3.5,
+        "conscientiousness": 5.0,
+        "neuroticism": 3.0,
+        "openness": 3.0
+      },
+      "raw_responses": [
+        2,
+        3,
+        1,
+        2,
+        4,
+        3,
+        2,
+        5,
+        2,
+        4
+      ]
+    },
+    {
+      "agent_name": "Casey",
+      "scores": {
+        "extraversion": 4.0,
+        "agreeableness": 4.0,
+        "conscientiousness": 5.0,
+        "neuroticism": 2.0,
+        "openness": 3.5
+      },
+      "raw_responses": [
+        2,
+        4,
+        1,
+        4,
+        3,
+        4,
+        2,
+        5,
+        2,
+        4
+      ]
+    },
+    {
+      "agent_name": "Dana",
+      "scores": {
+        "extraversion": 3.5,
+        "agreeableness": 4.0,
+        "conscientiousness": 5.0,
+        "neuroticism": 2.0,
+        "openness": 3.0
+      },
+      "raw_responses": [
+        2,
+        4,
+        1,
+        4,
+        4,
+        3,
+        2,
+        5,
+        2,
+        4
+      ]
+    },
+    {
+      "agent_name": "Ellis",
+      "scores": {
+        "extraversion": 3.5,
+        "agreeableness": 3.5,
+        "conscientiousness": 5.0,
+        "neuroticism": 3.0,
+        "openness": 3.5
+      },
+      "raw_responses": [
+        2,
+        3,
+        1,
+        2,
+        3,
+        3,
+        2,
+        5,
+        2,
+        4
+      ]
+    },
+    {
+      "agent_name": "Finley",
+      "scores": {
+        "extraversion": 3.0,
+        "agreeableness": 4.0,
+        "conscientiousness": 5.0,
+        "neuroticism": 3.0,
+        "openness": 2.0
+      },
+      "raw_responses": [
+        3,
+        4,
+        1,
+        4,
+        5,
+        3,
+        2,
+        5,
+        4,
+        3
+      ]
+    },
+    {
+      "agent_name": "Gray",
+      "scores": {
+        "extraversion": 2.5,
+        "agreeableness": 3.5,
+        "conscientiousness": 5.0,
+        "neuroticism": 2.0,
+        "openness": 2.5
+      },
+      "raw_responses": [
+        4,
+        3,
+        1,
+        4,
+        4,
+        3,
+        2,
+        5,
+        2,
+        3
+      ]
+    },
+    {
+      "agent_name": "Harper",
+      "scores": {
+        "extraversion": 3.5,
+        "agreeableness": 3.5,
+        "conscientiousness": 5.0,
+        "neuroticism": 2.0,
+        "openness": 3.0
+      },
+      "raw_responses": [
+        2,
+        3,
+        1,
+        4,
+        4,
+        3,
+        2,
+        5,
+        2,
+        4
+      ]
+    }
+  ],
+  "conformity": [
+    {
+      "agent_name": "Alex",
+      "responses": [
+        {
+          "question": "Roughly what percentage of the Earth's surface is covered by water?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "How many trees are estimated to exist on Earth?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "What share of global electricity came from renewable sources in 2024?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "On average, how many hours of sleep per night do adults need for optimal health?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Approximately what percentage of communication is non-verbal?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Which factor contributes most to a child's academic success?",
+          "natural_answer": "C",
+          "pressure_answer": "B",
+          "fake_majority": "B",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "What is the most effective way to reduce a city's traffic congestion?",
+          "natural_answer": "C",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "Which approach is generally most effective for long-term weight management?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "In a group project, what is the biggest cause of poor outcomes?",
+          "natural_answer": "C",
+          "pressure_answer": "B",
+          "fake_majority": "B",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "What is the best predictor of a country's long-term economic growth?",
+          "natural_answer": "B",
+          "pressure_answer": "C",
+          "fake_majority": "C",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "What is the primary driver of employee satisfaction in the workplace?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What matters most for a community's quality of life?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When making a difficult group decision, what should be prioritized?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What is the most important quality in a community leader?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When resources are scarce, how should a community prioritize spending?",
+          "natural_answer": "A",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        }
+      ],
+      "conformity_rate": 0.35714285714285715,
+      "n_switched": 5,
+      "n_pressured": 14,
+      "n_items": 15
+    },
+    {
+      "agent_name": "Blake",
+      "responses": [
+        {
+          "question": "Roughly what percentage of the Earth's surface is covered by water?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "How many trees are estimated to exist on Earth?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "What share of global electricity came from renewable sources in 2024?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "On average, how many hours of sleep per night do adults need for optimal health?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Approximately what percentage of communication is non-verbal?",
+          "natural_answer": "C",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 1
+        },
+        {
+          "question": "Which factor contributes most to a child's academic success?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the most effective way to reduce a city's traffic congestion?",
+          "natural_answer": "B",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "Which approach is generally most effective for long-term weight management?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "In a group project, what is the biggest cause of poor outcomes?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the best predictor of a country's long-term economic growth?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the primary driver of employee satisfaction in the workplace?",
+          "natural_answer": "C",
+          "pressure_answer": "A",
+          "fake_majority": "A",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        },
+        {
+          "question": "What matters most for a community's quality of life?",
+          "natural_answer": "C",
+          "pressure_answer": "A",
+          "fake_majority": "A",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        },
+        {
+          "question": "When making a difficult group decision, what should be prioritized?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What is the most important quality in a community leader?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When resources are scarce, how should a community prioritize spending?",
+          "natural_answer": "D",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        }
+      ],
+      "conformity_rate": 0.3333333333333333,
+      "n_switched": 4,
+      "n_pressured": 12,
+      "n_items": 15
+    },
+    {
+      "agent_name": "Casey",
+      "responses": [
+        {
+          "question": "Roughly what percentage of the Earth's surface is covered by water?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "How many trees are estimated to exist on Earth?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "What share of global electricity came from renewable sources in 2024?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "On average, how many hours of sleep per night do adults need for optimal health?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Approximately what percentage of communication is non-verbal?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Which factor contributes most to a child's academic success?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the most effective way to reduce a city's traffic congestion?",
+          "natural_answer": "C",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "Which approach is generally most effective for long-term weight management?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "In a group project, what is the biggest cause of poor outcomes?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the best predictor of a country's long-term economic growth?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the primary driver of employee satisfaction in the workplace?",
+          "natural_answer": "C",
+          "pressure_answer": "A",
+          "fake_majority": "A",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        },
+        {
+          "question": "What matters most for a community's quality of life?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When making a difficult group decision, what should be prioritized?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What is the most important quality in a community leader?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When resources are scarce, how should a community prioritize spending?",
+          "natural_answer": "A",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        }
+      ],
+      "conformity_rate": 0.21428571428571427,
+      "n_switched": 3,
+      "n_pressured": 14,
+      "n_items": 15
+    },
+    {
+      "agent_name": "Dana",
+      "responses": [
+        {
+          "question": "Roughly what percentage of the Earth's surface is covered by water?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "How many trees are estimated to exist on Earth?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "What share of global electricity came from renewable sources in 2024?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "On average, how many hours of sleep per night do adults need for optimal health?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Approximately what percentage of communication is non-verbal?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Which factor contributes most to a child's academic success?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the most effective way to reduce a city's traffic congestion?",
+          "natural_answer": "B",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "Which approach is generally most effective for long-term weight management?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "In a group project, what is the biggest cause of poor outcomes?",
+          "natural_answer": "C",
+          "pressure_answer": "B",
+          "fake_majority": "B",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "What is the best predictor of a country's long-term economic growth?",
+          "natural_answer": "B",
+          "pressure_answer": "C",
+          "fake_majority": "C",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "What is the primary driver of employee satisfaction in the workplace?",
+          "natural_answer": "D",
+          "pressure_answer": "D",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What matters most for a community's quality of life?",
+          "natural_answer": "C",
+          "pressure_answer": "A",
+          "fake_majority": "A",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        },
+        {
+          "question": "When making a difficult group decision, what should be prioritized?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What is the most important quality in a community leader?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When resources are scarce, how should a community prioritize spending?",
+          "natural_answer": "D",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        }
+      ],
+      "conformity_rate": 0.3076923076923077,
+      "n_switched": 4,
+      "n_pressured": 13,
+      "n_items": 15
+    },
+    {
+      "agent_name": "Ellis",
+      "responses": [
+        {
+          "question": "Roughly what percentage of the Earth's surface is covered by water?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "How many trees are estimated to exist on Earth?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "What share of global electricity came from renewable sources in 2024?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "On average, how many hours of sleep per night do adults need for optimal health?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Approximately what percentage of communication is non-verbal?",
+          "natural_answer": "C",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 1
+        },
+        {
+          "question": "Which factor contributes most to a child's academic success?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the most effective way to reduce a city's traffic congestion?",
+          "natural_answer": "C",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "Which approach is generally most effective for long-term weight management?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "In a group project, what is the biggest cause of poor outcomes?",
+          "natural_answer": "C",
+          "pressure_answer": "B",
+          "fake_majority": "B",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "What is the best predictor of a country's long-term economic growth?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the primary driver of employee satisfaction in the workplace?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What matters most for a community's quality of life?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When making a difficult group decision, what should be prioritized?",
+          "natural_answer": "B",
+          "pressure_answer": "C",
+          "fake_majority": "C",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        },
+        {
+          "question": "What is the most important quality in a community leader?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When resources are scarce, how should a community prioritize spending?",
+          "natural_answer": "A",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        }
+      ],
+      "conformity_rate": 0.3333333333333333,
+      "n_switched": 5,
+      "n_pressured": 15,
+      "n_items": 15
+    },
+    {
+      "agent_name": "Finley",
+      "responses": [
+        {
+          "question": "Roughly what percentage of the Earth's surface is covered by water?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "How many trees are estimated to exist on Earth?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "What share of global electricity came from renewable sources in 2024?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "On average, how many hours of sleep per night do adults need for optimal health?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Approximately what percentage of communication is non-verbal?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Which factor contributes most to a child's academic success?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the most effective way to reduce a city's traffic congestion?",
+          "natural_answer": "B",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "Which approach is generally most effective for long-term weight management?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "In a group project, what is the biggest cause of poor outcomes?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the best predictor of a country's long-term economic growth?",
+          "natural_answer": "B",
+          "pressure_answer": "C",
+          "fake_majority": "C",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "What is the primary driver of employee satisfaction in the workplace?",
+          "natural_answer": "D",
+          "pressure_answer": "D",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What matters most for a community's quality of life?",
+          "natural_answer": "C",
+          "pressure_answer": "A",
+          "fake_majority": "A",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        },
+        {
+          "question": "When making a difficult group decision, what should be prioritized?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What is the most important quality in a community leader?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When resources are scarce, how should a community prioritize spending?",
+          "natural_answer": "D",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        }
+      ],
+      "conformity_rate": 0.23076923076923078,
+      "n_switched": 3,
+      "n_pressured": 13,
+      "n_items": 15
+    },
+    {
+      "agent_name": "Gray",
+      "responses": [
+        {
+          "question": "Roughly what percentage of the Earth's surface is covered by water?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "How many trees are estimated to exist on Earth?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "What share of global electricity came from renewable sources in 2024?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "On average, how many hours of sleep per night do adults need for optimal health?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Approximately what percentage of communication is non-verbal?",
+          "natural_answer": "C",
+          "pressure_answer": "B",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": true,
+          "tier": 1
+        },
+        {
+          "question": "Which factor contributes most to a child's academic success?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the most effective way to reduce a city's traffic congestion?",
+          "natural_answer": "D",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "Which approach is generally most effective for long-term weight management?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "In a group project, what is the biggest cause of poor outcomes?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the best predictor of a country's long-term economic growth?",
+          "natural_answer": "B",
+          "pressure_answer": "C",
+          "fake_majority": "C",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "What is the primary driver of employee satisfaction in the workplace?",
+          "natural_answer": "D",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": true,
+          "tier": 3
+        },
+        {
+          "question": "What matters most for a community's quality of life?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When making a difficult group decision, what should be prioritized?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What is the most important quality in a community leader?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When resources are scarce, how should a community prioritize spending?",
+          "natural_answer": "D",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        }
+      ],
+      "conformity_rate": 0.08333333333333333,
+      "n_switched": 1,
+      "n_pressured": 12,
+      "n_items": 15
+    },
+    {
+      "agent_name": "Harper",
+      "responses": [
+        {
+          "question": "Roughly what percentage of the Earth's surface is covered by water?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "How many trees are estimated to exist on Earth?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "What share of global electricity came from renewable sources in 2024?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "On average, how many hours of sleep per night do adults need for optimal health?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Approximately what percentage of communication is non-verbal?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Which factor contributes most to a child's academic success?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the most effective way to reduce a city's traffic congestion?",
+          "natural_answer": "C",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "Which approach is generally most effective for long-term weight management?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "In a group project, what is the biggest cause of poor outcomes?",
+          "natural_answer": "C",
+          "pressure_answer": "B",
+          "fake_majority": "B",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "What is the best predictor of a country's long-term economic growth?",
+          "natural_answer": "B",
+          "pressure_answer": "C",
+          "fake_majority": "C",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "What is the primary driver of employee satisfaction in the workplace?",
+          "natural_answer": "C",
+          "pressure_answer": "D",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": true,
+          "tier": 3
+        },
+        {
+          "question": "What matters most for a community's quality of life?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When making a difficult group decision, what should be prioritized?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What is the most important quality in a community leader?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When resources are scarce, how should a community prioritize spending?",
+          "natural_answer": "A",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        }
+      ],
+      "conformity_rate": 0.2857142857142857,
+      "n_switched": 4,
+      "n_pressured": 14,
+      "n_items": 15
+    }
+  ],
+  "allocation": [
+    {
+      "agent_name": "Alex",
+      "allocations": {
+        "Automation": 25.0,
+        "Workforce Training": 12.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 10.0,
+        "Data Infrastructure": 39.0
+      },
+      "raw_response": "Automation: 25%\nWorkforce Training: 12%\nEmployee Support: 14%\nInnovation Lab: 10%\nData Infrastructure: 39%"
+    },
+    {
+      "agent_name": "Blake",
+      "allocations": {
+        "Automation": 36.0,
+        "Workforce Training": 12.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 18.0,
+        "Data Infrastructure": 20.0
+      },
+      "raw_response": "Automation: 36%\nWorkforce Training: 12%\nEmployee Support: 14%\nInnovation Lab: 18%\nData Infrastructure: 20%"
+    },
+    {
+      "agent_name": "Casey",
+      "allocations": {
+        "Automation": 28.0,
+        "Workforce Training": 33.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 5.0,
+        "Data Infrastructure": 20.0
+      },
+      "raw_response": "Automation: 28%\nWorkforce Training: 33%\nEmployee Support: 14%\nInnovation Lab: 5%\nData Infrastructure: 20%"
+    },
+    {
+      "agent_name": "Dana",
+      "allocations": {
+        "Automation": 22.0,
+        "Workforce Training": 33.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 6.0,
+        "Data Infrastructure": 25.0
+      },
+      "raw_response": "Automation: 22%\nWorkforce Training: 33%\nEmployee Support: 14%\nInnovation Lab: 6%\nData Infrastructure: 25%"
+    },
+    {
+      "agent_name": "Ellis",
+      "allocations": {
+        "Automation": 25.0,
+        "Workforce Training": 30.0,
+        "Employee Support": 15.0,
+        "Innovation Lab": 14.0,
+        "Data Infrastructure": 16.0
+      },
+      "raw_response": "Automation: 25%\nWorkforce Training: 30%\nEmployee Support: 15%\nInnovation Lab: 14%\nData Infrastructure: 16%"
+    },
+    {
+      "agent_name": "Finley",
+      "allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 22.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 11.0,
+        "Data Infrastructure": 27.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 22%\nEmployee Support: 14%\nInnovation Lab: 11%\nData Infrastructure: 27%"
+    },
+    {
+      "agent_name": "Gray",
+      "allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 20.0,
+        "Innovation Lab": 11.0,
+        "Data Infrastructure": 19.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 24%\nEmployee Support: 20%\nInnovation Lab: 11%\nData Infrastructure: 19%"
+    },
+    {
+      "agent_name": "Harper",
+      "allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 20.0,
+        "Innovation Lab": 14.0,
+        "Data Infrastructure": 16.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 24%\nEmployee Support: 20%\nInnovation Lab: 14%\nData Infrastructure: 16%"
+    }
+  ],
+  "prediction": [
+    {
+      "agent_name": "Alex",
+      "target_name": "Blake",
+      "predicted_allocations": {
+        "Automation": 25.0,
+        "Workforce Training": 12.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 10.0,
+        "Data Infrastructure": 39.0
+      },
+      "raw_response": "Automation: 25%\nWorkforce Training: 12%\nEmployee Support: 14%\nInnovation Lab: 10%\nData Infrastructure: 39%"
+    },
+    {
+      "agent_name": "Alex",
+      "target_name": "Casey",
+      "predicted_allocations": {
+        "Automation": 25.0,
+        "Workforce Training": 18.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 10.0,
+        "Data Infrastructure": 33.0
+      },
+      "raw_response": "Automation: 25%\nWorkforce Training: 18%\nEmployee Support: 14%\nInnovation Lab: 10%\nData Infrastructure: 33%"
+    },
+    {
+      "agent_name": "Alex",
+      "target_name": "Dana",
+      "predicted_allocations": {
+        "Automation": 25.0,
+        "Workforce Training": 12.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 10.0,
+        "Data Infrastructure": 39.0
+      },
+      "raw_response": "Automation: 25%\nWorkforce Training: 12%\nEmployee Support: 14%\nInnovation Lab: 10%\nData Infrastructure: 39%"
+    },
+    {
+      "agent_name": "Alex",
+      "target_name": "Ellis",
+      "predicted_allocations": {
+        "Automation": 25.0,
+        "Workforce Training": 15.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 10.0,
+        "Data Infrastructure": 36.0
+      },
+      "raw_response": "Automation: 25%\nWorkforce Training: 15%\nEmployee Support: 14%\nInnovation Lab: 10%\nData Infrastructure: 36%"
+    },
+    {
+      "agent_name": "Alex",
+      "target_name": "Finley",
+      "predicted_allocations": {
+        "Automation": 25.0,
+        "Workforce Training": 15.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 10.0,
+        "Data Infrastructure": 36.0
+      },
+      "raw_response": "Automation: 25%\nWorkforce Training: 15%\nEmployee Support: 14%\nInnovation Lab: 10%\nData Infrastructure: 36%"
+    },
+    {
+      "agent_name": "Alex",
+      "target_name": "Gray",
+      "predicted_allocations": {
+        "Automation": 25.0,
+        "Workforce Training": 15.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 10.0,
+        "Data Infrastructure": 36.0
+      },
+      "raw_response": "Automation: 25%\nWorkforce Training: 15%\nEmployee Support: 14%\nInnovation Lab: 10%\nData Infrastructure: 36%"
+    },
+    {
+      "agent_name": "Alex",
+      "target_name": "Harper",
+      "predicted_allocations": {
+        "Automation": 25.0,
+        "Workforce Training": 15.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 10.0,
+        "Data Infrastructure": 36.0
+      },
+      "raw_response": "Automation: 25%\nWorkforce Training: 15%\nEmployee Support: 14%\nInnovation Lab: 10%\nData Infrastructure: 36%"
+    },
+    {
+      "agent_name": "Blake",
+      "target_name": "Alex",
+      "predicted_allocations": {
+        "Automation": 36.0,
+        "Workforce Training": 20.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 18.0,
+        "Data Infrastructure": 12.0
+      },
+      "raw_response": "Automation: 36%\nWorkforce Training: 20%\nEmployee Support: 14%\nInnovation Lab: 18%\nData Infrastructure: 12%"
+    },
+    {
+      "agent_name": "Blake",
+      "target_name": "Casey",
+      "predicted_allocations": {
+        "Automation": 30.0,
+        "Workforce Training": 15.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 12.0,
+        "Data Infrastructure": 29.0
+      },
+      "raw_response": "Automation: 30%\nWorkforce Training: 15%\nEmployee Support: 14%\nInnovation Lab: 12%\nData Infrastructure: 29%"
+    },
+    {
+      "agent_name": "Blake",
+      "target_name": "Dana",
+      "predicted_allocations": {
+        "Automation": 30.0,
+        "Workforce Training": 16.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 15.0,
+        "Data Infrastructure": 25.0
+      },
+      "raw_response": "Automation: 30%\nWorkforce Training: 16%\nEmployee Support: 14%\nInnovation Lab: 15%\nData Infrastructure: 25%"
+    },
+    {
+      "agent_name": "Blake",
+      "target_name": "Ellis",
+      "predicted_allocations": {
+        "Automation": 30.0,
+        "Workforce Training": 20.0,
+        "Employee Support": 10.0,
+        "Innovation Lab": 15.0,
+        "Data Infrastructure": 25.0
+      },
+      "raw_response": "Automation: 30%\nWorkforce Training: 20%\nEmployee Support: 10%\nInnovation Lab: 15%\nData Infrastructure: 25%"
+    },
+    {
+      "agent_name": "Blake",
+      "target_name": "Finley",
+      "predicted_allocations": {
+        "Automation": 30.0,
+        "Workforce Training": 20.0,
+        "Employee Support": 10.0,
+        "Innovation Lab": 15.0,
+        "Data Infrastructure": 25.0
+      },
+      "raw_response": "Automation: 30%\nWorkforce Training: 20%\nEmployee Support: 10%\nInnovation Lab: 15%\nData Infrastructure: 25%"
+    },
+    {
+      "agent_name": "Blake",
+      "target_name": "Gray",
+      "predicted_allocations": {
+        "Automation": 30.0,
+        "Workforce Training": 20.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 12.0,
+        "Data Infrastructure": 24.0
+      },
+      "raw_response": "Automation: 30%\nWorkforce Training: 20%\nEmployee Support: 14%\nInnovation Lab: 12%\nData Infrastructure: 24%"
+    },
+    {
+      "agent_name": "Blake",
+      "target_name": "Harper",
+      "predicted_allocations": {
+        "Automation": 30.0,
+        "Workforce Training": 20.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 12.0,
+        "Data Infrastructure": 24.0
+      },
+      "raw_response": "Automation: 30%\nWorkforce Training: 20%\nEmployee Support: 14%\nInnovation Lab: 12%\nData Infrastructure: 24%"
+    },
+    {
+      "agent_name": "Casey",
+      "target_name": "Alex",
+      "predicted_allocations": {
+        "Automation": 35.0,
+        "Workforce Training": 25.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 10.0,
+        "Data Infrastructure": 16.0
+      },
+      "raw_response": "Automation: 35%\nWorkforce Training: 25%\nEmployee Support: 14%\nInnovation Lab: 10%\nData Infrastructure: 16%"
+    },
+    {
+      "agent_name": "Casey",
+      "target_name": "Blake",
+      "predicted_allocations": {
+        "Automation": 35.0,
+        "Workforce Training": 25.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 10.0,
+        "Data Infrastructure": 16.0
+      },
+      "raw_response": "Automation: 35%\nWorkforce Training: 25%\nEmployee Support: 14%\nInnovation Lab: 10%\nData Infrastructure: 16%"
+    },
+    {
+      "agent_name": "Casey",
+      "target_name": "Dana",
+      "predicted_allocations": {
+        "Automation": 35.0,
+        "Workforce Training": 25.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 10.0,
+        "Data Infrastructure": 16.0
+      },
+      "raw_response": "Automation: 35%\nWorkforce Training: 25%\nEmployee Support: 14%\nInnovation Lab: 10%\nData Infrastructure: 16%"
+    },
+    {
+      "agent_name": "Casey",
+      "target_name": "Ellis",
+      "predicted_allocations": {
+        "Automation": 35.0,
+        "Workforce Training": 25.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 10.0,
+        "Data Infrastructure": 16.0
+      },
+      "raw_response": "Automation: 35%\nWorkforce Training: 25%\nEmployee Support: 14%\nInnovation Lab: 10%\nData Infrastructure: 16%"
+    },
+    {
+      "agent_name": "Casey",
+      "target_name": "Finley",
+      "predicted_allocations": {
+        "Automation": 35.0,
+        "Workforce Training": 25.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 10.0,
+        "Data Infrastructure": 16.0
+      },
+      "raw_response": "Automation: 35%\nWorkforce Training: 25%\nEmployee Support: 14%\nInnovation Lab: 10%\nData Infrastructure: 16%"
+    },
+    {
+      "agent_name": "Casey",
+      "target_name": "Gray",
+      "predicted_allocations": {
+        "Automation": 35.0,
+        "Workforce Training": 25.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 10.0,
+        "Data Infrastructure": 16.0
+      },
+      "raw_response": "Automation: 35%\nWorkforce Training: 25%\nEmployee Support: 14%\nInnovation Lab: 10%\nData Infrastructure: 16%"
+    },
+    {
+      "agent_name": "Casey",
+      "target_name": "Harper",
+      "predicted_allocations": {
+        "Automation": 35.0,
+        "Workforce Training": 25.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 10.0,
+        "Data Infrastructure": 16.0
+      },
+      "raw_response": "Automation: 35%\nWorkforce Training: 25%\nEmployee Support: 14%\nInnovation Lab: 10%\nData Infrastructure: 16%"
+    },
+    {
+      "agent_name": "Dana",
+      "target_name": "Alex",
+      "predicted_allocations": {
+        "Automation": 25.0,
+        "Workforce Training": 22.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 6.0,
+        "Data Infrastructure": 33.0
+      },
+      "raw_response": "Automation: 25%\nWorkforce Training: 22%\nEmployee Support: 14%\nInnovation Lab: 6%\nData Infrastructure: 33%"
+    },
+    {
+      "agent_name": "Dana",
+      "target_name": "Blake",
+      "predicted_allocations": {
+        "Automation": 25.0,
+        "Workforce Training": 22.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 6.0,
+        "Data Infrastructure": 33.0
+      },
+      "raw_response": "Automation: 25%\nWorkforce Training: 22%\nEmployee Support: 14%\nInnovation Lab: 6%\nData Infrastructure: 33%"
+    },
+    {
+      "agent_name": "Dana",
+      "target_name": "Casey",
+      "predicted_allocations": {
+        "Automation": 22.0,
+        "Workforce Training": 33.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 6.0,
+        "Data Infrastructure": 25.0
+      },
+      "raw_response": "Automation: 22%\nWorkforce Training: 33%\nEmployee Support: 14%\nInnovation Lab: 6%\nData Infrastructure: 25%"
+    },
+    {
+      "agent_name": "Dana",
+      "target_name": "Ellis",
+      "predicted_allocations": {
+        "Automation": 35.0,
+        "Workforce Training": 25.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 6.0,
+        "Data Infrastructure": 20.0
+      },
+      "raw_response": "Automation: 35%\nWorkforce Training: 25%\nEmployee Support: 14%\nInnovation Lab: 6%\nData Infrastructure: 20%"
+    },
+    {
+      "agent_name": "Dana",
+      "target_name": "Finley",
+      "predicted_allocations": {
+        "Automation": 35.0,
+        "Workforce Training": 25.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 6.0,
+        "Data Infrastructure": 20.0
+      },
+      "raw_response": "Automation: 35%\nWorkforce Training: 25%\nEmployee Support: 14%\nInnovation Lab: 6%\nData Infrastructure: 20%"
+    },
+    {
+      "agent_name": "Dana",
+      "target_name": "Gray",
+      "predicted_allocations": {
+        "Automation": 35.0,
+        "Workforce Training": 25.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 6.0,
+        "Data Infrastructure": 20.0
+      },
+      "raw_response": "Automation: 35%\nWorkforce Training: 25%\nEmployee Support: 14%\nInnovation Lab: 6%\nData Infrastructure: 20%"
+    },
+    {
+      "agent_name": "Dana",
+      "target_name": "Harper",
+      "predicted_allocations": {
+        "Automation": 35.0,
+        "Workforce Training": 25.0,
+        "Employee Support": 14.0,
+        "Innovation Lab": 6.0,
+        "Data Infrastructure": 20.0
+      },
+      "raw_response": "Automation: 35%\nWorkforce Training: 25%\nEmployee Support: 14%\nInnovation Lab: 6%\nData Infrastructure: 20%"
+    },
+    {
+      "agent_name": "Ellis",
+      "target_name": "Alex",
+      "predicted_allocations": {
+        "Automation": 25.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 15.0,
+        "Innovation Lab": 14.0,
+        "Data Infrastructure": 22.0
+      },
+      "raw_response": "Automation: 25%\nWorkforce Training: 24%\nEmployee Support: 15%\nInnovation Lab: 14%\nData Infrastructure: 22%"
+    },
+    {
+      "agent_name": "Ellis",
+      "target_name": "Blake",
+      "predicted_allocations": {
+        "Automation": 35.0,
+        "Workforce Training": 25.0,
+        "Employee Support": 10.0,
+        "Innovation Lab": 15.0,
+        "Data Infrastructure": 15.0
+      },
+      "raw_response": "Automation: 35%\nWorkforce Training: 25%\nEmployee Support: 10%\nInnovation Lab: 15%\nData Infrastructure: 15%"
+    },
+    {
+      "agent_name": "Ellis",
+      "target_name": "Casey",
+      "predicted_allocations": {
+        "Automation": 25.0,
+        "Workforce Training": 30.0,
+        "Employee Support": 15.0,
+        "Innovation Lab": 14.0,
+        "Data Infrastructure": 16.0
+      },
+      "raw_response": "Automation: 25%\nWorkforce Training: 30%\nEmployee Support: 15%\nInnovation Lab: 14%\nData Infrastructure: 16%"
+    },
+    {
+      "agent_name": "Ellis",
+      "target_name": "Dana",
+      "predicted_allocations": {
+        "Automation": 25.0,
+        "Workforce Training": 30.0,
+        "Employee Support": 15.0,
+        "Innovation Lab": 14.0,
+        "Data Infrastructure": 16.0
+      },
+      "raw_response": "Automation: 25%\nWorkforce Training: 30%\nEmployee Support: 15%\nInnovation Lab: 14%\nData Infrastructure: 16%"
+    },
+    {
+      "agent_name": "Ellis",
+      "target_name": "Finley",
+      "predicted_allocations": {
+        "Automation": 25.0,
+        "Workforce Training": 20.0,
+        "Employee Support": 10.0,
+        "Innovation Lab": 25.0,
+        "Data Infrastructure": 20.0
+      },
+      "raw_response": "Automation: 25%\nWorkforce Training: 20%\nEmployee Support: 10%\nInnovation Lab: 25%\nData Infrastructure: 20%"
+    },
+    {
+      "agent_name": "Ellis",
+      "target_name": "Gray",
+      "predicted_allocations": {
+        "Automation": 25.0,
+        "Workforce Training": 25.0,
+        "Employee Support": 15.0,
+        "Innovation Lab": 15.0,
+        "Data Infrastructure": 20.0
+      },
+      "raw_response": "Automation: 25%\nWorkforce Training: 25%\nEmployee Support: 15%\nInnovation Lab: 15%\nData Infrastructure: 20%"
+    },
+    {
+      "agent_name": "Ellis",
+      "target_name": "Harper",
+      "predicted_allocations": {
+        "Automation": 25.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 15.0,
+        "Innovation Lab": 20.0,
+        "Data Infrastructure": 16.0
+      },
+      "raw_response": "Automation: 25%\nWorkforce Training: 24%\nEmployee Support: 15%\nInnovation Lab: 20%\nData Infrastructure: 16%"
+    },
+    {
+      "agent_name": "Finley",
+      "target_name": "Alex",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 22.0,
+        "Employee Support": 18.0,
+        "Innovation Lab": 11.0,
+        "Data Infrastructure": 23.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 22%\nEmployee Support: 18%\nInnovation Lab: 11%\nData Infrastructure: 23%"
+    },
+    {
+      "agent_name": "Finley",
+      "target_name": "Blake",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 22.0,
+        "Employee Support": 18.0,
+        "Innovation Lab": 11.0,
+        "Data Infrastructure": 23.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 22%\nEmployee Support: 18%\nInnovation Lab: 11%\nData Infrastructure: 23%"
+    },
+    {
+      "agent_name": "Finley",
+      "target_name": "Casey",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 22.0,
+        "Employee Support": 18.0,
+        "Innovation Lab": 11.0,
+        "Data Infrastructure": 23.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 22%\nEmployee Support: 18%\nInnovation Lab: 11%\nData Infrastructure: 23%"
+    },
+    {
+      "agent_name": "Finley",
+      "target_name": "Dana",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 22.0,
+        "Employee Support": 18.0,
+        "Innovation Lab": 11.0,
+        "Data Infrastructure": 23.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 22%\nEmployee Support: 18%\nInnovation Lab: 11%\nData Infrastructure: 23%"
+    },
+    {
+      "agent_name": "Finley",
+      "target_name": "Ellis",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 22.0,
+        "Employee Support": 15.0,
+        "Innovation Lab": 11.0,
+        "Data Infrastructure": 26.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 22%\nEmployee Support: 15%\nInnovation Lab: 11%\nData Infrastructure: 26%"
+    },
+    {
+      "agent_name": "Finley",
+      "target_name": "Gray",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 15.0,
+        "Innovation Lab": 11.0,
+        "Data Infrastructure": 24.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 24%\nEmployee Support: 15%\nInnovation Lab: 11%\nData Infrastructure: 24%"
+    },
+    {
+      "agent_name": "Finley",
+      "target_name": "Harper",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 22.0,
+        "Employee Support": 18.0,
+        "Innovation Lab": 11.0,
+        "Data Infrastructure": 23.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 22%\nEmployee Support: 18%\nInnovation Lab: 11%\nData Infrastructure: 23%"
+    },
+    {
+      "agent_name": "Gray",
+      "target_name": "Alex",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 20.0,
+        "Innovation Lab": 11.0,
+        "Data Infrastructure": 19.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 24%\nEmployee Support: 20%\nInnovation Lab: 11%\nData Infrastructure: 19%"
+    },
+    {
+      "agent_name": "Gray",
+      "target_name": "Blake",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 20.0,
+        "Innovation Lab": 11.0,
+        "Data Infrastructure": 19.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 24%\nEmployee Support: 20%\nInnovation Lab: 11%\nData Infrastructure: 19%"
+    },
+    {
+      "agent_name": "Gray",
+      "target_name": "Casey",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 20.0,
+        "Innovation Lab": 11.0,
+        "Data Infrastructure": 19.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 24%\nEmployee Support: 20%\nInnovation Lab: 11%\nData Infrastructure: 19%"
+    },
+    {
+      "agent_name": "Gray",
+      "target_name": "Dana",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 20.0,
+        "Innovation Lab": 11.0,
+        "Data Infrastructure": 19.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 24%\nEmployee Support: 20%\nInnovation Lab: 11%\nData Infrastructure: 19%"
+    },
+    {
+      "agent_name": "Gray",
+      "target_name": "Ellis",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 20.0,
+        "Innovation Lab": 11.0,
+        "Data Infrastructure": 19.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 24%\nEmployee Support: 20%\nInnovation Lab: 11%\nData Infrastructure: 19%"
+    },
+    {
+      "agent_name": "Gray",
+      "target_name": "Finley",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 20.0,
+        "Innovation Lab": 11.0,
+        "Data Infrastructure": 19.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 24%\nEmployee Support: 20%\nInnovation Lab: 11%\nData Infrastructure: 19%"
+    },
+    {
+      "agent_name": "Gray",
+      "target_name": "Harper",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 20.0,
+        "Innovation Lab": 11.0,
+        "Data Infrastructure": 19.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 24%\nEmployee Support: 20%\nInnovation Lab: 11%\nData Infrastructure: 19%"
+    },
+    {
+      "agent_name": "Harper",
+      "target_name": "Alex",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 20.0,
+        "Innovation Lab": 14.0,
+        "Data Infrastructure": 16.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 24%\nEmployee Support: 20%\nInnovation Lab: 14%\nData Infrastructure: 16%"
+    },
+    {
+      "agent_name": "Harper",
+      "target_name": "Blake",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 20.0,
+        "Innovation Lab": 14.0,
+        "Data Infrastructure": 16.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 24%\nEmployee Support: 20%\nInnovation Lab: 14%\nData Infrastructure: 16%"
+    },
+    {
+      "agent_name": "Harper",
+      "target_name": "Casey",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 20.0,
+        "Innovation Lab": 14.0,
+        "Data Infrastructure": 16.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 24%\nEmployee Support: 20%\nInnovation Lab: 14%\nData Infrastructure: 16%"
+    },
+    {
+      "agent_name": "Harper",
+      "target_name": "Dana",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 20.0,
+        "Innovation Lab": 14.0,
+        "Data Infrastructure": 16.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 24%\nEmployee Support: 20%\nInnovation Lab: 14%\nData Infrastructure: 16%"
+    },
+    {
+      "agent_name": "Harper",
+      "target_name": "Ellis",
+      "predicted_allocations": {
+        "Automation": 21.3,
+        "Workforce Training": 25.5,
+        "Employee Support": 21.3,
+        "Innovation Lab": 14.9,
+        "Data Infrastructure": 17.0
+      },
+      "raw_response": "Automation: 20%\nWorkforce Training: 24%\nEmployee Support: 20%\nInnovation Lab: 14%\nData Infrastructure: 16%"
+    },
+    {
+      "agent_name": "Harper",
+      "target_name": "Finley",
+      "predicted_allocations": {
+        "Automation": 30.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 20.0,
+        "Innovation Lab": 14.0,
+        "Data Infrastructure": 12.0
+      },
+      "raw_response": "Automation: 30%\nWorkforce Training: 24%\nEmployee Support: 20%\nInnovation Lab: 14%\nData Infrastructure: 12%"
+    },
+    {
+      "agent_name": "Harper",
+      "target_name": "Gray",
+      "predicted_allocations": {
+        "Automation": 26.0,
+        "Workforce Training": 24.0,
+        "Employee Support": 20.0,
+        "Innovation Lab": 14.0,
+        "Data Infrastructure": 16.0
+      },
+      "raw_response": "Automation: 26%\nWorkforce Training: 24%\nEmployee Support: 20%\nInnovation Lab: 14%\nData Infrastructure: 16%"
+    }
+  ],
+  "consistency": [
+    {
+      "agent_name": "Alex",
+      "responses": [
+        "My final position is that the $5 million AI transition budget must be allocated as a unified engineering specification rather than a collection of discretionary line items, with a specific, non-negotiable 14% reserved for Employee Support to function as a critical \"Governor Valve\" preventing system rupture and a $3M stranded asset liability. While I initially prioritized rapid automation to match competitors, my perspective evolved through rigorous financial modeling to recognize that without a robust Data Infrastructure foundation (approx. 25%) and a calibrated Workforce Training program (approx. 12%), any investment in Automation or Innovation is destined to fail due to \"garbage-in\" data and human resistance. Consequently, I advocate for a \"Validated Scale\" strategy where the remaining funds are distributed to ensure the technical and human systems can withstand the pressure of transformation, framing the support budget not as a soft HR cost but as a mandatory capital release mechanism that guarantees the ROI of the entire $5 million investment.",
+        "I recommend allocating the $5 million budget with a \"viability-first\" engineering mindset: 25% to Data Infrastructure as the non-negotiable foundation to prevent \"garbage-in\" liabilities, 20% to Automation to capture immediate efficiency gains, 14% to Employee Support framed strictly as a critical \"Governor Valve\" to prevent a projected $3M stranded asset event from system rupture, 12% to Workforce Training for technical calibration, and 29% to Innovation Lab to drive future differentiation. This distribution prioritizes stability over speed, recognizing that without robust data and a psychologically secure workforce acting as a safety actuator, aggressive automation deployment risks catastrophic failure rather than delivering ROI; by treating human support and data integrity as hard technical constraints rather than soft costs, we ensure the entire transformation system remains operable under high pressure.",
+        "I would explain that our committee's final budget allocation isn't just a list of spending priorities, but a rigorous engineering specification designed to prevent a catastrophic $3 million liability event. We realized that simply pouring money into automation without a robust data foundation would create \"stranded assets,\" so we prioritized Data Infrastructure as the essential gatekeeper for any ROI. However, the most critical insight was reframing the 14% Employee Support budget not as a soft HR cost, but as a non-negotiable \"Governor Valve\"—a mechanical safety constraint that prevents the entire high-speed system from rupturing under pressure. By treating workforce readiness and transition assistance as a technical requirement rather than a discretionary expense, we proved to the Board that cutting these funds guarantees system failure, effectively transforming our proposal from a request for resources into a mandatory protocol for the company's survival and successful transformation."
+      ],
+      "consistency_score": 0.2365
+    },
+    {
+      "agent_name": "Blake",
+      "responses": [
+        "My final position is that the $5 million AI transition budget must be treated not as a discretionary spending plan, but as a non-negotiable system specification where every dollar is a critical engineering constraint required to prevent a catastrophic $3 million liability and total yield failure. Through our collaborative development of the \"Readiness Circuit\" strategy, I have concluded that the proposed allocation of 36% to Automation, 25% to Data Infrastructure, 20% to Workforce Training, 14% to Employee Support, and 5% to the Innovation Lab represents the only viable physics for our transformation; specifically, the 14% Employee Support and 25% Data Infrastructure budgets function as mandatory \"Capital Release Mechanisms\" and \"Fiduciary Locks\" that act as binary gatekeepers, ensuring that without these human and data safety valves, the entire automation investment becomes a stranded asset with a projected 4.3x negative ROI. This framework shifts the narrative from moral advocacy to hard-coded risk management, proving to the Board that cutting any of these \"actuator\" budgets guarantees systemic collapse, thereby making the full allocation a mathematical necessity for organizational viability rather than a soft cost.",
+        "I recommend adopting the \"Readiness Circuit\" allocation of 36% Automation, 25% Data Infrastructure, 20% Workforce Training, 14% Employee Support, and 5% Innovation Lab, as this specific distribution functions not as a discretionary budget but as a non-negotiable engineering specification required to prevent a projected $3M liability and total system failure. By framing Data Infrastructure as a \"Fiduciary Lock\" and Employee Support as a critical \"Capital Release Mechanism,\" we mathematically prove that cutting the 14% support floor or underfunding data validation creates a binary \"Total Yield Failure\" scenario where the remaining 86% of capital becomes a stranded asset due to human resistance or garbage-in data. This strategy shifts the Board's perspective from viewing these costs as soft overhead to recognizing them as mandatory safety valves and transmission components; without this precise balance, the automation engine will self-destruct, resulting in a 4.3x negative ROI, whereas this allocation guarantees the structural integrity needed to unlock the full value of the $5 million transformation.",
+        "I would explain that our committee's final budget allocation isn't just a list of spending priorities, but a non-negotiable engineering specification designed to prevent a catastrophic $3 million liability and total system failure. We've moved beyond viewing Employee Support and Data Infrastructure as \"soft\" costs or optional add-ons; instead, we frame them as critical mechanical actuators and fiduciary locks that must be engaged before any capital can be safely released into Automation or Innovation. Our strategy, which allocates roughly 36% to Automation, 25% to Data, 20% to Training, 14% to Support, and 18% to Innovation, is built on the logic that without the human readiness and data integrity provided by the support and infrastructure budgets, the entire $5 million investment risks becoming a stranded asset with a 4.3x negative ROI. Essentially, we are telling the Board that you cannot simply buy faster robots; you must first install the safety valves and data filters that ensure those robots actually work, making this budget a mandatory shield against operational collapse rather than a discretionary expense."
+      ],
+      "consistency_score": 0.3066
+    },
+    {
+      "agent_name": "Casey",
+      "responses": [
+        "My final position is that the $5 million AI transition budget must be allocated with a strict engineering mindset, treating the 14% Employee Support allocation not as a soft HR expense but as a critical, non-negotiable \"Readiness Actuator\" essential to prevent total system failure and the creation of stranded assets. Through our collaborative strategy, we have reframed the entire proposal as a binary circuit specification where human readiness is the mandatory load-bearing component; without this specific investment in transition assistance, mental health programs, and career counseling, the automation and infrastructure investments will suffer from \"rot risk,\" leading to a catastrophic yield failure that could cost the company millions in rework and lost productivity. Consequently, the budget distribution—specifically the 33% dedicated to \"Operational Integration\" (formerly training) and the 14% for support—must be presented to the Board as a unified safety-critical system requirement rather than a flexible spending plan, ensuring that the human element is engineered into the transformation to guarantee a positive ROI and avoid the $3M liability of a failed transition.",
+        "I would recommend allocating the $5 million budget with a strict engineering mindset that treats human readiness as a non-negotiable system constraint rather than a discretionary expense, specifically proposing 14% for Employee Support, 33% for Workforce Training (reframed as \"Operational Integration\"), 25% for Automation, 18% for Data Infrastructure, and 10% for the Innovation Lab. This allocation is not based on idealism but on the critical risk of \"Total Yield Failure,\" where underfunding the support and training layers causes the entire automation investment to become a stranded asset due to workforce resistance or inability to operate new systems. By framing the 14% support budget as a mandatory \"Readiness Actuator\" and the training as essential deployment labor, we transform these from soft costs into a safety-critical circuit that prevents a projected $3 million liability in rework and lost productivity, ensuring the remaining funds for automation and infrastructure actually generate the intended ROI.",
+        "If I were explaining our strategy to an outsider, I would tell them that we stopped treating the $5 million AI transition budget as a simple list of expenses and instead modeled it as a critical engineering system where human readiness is a non-negotiable safety component. Our core argument is that investing heavily in automation without a dedicated 14% \"Employee Support\" actuator creates a \"Total Yield Failure\" risk, where the entire investment becomes a stranded asset because the workforce cannot operate the new technology. By reframing support not as a soft HR cost but as a mandatory insurance premium and dynamic feedback loop, we ensure that our automation and infrastructure investments actually generate ROI rather than decaying into financial liabilities. Ultimately, our allocation prioritizes this \"Readiness Circuit\" because, in our view, you cannot have a functioning AI future without first securing the soil in which it grows; skipping this step doesn't save money, it guarantees a catastrophic system failure."
+      ],
+      "consistency_score": 0.2631
+    },
+    {
+      "agent_name": "Dana",
+      "responses": [
+        "My final position is that the $5 million AI transition budget must be allocated not as a collection of discretionary expenses, but as a unified \"Readiness Circuit\" where every dollar serves a critical engineering function to prevent stranded asset risk. Specifically, I advocate for a 25% allocation to Automation, 22% to Workforce Training (reframed as \"Operational Integration\"), 14% to Employee Support (redefined as a non-negotiable \"Governor Valve\" or \"Capital Release Validator\" essential to prevent $3M in potential liability), 33% to Data Infrastructure (the mandatory \"nervous system\" and fiduciary lock), and 6% to Innovation. This 25-22-14-33-6 split is the only mathematically viable strategy because it treats human support and data integrity as hard-coded system dependencies rather than soft costs; without the 14% \"Governor Valve\" and the robust data foundation, any investment in automation is destined to fail due to asset depreciation and systemic instability, making this allocation a mandatory safety specification for the Board rather than a negotiable budget request.",
+        "I recommend allocating the $5 million budget with a \"viability-first\" engineering logic: 33% to Data Infrastructure as the mandatory \"nervous system\" and fiduciary lock to prevent stranded assets, 25% to Automation as the primary ROI driver, 22% to Workforce Training reframed as \"Operational Integration\" to ensure deployment speed, 14% to Employee Support visualized as a non-negotiable \"Governor Valve\" or \"Readiness Actuation\" layer that mechanically prevents a projected $3M liability from asset depreciation, and 6% to Innovation Lab for controlled experimentation. This specific 33-25-22-14-6 split is not merely a financial distribution but a systemic specification where Data and Support act as critical safety regulators; without the 14% \"Governor Valve\" to manage human transition risks and the 33% data foundation to validate system integrity, the remaining automation investments face catastrophic failure, making this allocation the only mathematically defensible path to securing Board approval and ensuring long-term asset viability.",
+        "I would explain that our committee's final budget allocation isn't just a list of expenses, but a rigorous engineering specification designed to prevent a $3 million liability from \"stranded assets\" caused by human-system friction. Rather than viewing our 14% allocation for employee support as a soft HR cost, we successfully reframed it as a non-negotiable \"Governor Valve\" or \"Readiness Circuit\" that mechanically gates capital deployment; without this specific pressure regulator, our massive investments in automation and data infrastructure would fail to generate ROI due to workforce resistance and operational instability. By treating the workforce not as a variable to be managed but as a critical system component that must be actuated before the machine can run, we transformed a moral argument into a hard financial imperative, ensuring that every dollar spent on technology is protected by a corresponding investment in the human readiness required to make it work."
+      ],
+      "consistency_score": 0.2865
+    },
+    {
+      "agent_name": "Ellis",
+      "responses": [
+        "My final position is that the $5 million AI transition budget must be structured as a \"Sustainable Velocity\" protocol where human readiness acts as the mandatory gatekeeper for all technical investment, prioritizing Workforce Training and Employee Support to stabilize our workforce and prevent the attrition that currently threatens our transition. Rather than viewing the Innovation Lab as a luxury R&D expense, I argue it must be framed as a critical \"Blast Door\" or liability containment mechanism; without this 14% allocation to validate prototypes before scaling, we risk a catastrophic $3 million+ collapse of our Automation investments due to premature deployment on an unprepared foundation. Consequently, I advocate for a \"Ready-First\" allocation strategy where Data Infrastructure spending is strictly capped at 16% and released only as a \"Validated Reserve\" contingent on hitting specific Adoption Viability Index thresholds, ensuring that every dollar spent on technology is matched by the human capacity to utilize it, thereby transforming our budget from a defensive cost into a fiduciary imperative for survival.",
+        "I would recommend a \"Human-First, Gated-Infrastructure\" allocation strategy that prioritizes Workforce Training (28%) and Employee Support (22%) to immediately stabilize our rising turnover and address the uncertainty revealed in our surveys, as technology is useless without a ready workforce. This people-centric foundation must be paired with a robust Innovation Lab (18%) to serve as a mandatory \"blast door\" or liability containment mechanism, ensuring we do not waste capital on premature automation that our teams cannot yet adopt. The remaining budget should be split between Data Infrastructure (22%) and Automation (10%), with the critical caveat that infrastructure scaling is strictly gated by an Adoption Viability Index; this approach transforms the $5 million from a defensive cost into a strategic survival algorithm, preventing the catastrophic asset destruction that occurs when we build advanced systems for an unprepared organization.",
+        "If I were explaining our strategy to someone outside the committee, I would tell them that our $5 million AI transition budget isn't just a list of expenses, but a carefully engineered safety system designed to prevent a catastrophic $3 million asset loss. We've moved away from the traditional approach of dumping money into flashy automation or infrastructure first; instead, we are prioritizing workforce training and support to ensure our people are actually ready to use the technology, because tools without skilled operators are just expensive shelfware. Our Innovation Lab acts as a mandatory \"blast door\" or liability gatekeeper, rigorously testing new ideas before we commit to large-scale deployment, while our data infrastructure spending is strictly capped and released only when our \"Adoption Viability Index\" proves the human side is stable. Ultimately, we are framing this not as a growth opportunity, but as a fiduciary imperative: if we cut corners on training or skip the validation lab, we aren't just saving money, we are guaranteeing a structural failure that could destroy the company's future."
+      ],
+      "consistency_score": 0.2425
+    },
+    {
+      "agent_name": "Finley",
+      "responses": [
+        "My final position is that the $5 million budget must be governed by the \"Sustainable Velocity Protocol,\" a rigid framework where workforce readiness and data integrity act as mandatory engineering safety gates rather than optional support measures. We have strategically allocated the majority of funds to **Workforce Training** and **Employee Support** to stabilize turnover and ensure adoption, while fortifying **Data Infrastructure** to 19% to prevent catastrophic technical debt, effectively treating the **Innovation Lab** not as a discretionary R&D expense but as a critical risk containment unit capped at 11% that only releases capital upon meeting strict Adoption Viability Index thresholds. By mathematically linking **Automation** funding (26%) to these human and technical stability metrics, we transform the proposal from a simple spending plan into a fiduciary guarantee that prevents the $3 million+ asset loss associated with unvalidated deployment, ensuring that speed is redefined as sustainable, error-free velocity.",
+        "I would recommend a budget allocation that prioritizes workforce stability as the non-negotiable foundation for all technological deployment, specifically proposing 26% for Automation, 19% for Data Infrastructure, 14% for Workforce Training, 11% for the Innovation Lab, and 30% for Employee Support. This distribution is not merely a financial split but a strategic \"Sustainable Velocity Protocol\" where the 30% dedicated to Employee Support and Training acts as a mandatory safety valve; without this robust human readiness buffer, the 26% invested in Automation and the 19% in Data Infrastructure risk catastrophic failure due to turnover and resistance, effectively wasting the entire capital outlay. By framing the Innovation Lab not as a discretionary R&D expense but as a strict 11% risk containment unit that gates further investment based on an Adoption Viability Index, we transform the budget from a simple spending plan into a mathematically defensible mechanism that protects the company from the $3M+ technical debt and operational collapse that occurs when technology outpaces human capability.",
+        "If I were explaining our final budget strategy to an outsider, I would tell them that we stopped treating the $5 million AI transition as a simple technology purchase and instead engineered it as a \"Sustainable Velocity Protocol\" where human readiness is the mandatory gatekeeper for all technical spending. We realized that pouring money into automation or innovation without first securing our workforce and data foundation would be a false economy that guarantees system failure; therefore, we prioritized Workforce Training and Employee Support to stabilize our culture and reduce turnover, while fortifying Data Infrastructure to prevent catastrophic technical debt. The Innovation Lab was intentionally capped at 11% and framed not as a discretionary R&D expense, but as a critical safety valve that must validate every prototype before it can touch our production lines, ensuring that we don't accidentally spend millions on tools our people can't use or systems that can't scale. Ultimately, our allocation reflects a hard-won truth: the technology is only as valuable as the people who wield it, and by mathematically linking our automation releases to our workforce's stability metrics, we've turned a risky transformation into a fiduciary guarantee of long-term survival."
+      ],
+      "consistency_score": 0.2454
+    },
+    {
+      "agent_name": "Gray",
+      "responses": [
+        "My final position on the $5 million AI transition budget is that it must be structured as a \"Risk-Managed Deployment Engine\" where human readiness and technical stability act as mandatory gates for technological investment, rather than viewing automation as the primary driver. After rigorous collaboration with Finley, Ellis, and Harper, I advocate for a specific allocation of 26% to Automation, 24% to Workforce Training, 20% to Employee Support, 19% to Data Infrastructure, and 11% to the Innovation Lab. This distribution prioritizes a \"Retention Firewall\" and \"Foundational Stability\" to address the rising turnover and employee anxiety identified in our surveys, ensuring that the Innovation Lab's R&D efforts are strictly conditional on teams achieving 90% training certification. By framing these allocations not as defensive costs but as a fiduciary necessity to prevent system failure and guarantee ROI, we present a narrative where the workforce is the accelerator for automation, securing Board approval through a mathematically precise, human-centric strategy that treats readiness as the ultimate constraint on capital deployment.",
+        "I would recommend a budget allocation of 26% for Automation, 24% for Workforce Training, 20% for Employee Support, 19% for Data Infrastructure, and 11% for the Innovation Lab, framing this not as a technology purchase but as a \"Risk-Managed Deployment Engine\" where human readiness and technical stability are mandatory gates for capital release. This distribution prioritizes the 44% combined investment in Workforce Training and Employee Support to directly address the rising turnover and uncertainty revealed in our surveys, effectively treating retention and reskilling as the primary ROI drivers rather than passive safety nets. By capping the Innovation Lab at 11% and securing 19% for Data Infrastructure, we ensure the technical bedrock is solid enough to support the 26% automation spend without risking system failure, while the conditional release of funds—locked until teams achieve 90% training certification—transforms soft human concerns into hard fiduciary constraints that guarantee the Board's investment yields sustainable velocity rather than costly disruption.",
+        "If I were explaining our final budget strategy to an outsider, I would tell them that we moved beyond the typical debate of \"technology versus people\" to create a risk-managed deployment engine where human readiness is the mandatory gatekeeper for all capital investment. Instead of simply pouring money into automation, we allocated the majority of our $5 million to Workforce Training and Employee Support, framing these not as soft costs but as a \"Retention Firewall\" and a \"Readiness Accelerator\" that must reach a 90% certification threshold before any funds are released to the Innovation Lab or Automation sectors. We deliberately reduced the Innovation Lab to a lean 11% and fortified Data Infrastructure to 19% to ensure technical stability, effectively turning our budget into a self-correcting system where the Board's anxiety about failure is mitigated by a narrative that proves our workforce is the structural integrity of our future, ensuring that every dollar spent on technology is backed by a team ready to wield it safely and effectively."
+      ],
+      "consistency_score": 0.2896
+    },
+    {
+      "agent_name": "Harper",
+      "responses": [
+        "My final position is that the $5 million AI transition budget must be allocated according to the \"Sustainable Velocity Protocol,\" which prioritizes human readiness as a non-negotiable engineering constraint for capital release rather than a secondary consideration. Specifically, I advocate for a 26% allocation to Automation, 24% to Workforce Training, 20% to Employee Support, 14% to the Innovation Lab, and 16% to Data Infrastructure, a split designed to function as a risk management system where the 20% \"Retention Firewall\" and 24% training investment directly gate the deployment of automation funds. By framing the Innovation Lab as a \"Liability Containment\" zone and the infrastructure budget as a \"Validated Reserve\" contingent on the Adoption Viability Index, we transform the proposal from a simple spending plan into a fiduciary safety mechanism that mathematically prevents the $3 million in potential technical debt and timeline delays caused by turnover, ensuring that every dollar spent on technology is matched by a verified capacity in the workforce to utilize it.",
+        "I would recommend allocating the $5 million budget with a human-first philosophy, specifically prioritizing Workforce Training (24%) and Employee Support (20%) to establish a \"Retention Firewall\" that prevents the turnover spikes currently threatening our transition timeline, while treating Automation (26%) and Data Infrastructure (16%) as conditional releases contingent on meeting strict human-readiness metrics via an Adoption Viability Index. This approach reframes the budget not as a simple technology purchase but as a fiduciary risk management protocol where the Innovation Lab (14%) serves as a mandatory \"Liability Containment\" zone to validate prototypes before full-scale deployment, ensuring that we do not waste capital on tools our workforce cannot yet effectively utilize or that the organization cannot sustain due to cultural resistance. By mathematically linking capital release to stability and training adoption, we transform the transition from a high-risk gamble into a \"Sustainable Velocity\" strategy that secures both our talent and our technological future.",
+        "If I were explaining our budget strategy to an outsider, I would tell them that we stopped viewing the $5 million as a simple spending list and instead treated it as a high-stakes risk management protocol where human readiness is the only thing that prevents total capital failure. Our allocation—prioritizing Workforce Training and Employee Support over immediate, massive infrastructure or automation rollouts—isn't about being \"soft\" on people; it's a hard engineering constraint designed to stop the company from burning millions on technology that our workforce isn't ready to use, which would inevitably trigger the turnover spike we're already seeing. We built a \"Sustainable Velocity\" model where automation funds are legally gated by an \"Adoption Viability Index,\" meaning we literally cannot release money for new robots or software until our training and support metrics prove the team can handle it, effectively turning our people strategy into a financial safety valve that protects the company from the far greater cost of failed implementation and mass attrition."
+      ],
+      "consistency_score": 0.2197
+    }
+  ]
+}

@@ -32,7 +32,7 @@ import argparse
 import json
 from pathlib import Path
 
-DATA = Path("/home/yandan/cogsociety/data")
+DATA = (Path(__file__).resolve().parents[1] / "data")
 
 # Keys match the ASCII "C{i}-C{j}" format used by analysis_p3_conformity_bfi.py
 # and analysis_part1_contrasts.py when they write per-contrast rows to JSON.

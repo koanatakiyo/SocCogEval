@@ -24,7 +24,7 @@ from pathlib import Path
 
 import numpy as np
 
-DATA = Path("/home/yandan/cogsociety/data")
+DATA = (Path(__file__).resolve().parents[1] / "data")
 OUTPUT = DATA / "analysis_c3_vs_c5_greenfield.json"
 SCENARIO = "greenfield"
 AREAS = ["Education", "Healthcare", "Green Spaces", "Infrastructure", "Economic Development"]

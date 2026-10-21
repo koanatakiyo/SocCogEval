@@ -22,15 +22,15 @@ def _load_key(filename: str, env_var: str) -> str:
 
 OPENAI_API_KEY = _load_key("api_key_openai.txt", "OPENAI_API_KEY")
 DEEPSEEK_API_KEY = _load_key("api_key_deepseek.txt", "DEEPSEEK_API_KEY")
-GEMINI_API_KEY = _load_key("api_key_gemini.txt", "GEMINI_API_KEY")
 GROK_API_KEY = _load_key("api_key_grok.txt", "GROK_API_KEY")
+OPENROUTER_API_KEY = _load_key("api_key_openrouter.txt", "OPENROUTER_API_KEY")
 LLAMA_API_KEY = (
     _load_key("api_key_llama.txt", "LLAMA_API_KEY")
-    or _load_key("api_key_openrouter.txt", "OPENROUTER_API_KEY")
+    or OPENROUTER_API_KEY
 )
 
 # ── Local Model Paths ─────────────────────────────────────────────────────
-LOCAL_MODEL_CACHE = Path("/mnt/ssd1/yandan/transformer_cache")
+LOCAL_MODEL_CACHE = Path(os.environ.get("LOCAL_MODEL_CACHE", "models")).expanduser()
 QWEN_MODEL_PATH = str(LOCAL_MODEL_CACHE / "qwen3-122b-fp8")
 LLAMA_MODEL_PATH = str(LOCAL_MODEL_CACHE / "llama4-scout")
 
@@ -61,7 +61,7 @@ ALLOCATION_MAX_TOKENS = 256
 PRIMARY_MODEL = "qwen3-122b-fp8"         # Local Qwen 3 122B FP8 (主力)
 MODEL_LLAMA = "llama4-scout"             # Local Llama 4 Scout
 MODEL_GPT = "gpt-4.1-mini"              # GPT-4.1 mini (API; supports temperature)
-MODEL_DEEPSEEK = "deepseek-chat"         # DeepSeek v3 (API)
+MODEL_DEEPSEEK = "deepseek/deepseek-v3.2"  # Frozen C2 family via OpenRouter
 MODEL_GEMINI = "gemini-2.5-flash"        # Gemini 2.5 Flash (API; supports temperature)
 MODEL_GROK = "grok-4-1-fast"             # Grok 4.1 fast (backup)
 PILOT_MODEL = PRIMARY_MODEL              # Same as primary (free, unlimited)
@@ -83,6 +83,13 @@ _LLAMA_API_DEFAULT_URL = "https://openrouter.ai/api/v1" if LLAMA_API_KEY else ""
 _LLAMA_API_DEFAULT_MODEL = "meta-llama/llama-4-scout:floor" if LLAMA_API_KEY else MODEL_LLAMA
 LLAMA_API_BASE_URL = os.environ.get("LLAMA_API_BASE_URL", _LLAMA_API_DEFAULT_URL)
 LLAMA_API_MODEL = os.environ.get("LLAMA_API_MODEL", _LLAMA_API_DEFAULT_MODEL)
+
+# Optional OpenAI-compatible DeepSeek route. Rebuttal C4 uses OpenRouter so
+# the retired ``deepseek-chat`` alias can be matched to the historical V3.2.
+DEEPSEEK_API_BASE_URL = os.environ.get(
+    "DEEPSEEK_API_BASE_URL", "https://openrouter.ai/api/v1"
+)
+DEEPSEEK_API_MODEL = os.environ.get("DEEPSEEK_API_MODEL", MODEL_DEEPSEEK)
 
 # ── Paths ───────────────────────────────────────────────────────────────────
 
@@ -132,6 +139,7 @@ class ExperimentConfig:
     model: str = PRIMARY_MODEL
     n_repeats: int = 1
     use_s2: bool = False  # S2 deliberate reasoning
+    memory_mode: str = "srm"  # "srm", "verbatim", or "none"
     run_id: str = ""
 
     def to_dict(self) -> dict:

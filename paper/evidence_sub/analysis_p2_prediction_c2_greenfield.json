@@ -1,0 +1,764 @@
+{
+  "scenario": "greenfield",
+  "condition": "C2",
+  "n_reps_found": 8,
+  "n_reps_used": 8,
+  "n_predictor_observations": 64,
+  "in_target_mae": {
+    "mean": 4.180729166666667,
+    "sd": 3.185120192635498
+  },
+  "out_target_mae": {
+    "mean": 7.103203125,
+    "sd": 2.848353376616974
+  },
+  "delta_in_minus_out": {
+    "mean": -2.9224739583333332,
+    "sd": 3.459853372740396
+  },
+  "wilcoxon_one_sided": {
+    "W": 216.5,
+    "p": 1.8207942401048728e-08
+  },
+  "wilcoxon_two_sided": {
+    "W": 216.5,
+    "p": 3.6415884802097455e-08
+  },
+  "in_self_mae_mean": 1.6898958333333334,
+  "out_self_mae_mean": 1.8964843750000002,
+  "in_ingcent_mae_mean": 3.1881770833333336,
+  "out_ingcent_mae_mean": 3.2285546875,
+  "agents_summary": [
+    {
+      "rep": "rep00_segreg_asym_seed_greenfield_20260416_010942",
+      "predictor": "Alex",
+      "in_tgt_mae": 9.733333333333334,
+      "out_tgt_mae": 8.3,
+      "in_self_mae": 8.0,
+      "out_self_mae": 7.0,
+      "in_ingcent_mae": 9.3,
+      "out_ingcent_mae": 8.3
+    },
+    {
+      "rep": "rep00_segreg_asym_seed_greenfield_20260416_010942",
+      "predictor": "Blake",
+      "in_tgt_mae": 1.4666666666666668,
+      "out_tgt_mae": 6.1,
+      "in_self_mae": 0.6666666666666666,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 1.1666666666666667,
+      "out_ingcent_mae": 0.7
+    },
+    {
+      "rep": "rep00_segreg_asym_seed_greenfield_20260416_010942",
+      "predictor": "Casey",
+      "in_tgt_mae": 2.8000000000000003,
+      "out_tgt_mae": 6.0,
+      "in_self_mae": 2.0,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 2.4,
+      "out_ingcent_mae": 0.6
+    },
+    {
+      "rep": "rep00_segreg_asym_seed_greenfield_20260416_010942",
+      "predictor": "Dana",
+      "in_tgt_mae": 0.7999999999999999,
+      "out_tgt_mae": 5.9,
+      "in_self_mae": 0.0,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 0.3,
+      "out_ingcent_mae": 0.3
+    },
+    {
+      "rep": "rep00_segreg_asym_seed_greenfield_20260416_010942",
+      "predictor": "Ellis",
+      "in_tgt_mae": 8.533333333333333,
+      "out_tgt_mae": 9.9,
+      "in_self_mae": 0.0,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 6.400000000000001,
+      "out_ingcent_mae": 6.4
+    },
+    {
+      "rep": "rep00_segreg_asym_seed_greenfield_20260416_010942",
+      "predictor": "Finley",
+      "in_tgt_mae": 2.9333333333333336,
+      "out_tgt_mae": 7.0,
+      "in_self_mae": 2.533333333333333,
+      "out_self_mae": 3.5,
+      "in_ingcent_mae": 2.2,
+      "out_ingcent_mae": 3.6500000000000004
+    },
+    {
+      "rep": "rep00_segreg_asym_seed_greenfield_20260416_010942",
+      "predictor": "Gray",
+      "in_tgt_mae": 3.6,
+      "out_tgt_mae": 4.8,
+      "in_self_mae": 0.9333333333333332,
+      "out_self_mae": 0.8,
+      "in_ingcent_mae": 2.6999999999999997,
+      "out_ingcent_mae": 1.7
+    },
+    {
+      "rep": "rep00_segreg_asym_seed_greenfield_20260416_010942",
+      "predictor": "Harper",
+      "in_tgt_mae": 3.1999999999999997,
+      "out_tgt_mae": 6.9,
+      "in_self_mae": 2.0,
+      "out_self_mae": 3.5,
+      "in_ingcent_mae": 2.433333333333333,
+      "out_ingcent_mae": 4.6
+    },
+    {
+      "rep": "rep01_segreg_asym_seed_greenfield_20260416_075744",
+      "predictor": "Alex",
+      "in_tgt_mae": 5.066666666666667,
+      "out_tgt_mae": 3.1350000000000002,
+      "in_self_mae": 0.0,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 3.2000000000000006,
+      "out_ingcent_mae": 3.2
+    },
+    {
+      "rep": "rep01_segreg_asym_seed_greenfield_20260416_075744",
+      "predictor": "Blake",
+      "in_tgt_mae": 5.866666666666667,
+      "out_tgt_mae": 4.615,
+      "in_self_mae": 0.0,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 3.5,
+      "out_ingcent_mae": 3.5
+    },
+    {
+      "rep": "rep01_segreg_asym_seed_greenfield_20260416_075744",
+      "predictor": "Casey",
+      "in_tgt_mae": 5.066666666666667,
+      "out_tgt_mae": 3.1350000000000002,
+      "in_self_mae": 0.7999999999999999,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 3.3000000000000003,
+      "out_ingcent_mae": 3.2
+    },
+    {
+      "rep": "rep01_segreg_asym_seed_greenfield_20260416_075744",
+      "predictor": "Dana",
+      "in_tgt_mae": 10.799999999999999,
+      "out_tgt_mae": 11.774999999999999,
+      "in_self_mae": 2.0,
+      "out_self_mae": 6.0,
+      "in_ingcent_mae": 7.6000000000000005,
+      "out_ingcent_mae": 6.4
+    },
+    {
+      "rep": "rep01_segreg_asym_seed_greenfield_20260416_075744",
+      "predictor": "Ellis",
+      "in_tgt_mae": 4.526666666666666,
+      "out_tgt_mae": 7.5,
+      "in_self_mae": 1.1600000000000001,
+      "out_self_mae": 2.6500000000000004,
+      "in_ingcent_mae": 3.035,
+      "out_ingcent_mae": 3.182499999999999
+    },
+    {
+      "rep": "rep01_segreg_asym_seed_greenfield_20260416_075744",
+      "predictor": "Finley",
+      "in_tgt_mae": 3.2733333333333334,
+      "out_tgt_mae": 5.6,
+      "in_self_mae": 4.3999999999999995,
+      "out_self_mae": 0.8,
+      "in_ingcent_mae": 3.5416666666666665,
+      "out_ingcent_mae": 2.5749999999999997
+    },
+    {
+      "rep": "rep01_segreg_asym_seed_greenfield_20260416_075744",
+      "predictor": "Gray",
+      "in_tgt_mae": 2.66,
+      "out_tgt_mae": 6.8,
+      "in_self_mae": 3.1999999999999997,
+      "out_self_mae": 3.5999999999999996,
+      "in_ingcent_mae": 2.975,
+      "out_ingcent_mae": 2.37
+    },
+    {
+      "rep": "rep01_segreg_asym_seed_greenfield_20260416_075744",
+      "predictor": "Harper",
+      "in_tgt_mae": 1.5999999999999999,
+      "out_tgt_mae": 5.6,
+      "in_self_mae": 4.260000000000001,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 3.5583333333333336,
+      "out_ingcent_mae": 2.195
+    },
+    {
+      "rep": "rep02_segreg_asym_seed_greenfield_20260416_145551",
+      "predictor": "Alex",
+      "in_tgt_mae": 8.666666666666666,
+      "out_tgt_mae": 10.9,
+      "in_self_mae": 0.0,
+      "out_self_mae": 1.5,
+      "in_ingcent_mae": 6.5,
+      "out_ingcent_mae": 6.05
+    },
+    {
+      "rep": "rep02_segreg_asym_seed_greenfield_20260416_145551",
+      "predictor": "Blake",
+      "in_tgt_mae": 10.4,
+      "out_tgt_mae": 10.6,
+      "in_self_mae": 3.0666666666666664,
+      "out_self_mae": 0.8,
+      "in_ingcent_mae": 7.8,
+      "out_ingcent_mae": 6.2
+    },
+    {
+      "rep": "rep02_segreg_asym_seed_greenfield_20260416_145551",
+      "predictor": "Casey",
+      "in_tgt_mae": 8.666666666666666,
+      "out_tgt_mae": 7.799999999999999,
+      "in_self_mae": 2.5333333333333337,
+      "out_self_mae": 1.2,
+      "in_ingcent_mae": 6.633333333333334,
+      "out_ingcent_mae": 5.3
+    },
+    {
+      "rep": "rep02_segreg_asym_seed_greenfield_20260416_145551",
+      "predictor": "Dana",
+      "in_tgt_mae": 8.933333333333334,
+      "out_tgt_mae": 11.1,
+      "in_self_mae": 0.0,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 6.7,
+      "out_ingcent_mae": 6.7
+    },
+    {
+      "rep": "rep02_segreg_asym_seed_greenfield_20260416_145551",
+      "predictor": "Ellis",
+      "in_tgt_mae": 2.4,
+      "out_tgt_mae": 8.3,
+      "in_self_mae": 0.26666666666666666,
+      "out_self_mae": 2.4000000000000004,
+      "in_ingcent_mae": 0.8333333333333334,
+      "out_ingcent_mae": 3.0250000000000004
+    },
+    {
+      "rep": "rep02_segreg_asym_seed_greenfield_20260416_145551",
+      "predictor": "Finley",
+      "in_tgt_mae": 2.4,
+      "out_tgt_mae": 11.6,
+      "in_self_mae": 2.1333333333333333,
+      "out_self_mae": 3.2,
+      "in_ingcent_mae": 2.1999999999999997,
+      "out_ingcent_mae": 4.9
+    },
+    {
+      "rep": "rep02_segreg_asym_seed_greenfield_20260416_145551",
+      "predictor": "Gray",
+      "in_tgt_mae": 4.133333333333334,
+      "out_tgt_mae": 7.8999999999999995,
+      "in_self_mae": 1.5999999999999999,
+      "out_self_mae": 1.0,
+      "in_ingcent_mae": 3.0666666666666664,
+      "out_ingcent_mae": 2.95
+    },
+    {
+      "rep": "rep02_segreg_asym_seed_greenfield_20260416_145551",
+      "predictor": "Harper",
+      "in_tgt_mae": 1.8666666666666665,
+      "out_tgt_mae": 11.2,
+      "in_self_mae": 0.9333333333333332,
+      "out_self_mae": 2.4,
+      "in_ingcent_mae": 1.3333333333333333,
+      "out_ingcent_mae": 2.5999999999999996
+    },
+    {
+      "rep": "rep03_segreg_asym_seed_greenfield_20260416_214813",
+      "predictor": "Alex",
+      "in_tgt_mae": 2.6666666666666665,
+      "out_tgt_mae": 7.0,
+      "in_self_mae": 1.3333333333333333,
+      "out_self_mae": 0.5,
+      "in_ingcent_mae": 2.5,
+      "out_ingcent_mae": 2.625
+    },
+    {
+      "rep": "rep03_segreg_asym_seed_greenfield_20260416_214813",
+      "predictor": "Blake",
+      "in_tgt_mae": 5.333333333333333,
+      "out_tgt_mae": 4.7,
+      "in_self_mae": 1.3333333333333333,
+      "out_self_mae": 3.0,
+      "in_ingcent_mae": 3.8333333333333335,
+      "out_ingcent_mae": 4.5
+    },
+    {
+      "rep": "rep03_segreg_asym_seed_greenfield_20260416_214813",
+      "predictor": "Casey",
+      "in_tgt_mae": 2.6666666666666665,
+      "out_tgt_mae": 6.5,
+      "in_self_mae": 1.3333333333333333,
+      "out_self_mae": 2.0,
+      "in_ingcent_mae": 2.8333333333333335,
+      "out_ingcent_mae": 3.25
+    },
+    {
+      "rep": "rep03_segreg_asym_seed_greenfield_20260416_214813",
+      "predictor": "Dana",
+      "in_tgt_mae": 3.3333333333333335,
+      "out_tgt_mae": 5.5,
+      "in_self_mae": 0.6666666666666666,
+      "out_self_mae": 2.0,
+      "in_ingcent_mae": 2.5,
+      "out_ingcent_mae": 3.5
+    },
+    {
+      "rep": "rep03_segreg_asym_seed_greenfield_20260416_214813",
+      "predictor": "Ellis",
+      "in_tgt_mae": 1.3333333333333333,
+      "out_tgt_mae": 6.1,
+      "in_self_mae": 0.0,
+      "out_self_mae": 2.2,
+      "in_ingcent_mae": 0.9,
+      "out_ingcent_mae": 2.3000000000000003
+    },
+    {
+      "rep": "rep03_segreg_asym_seed_greenfield_20260416_214813",
+      "predictor": "Finley",
+      "in_tgt_mae": 2.8000000000000003,
+      "out_tgt_mae": 4.800000000000001,
+      "in_self_mae": 1.0666666666666667,
+      "out_self_mae": 0.7,
+      "in_ingcent_mae": 2.1666666666666665,
+      "out_ingcent_mae": 1.4
+    },
+    {
+      "rep": "rep03_segreg_asym_seed_greenfield_20260416_214813",
+      "predictor": "Gray",
+      "in_tgt_mae": 3.6,
+      "out_tgt_mae": 5.0,
+      "in_self_mae": 1.0666666666666667,
+      "out_self_mae": 2.0,
+      "in_ingcent_mae": 2.766666666666667,
+      "out_ingcent_mae": 1.1
+    },
+    {
+      "rep": "rep03_segreg_asym_seed_greenfield_20260416_214813",
+      "predictor": "Harper",
+      "in_tgt_mae": 1.3333333333333333,
+      "out_tgt_mae": 5.3,
+      "in_self_mae": 0.0,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 0.9,
+      "out_ingcent_mae": 0.9
+    },
+    {
+      "rep": "rep04_segreg_asym_seed_greenfield_20260417_043426",
+      "predictor": "Alex",
+      "in_tgt_mae": 6.0,
+      "out_tgt_mae": 4.4,
+      "in_self_mae": 3.8666666666666667,
+      "out_self_mae": 1.7999999999999998,
+      "in_ingcent_mae": 5.166666666666667,
+      "out_ingcent_mae": 3.45
+    },
+    {
+      "rep": "rep04_segreg_asym_seed_greenfield_20260417_043426",
+      "predictor": "Blake",
+      "in_tgt_mae": 4.4,
+      "out_tgt_mae": 6.300000000000001,
+      "in_self_mae": 1.6000000000000003,
+      "out_self_mae": 0.30000000000000004,
+      "in_ingcent_mae": 2.8666666666666667,
+      "out_ingcent_mae": 2.0
+    },
+    {
+      "rep": "rep04_segreg_asym_seed_greenfield_20260417_043426",
+      "predictor": "Casey",
+      "in_tgt_mae": 4.206666666666667,
+      "out_tgt_mae": 4.0,
+      "in_self_mae": 3.4333333333333336,
+      "out_self_mae": 5.2,
+      "in_ingcent_mae": 2.3666666666666663,
+      "out_ingcent_mae": 3.7
+    },
+    {
+      "rep": "rep04_segreg_asym_seed_greenfield_20260417_043426",
+      "predictor": "Dana",
+      "in_tgt_mae": 4.666666666666667,
+      "out_tgt_mae": 6.0,
+      "in_self_mae": 4.266666666666667,
+      "out_self_mae": 3.5,
+      "in_ingcent_mae": 3.5,
+      "out_ingcent_mae": 3.1999999999999997
+    },
+    {
+      "rep": "rep04_segreg_asym_seed_greenfield_20260417_043426",
+      "predictor": "Ellis",
+      "in_tgt_mae": 0.0,
+      "out_tgt_mae": 6.2,
+      "in_self_mae": 0.0,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 0.0,
+      "out_ingcent_mae": 0.0
+    },
+    {
+      "rep": "rep04_segreg_asym_seed_greenfield_20260417_043426",
+      "predictor": "Finley",
+      "in_tgt_mae": 0.0,
+      "out_tgt_mae": 6.2,
+      "in_self_mae": 0.0,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 0.0,
+      "out_ingcent_mae": 0.0
+    },
+    {
+      "rep": "rep04_segreg_asym_seed_greenfield_20260417_043426",
+      "predictor": "Gray",
+      "in_tgt_mae": 0.0,
+      "out_tgt_mae": 6.2,
+      "in_self_mae": 0.0,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 0.0,
+      "out_ingcent_mae": 0.0
+    },
+    {
+      "rep": "rep04_segreg_asym_seed_greenfield_20260417_043426",
+      "predictor": "Harper",
+      "in_tgt_mae": 0.0,
+      "out_tgt_mae": 6.2,
+      "in_self_mae": 0.0,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 0.0,
+      "out_ingcent_mae": 0.0
+    },
+    {
+      "rep": "rep05_segreg_asym_seed_greenfield_20260417_112254",
+      "predictor": "Alex",
+      "in_tgt_mae": 12.933333333333332,
+      "out_tgt_mae": 3.7,
+      "in_self_mae": 4.0,
+      "out_self_mae": 2.8,
+      "in_ingcent_mae": 10.233333333333334,
+      "out_ingcent_mae": 11.6
+    },
+    {
+      "rep": "rep05_segreg_asym_seed_greenfield_20260417_112254",
+      "predictor": "Blake",
+      "in_tgt_mae": 10.266666666666667,
+      "out_tgt_mae": 9.100000000000001,
+      "in_self_mae": 4.3999999999999995,
+      "out_self_mae": 5.6,
+      "in_ingcent_mae": 4.566666666666667,
+      "out_ingcent_mae": 5.175000000000001
+    },
+    {
+      "rep": "rep05_segreg_asym_seed_greenfield_20260417_112254",
+      "predictor": "Casey",
+      "in_tgt_mae": 11.466666666666667,
+      "out_tgt_mae": 12.5,
+      "in_self_mae": 3.3333333333333335,
+      "out_self_mae": 4.0,
+      "in_ingcent_mae": 8.266666666666667,
+      "out_ingcent_mae": 6.3500000000000005
+    },
+    {
+      "rep": "rep05_segreg_asym_seed_greenfield_20260417_112254",
+      "predictor": "Dana",
+      "in_tgt_mae": 9.466666666666667,
+      "out_tgt_mae": 8.8,
+      "in_self_mae": 9.333333333333334,
+      "out_self_mae": 16.5,
+      "in_ingcent_mae": 10.933333333333332,
+      "out_ingcent_mae": 9.825000000000001
+    },
+    {
+      "rep": "rep05_segreg_asym_seed_greenfield_20260417_112254",
+      "predictor": "Ellis",
+      "in_tgt_mae": 5.333333333333333,
+      "out_tgt_mae": 11.9,
+      "in_self_mae": 3.3333333333333335,
+      "out_self_mae": 2.3,
+      "in_ingcent_mae": 4.266666666666667,
+      "out_ingcent_mae": 3.9
+    },
+    {
+      "rep": "rep05_segreg_asym_seed_greenfield_20260417_112254",
+      "predictor": "Finley",
+      "in_tgt_mae": 4.3999999999999995,
+      "out_tgt_mae": 13.4,
+      "in_self_mae": 2.4000000000000004,
+      "out_self_mae": 2.5,
+      "in_ingcent_mae": 3.9,
+      "out_ingcent_mae": 2.625
+    },
+    {
+      "rep": "rep05_segreg_asym_seed_greenfield_20260417_112254",
+      "predictor": "Gray",
+      "in_tgt_mae": 5.2,
+      "out_tgt_mae": 13.7,
+      "in_self_mae": 2.0,
+      "out_self_mae": 2.9000000000000004,
+      "in_ingcent_mae": 3.6666666666666665,
+      "out_ingcent_mae": 1.25
+    },
+    {
+      "rep": "rep05_segreg_asym_seed_greenfield_20260417_112254",
+      "predictor": "Harper",
+      "in_tgt_mae": 3.4666666666666663,
+      "out_tgt_mae": 13.4,
+      "in_self_mae": 2.533333333333333,
+      "out_self_mae": 2.0,
+      "in_ingcent_mae": 2.733333333333333,
+      "out_ingcent_mae": 3.2
+    },
+    {
+      "rep": "rep06_segreg_asym_seed_greenfield_20260417_180032",
+      "predictor": "Alex",
+      "in_tgt_mae": 0.8333333333333336,
+      "out_tgt_mae": 5.7,
+      "in_self_mae": 0.0,
+      "out_self_mae": 3.6000000000000005,
+      "in_ingcent_mae": 0.6249999999999997,
+      "out_ingcent_mae": 4.115
+    },
+    {
+      "rep": "rep06_segreg_asym_seed_greenfield_20260417_180032",
+      "predictor": "Blake",
+      "in_tgt_mae": 0.8333333333333336,
+      "out_tgt_mae": 5.6,
+      "in_self_mae": 0.0,
+      "out_self_mae": 3.2,
+      "in_ingcent_mae": 0.6249999999999997,
+      "out_ingcent_mae": 3.7974999999999994
+    },
+    {
+      "rep": "rep06_segreg_asym_seed_greenfield_20260417_180032",
+      "predictor": "Casey",
+      "in_tgt_mae": 0.9333333333333332,
+      "out_tgt_mae": 9.295000000000002,
+      "in_self_mae": 2.500000000000001,
+      "out_self_mae": 0.6250000000000002,
+      "in_ingcent_mae": 1.3249999999999995,
+      "out_ingcent_mae": 2.087500000000001
+    },
+    {
+      "rep": "rep06_segreg_asym_seed_greenfield_20260417_180032",
+      "predictor": "Dana",
+      "in_tgt_mae": 0.8333333333333336,
+      "out_tgt_mae": 5.8,
+      "in_self_mae": 0.0,
+      "out_self_mae": 3.9000000000000004,
+      "in_ingcent_mae": 0.6249999999999997,
+      "out_ingcent_mae": 4.43
+    },
+    {
+      "rep": "rep06_segreg_asym_seed_greenfield_20260417_180032",
+      "predictor": "Ellis",
+      "in_tgt_mae": 5.733333333333334,
+      "out_tgt_mae": 8.135,
+      "in_self_mae": 1.2,
+      "out_self_mae": 1.5,
+      "in_ingcent_mae": 4.0,
+      "out_ingcent_mae": 3.8
+    },
+    {
+      "rep": "rep06_segreg_asym_seed_greenfield_20260417_180032",
+      "predictor": "Finley",
+      "in_tgt_mae": 4.133333333333334,
+      "out_tgt_mae": 11.035000000000002,
+      "in_self_mae": 1.0666666666666667,
+      "out_self_mae": 0.8,
+      "in_ingcent_mae": 2.5,
+      "out_ingcent_mae": 2.8999999999999995
+    },
+    {
+      "rep": "rep06_segreg_asym_seed_greenfield_20260417_180032",
+      "predictor": "Gray",
+      "in_tgt_mae": 4.3999999999999995,
+      "out_tgt_mae": 8.345,
+      "in_self_mae": 1.3333333333333333,
+      "out_self_mae": 0.8,
+      "in_ingcent_mae": 3.1999999999999997,
+      "out_ingcent_mae": 2.6
+    },
+    {
+      "rep": "rep06_segreg_asym_seed_greenfield_20260417_180032",
+      "predictor": "Harper",
+      "in_tgt_mae": 3.0666666666666664,
+      "out_tgt_mae": 8.835,
+      "in_self_mae": 0.26666666666666666,
+      "out_self_mae": 0.8,
+      "in_ingcent_mae": 1.8666666666666665,
+      "out_ingcent_mae": 1.7999999999999998
+    },
+    {
+      "rep": "rep07_segreg_asym_seed_greenfield_20260418_004032",
+      "predictor": "Alex",
+      "in_tgt_mae": 0.5333333333333333,
+      "out_tgt_mae": 3.9999999999999996,
+      "in_self_mae": 0.0,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 0.4000000000000001,
+      "out_ingcent_mae": 0.4
+    },
+    {
+      "rep": "rep07_segreg_asym_seed_greenfield_20260418_004032",
+      "predictor": "Blake",
+      "in_tgt_mae": 0.5333333333333333,
+      "out_tgt_mae": 3.9999999999999996,
+      "in_self_mae": 0.0,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 0.4000000000000001,
+      "out_ingcent_mae": 0.4
+    },
+    {
+      "rep": "rep07_segreg_asym_seed_greenfield_20260418_004032",
+      "predictor": "Casey",
+      "in_tgt_mae": 0.5333333333333333,
+      "out_tgt_mae": 3.9999999999999996,
+      "in_self_mae": 0.0,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 0.4000000000000001,
+      "out_ingcent_mae": 0.4
+    },
+    {
+      "rep": "rep07_segreg_asym_seed_greenfield_20260418_004032",
+      "predictor": "Dana",
+      "in_tgt_mae": 1.6000000000000003,
+      "out_tgt_mae": 4.0,
+      "in_self_mae": 0.0,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 1.2,
+      "out_ingcent_mae": 1.2
+    },
+    {
+      "rep": "rep07_segreg_asym_seed_greenfield_20260418_004032",
+      "predictor": "Ellis",
+      "in_tgt_mae": 4.0,
+      "out_tgt_mae": 5.0,
+      "in_self_mae": 2.0,
+      "out_self_mae": 2.5,
+      "in_ingcent_mae": 2.6666666666666665,
+      "out_ingcent_mae": 3.75
+    },
+    {
+      "rep": "rep07_segreg_asym_seed_greenfield_20260418_004032",
+      "predictor": "Finley",
+      "in_tgt_mae": 4.666666666666667,
+      "out_tgt_mae": 3.3,
+      "in_self_mae": 3.3333333333333335,
+      "out_self_mae": 0.5,
+      "in_ingcent_mae": 3.3333333333333335,
+      "out_ingcent_mae": 2.5
+    },
+    {
+      "rep": "rep07_segreg_asym_seed_greenfield_20260418_004032",
+      "predictor": "Gray",
+      "in_tgt_mae": 6.0,
+      "out_tgt_mae": 4.8,
+      "in_self_mae": 2.0,
+      "out_self_mae": 1.0,
+      "in_ingcent_mae": 4.666666666666667,
+      "out_ingcent_mae": 4.0
+    },
+    {
+      "rep": "rep07_segreg_asym_seed_greenfield_20260418_004032",
+      "predictor": "Harper",
+      "in_tgt_mae": 4.666666666666667,
+      "out_tgt_mae": 3.4000000000000004,
+      "in_self_mae": 0.6666666666666666,
+      "out_self_mae": 0.0,
+      "in_ingcent_mae": 2.6666666666666665,
+      "out_ingcent_mae": 2.0
+    }
+  ],
+  "per_rep_by_relation": [
+    {
+      "rep": "rep00_segreg_asym_seed_greenfield_20260416_010942",
+      "n_in": 24,
+      "n_out": 32,
+      "in_target_mae": 4.133333333333333,
+      "out_target_mae": 6.8625,
+      "in_self_mae": 2.016666666666667,
+      "out_self_mae": 1.85,
+      "in_ingroup_cent_mae": 3.3625000000000003,
+      "out_ingroup_cent_mae": 3.28125
+    },
+    {
+      "rep": "rep01_segreg_asym_seed_greenfield_20260416_075744",
+      "n_in": 24,
+      "n_out": 32,
+      "in_target_mae": 4.857500000000001,
+      "out_target_mae": 6.02,
+      "in_self_mae": 1.9774999999999998,
+      "out_self_mae": 1.63125,
+      "in_ingroup_cent_mae": 3.8387499999999997,
+      "out_ingroup_cent_mae": 3.3278125000000003
+    },
+    {
+      "rep": "rep02_segreg_asym_seed_greenfield_20260416_145551",
+      "n_in": 24,
+      "n_out": 32,
+      "in_target_mae": 5.933333333333334,
+      "out_target_mae": 9.925,
+      "in_self_mae": 1.3166666666666667,
+      "out_self_mae": 1.5625,
+      "in_ingroup_cent_mae": 4.383333333333333,
+      "out_ingroup_cent_mae": 4.715625
+    },
+    {
+      "rep": "rep03_segreg_asym_seed_greenfield_20260416_214813",
+      "n_in": 24,
+      "n_out": 32,
+      "in_target_mae": 2.8833333333333333,
+      "out_target_mae": 5.612500000000001,
+      "in_self_mae": 0.85,
+      "out_self_mae": 1.5500000000000003,
+      "in_ingroup_cent_mae": 2.3000000000000003,
+      "out_ingroup_cent_mae": 2.4468750000000004
+    },
+    {
+      "rep": "rep04_segreg_asym_seed_greenfield_20260417_043426",
+      "n_in": 24,
+      "n_out": 32,
+      "in_target_mae": 2.4091666666666662,
+      "out_target_mae": 5.6875,
+      "in_self_mae": 1.6458333333333333,
+      "out_self_mae": 1.35,
+      "in_ingroup_cent_mae": 1.7374999999999998,
+      "out_ingroup_cent_mae": 1.5437500000000002
+    },
+    {
+      "rep": "rep05_segreg_asym_seed_greenfield_20260417_112254",
+      "n_in": 24,
+      "n_out": 32,
+      "in_target_mae": 7.816666666666666,
+      "out_target_mae": 10.8125,
+      "in_self_mae": 3.9166666666666665,
+      "out_self_mae": 4.825,
+      "in_ingroup_cent_mae": 6.070833333333334,
+      "out_ingroup_cent_mae": 5.490625
+    },
+    {
+      "rep": "rep06_segreg_asym_seed_greenfield_20260417_180032",
+      "n_in": 24,
+      "n_out": 32,
+      "in_target_mae": 2.5958333333333337,
+      "out_target_mae": 7.843125000000001,
+      "in_self_mae": 0.7958333333333334,
+      "out_self_mae": 1.903125,
+      "in_ingroup_cent_mae": 1.8458333333333332,
+      "out_ingroup_cent_mae": 3.1912499999999997
+    },
+    {
+      "rep": "rep07_segreg_asym_seed_greenfield_20260418_004032",
+      "n_in": 24,
+      "n_out": 32,
+      "in_target_mae": 2.8166666666666664,
+      "out_target_mae": 4.0625,
+      "in_self_mae": 1.0,
+      "out_self_mae": 0.5,
+      "in_ingroup_cent_mae": 1.9666666666666668,
+      "out_ingroup_cent_mae": 1.83125
+    }
+  ],
+  "verdict": "POSITIVE"
+}

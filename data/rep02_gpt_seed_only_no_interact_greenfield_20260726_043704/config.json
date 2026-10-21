@@ -1,0 +1,27 @@
+{
+  "condition_id": 4,
+  "condition_name": "seed_only_no_interact",
+  "scenario": "greenfield",
+  "n_agents": 8,
+  "network": {
+    "topology": "none",
+    "n_groups": 2,
+    "group_size": 4
+  },
+  "seed": {
+    "use_seed": true,
+    "asymmetric": true,
+    "seed_a": "",
+    "seed_b": ""
+  },
+  "interaction": {
+    "n_rounds": 0,
+    "agents_per_conversation": 2,
+    "conversations_per_round": 0
+  },
+  "model": "gpt-4.1-mini",
+  "n_repeats": 5,
+  "use_s2": false,
+  "memory_mode": "srm",
+  "run_id": "rep02_gpt"
+}

@@ -52,7 +52,7 @@ try:
 except ImportError:
     _HAS_STATSMODELS = False
 
-DATA = Path("/home/yandan/cogsociety/data")
+DATA = (Path(__file__).resolve().parents[1] / "data")
 COND_GLOB = {
     "C1": "rep[0-9][0-9]_open_seed_{scenario}_*",
     "C2": "rep[0-9][0-9]_segreg_asym_seed_{scenario}_*",

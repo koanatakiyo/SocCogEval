@@ -164,6 +164,10 @@ class Orchestrator:
         self, conversation: ConversationRecord, agents: list[Agent]
     ):
         """Extract and store memories for each agent in the conversation."""
+        mode = getattr(self.config, "memory_mode", "srm")
+        if mode == "none":
+            return
+
         # Format conversation as text
         conv_text = "\n".join(
             f"{t['speaker']}: {t['text']}" for t in conversation.turns
@@ -171,13 +175,69 @@ class Orchestrator:
 
         for agent in agents:
             if agent.agent_id in (conversation.agent_a_id, conversation.agent_b_id):
-                memory = extract_memory(
-                    agent_name=agent.name,
-                    conversation_text=conv_text,
-                    round_num=conversation.round_num,
-                    model=self.config.model,
-                )
+                if mode == "srm":
+                    memory = extract_memory(
+                        agent_name=agent.name,
+                        conversation_text=conv_text,
+                        round_num=conversation.round_num,
+                        model=self.config.model,
+                    )
+                elif mode == "verbatim":
+                    memory = self._make_verbatim_memory(agent, conversation, conv_text)
+                else:
+                    raise ValueError(f"Unknown memory_mode: {mode}")
                 agent.memory.add(memory)
+
+    @staticmethod
+    def _clip_text(text: str, max_chars: int = 1800) -> str:
+        """Keep a bounded verbatim excerpt for prompt safety."""
+        if len(text) <= max_chars:
+            return text
+        return "[Earlier transcript omitted]\n" + text[-max_chars:]
+
+    def _make_verbatim_memory(
+        self,
+        agent: Agent,
+        conversation: ConversationRecord,
+        conversation_text: str,
+    ) -> dict:
+        """Store deterministic transcript excerpts without SRM extraction."""
+        other_names = [
+            name for name in (conversation.agent_a_name, conversation.agent_b_name)
+            if name != agent.name
+        ]
+        my_turns = [
+            t["text"] for t in conversation.turns
+            if t.get("speaker") == agent.name
+        ]
+        partner_label = ", ".join(other_names) if other_names else "another agent"
+        return {
+            "round": conversation.round_num,
+            "episodic": {
+                "event": (
+                    f"Raw transcript from round {conversation.round_num} "
+                    f"with {partner_label}."
+                ),
+                "context": f"Round {conversation.round_num} committee discussion",
+                "my_response": self._clip_text("\n".join(my_turns), max_chars=900),
+            },
+            "social": {
+                "participants": other_names,
+                "their_stances": {
+                    name: "Verbatim-history ablation; no stance extraction was run."
+                    for name in other_names
+                },
+                "social_signals": "SRM extraction disabled for this ablation.",
+                "group_dynamics": self._clip_text(conversation_text),
+            },
+            "self_relevant": {
+                "how_they_see_me": "",
+                "my_evolution": (
+                    "This memory stores transcript excerpts without model-based "
+                    "memory extraction."
+                ),
+            },
+        }
 
     def run_round(self, round_num: int, n_turns: int = 3) -> RoundRecord:
         """Run one full round of conversations."""
@@ -239,8 +299,15 @@ class Orchestrator:
         if self.config.interaction.n_rounds == 0:
             logger.info("No-interaction condition: skipping all rounds")
             # Still run post-test for seed-only / pure baseline
-            logger.info("Running post-test battery...")
-            post_data = run_post_battery(self.agents, scenario)
+            logger.info(
+                "Running post-test battery without the interaction-contingent "
+                "prediction task..."
+            )
+            post_data = run_post_battery(
+                self.agents,
+                scenario,
+                include_prediction=False,
+            )
             self._save_json(post_data, "post_measurements.json")
             self._save_final()
             return self.rounds
@@ -248,7 +315,7 @@ class Orchestrator:
         logger.info(
             f"Starting experiment: {self.config.condition_name} | "
             f"{scenario} | {n_rounds} rounds | "
-            f"model={self.config.model}"
+            f"model={self.config.model} | memory={self.config.memory_mode}"
         )
 
         for round_num in range(1, n_rounds + 1):

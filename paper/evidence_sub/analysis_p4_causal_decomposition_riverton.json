@@ -1,0 +1,305 @@
+{
+  "scenario": "riverton",
+  "contrasts": {
+    "(4) \u2212 (5)": {
+      "description": "Pure seed effect",
+      "part1_allocation": {
+        "delta": 1.3616666666666668,
+        "ci95_lo": null,
+        "ci95_hi": null,
+        "hedges_g": null,
+        "n_dims_with_valid_g": 0,
+        "ci_excludes_zero": true,
+        "n_sig_dims": 4,
+        "n_total_dims": 5
+      },
+      "part1_prediction": null,
+      "part2_conformity": {
+        "delta": 0.018061660561660555,
+        "ci95_lo": -0.03457367979242981,
+        "ci95_hi": 0.06977930402930402,
+        "hedges_g": 0.16933955308185944,
+        "welch_t": 0.6638648182696809,
+        "welch_p": 0.5099168289815368,
+        "ci_excludes_zero": false,
+        "n_a": 40,
+        "n_b": 24
+      },
+      "part2_bfi10": {
+        "delta": -0.2666666666666666,
+        "ci95_lo": -0.5875,
+        "ci95_hi": 0.054166666666666585,
+        "hedges_g": -0.43551589764295084,
+        "welch_t": -1.6023227740539565,
+        "welch_p": 0.11704581778153819,
+        "ci_excludes_zero": false,
+        "n_a": 40,
+        "n_b": 24
+      },
+      "part2_consistency": {
+        "delta": -0.00616750000000002,
+        "ci95_lo": -0.016035291666666663,
+        "ci95_hi": 0.00411089583333334,
+        "hedges_g": -0.27673238870639083,
+        "welch_t": -1.184868832304193,
+        "welch_p": 0.24070357995031136,
+        "ci_excludes_zero": false,
+        "n_a": 40,
+        "n_b": 24
+      }
+    },
+    "(2) \u2212 (4)": {
+      "description": "Interaction effect, conditional on seed",
+      "part1_allocation": {
+        "delta": 2.52,
+        "ci95_lo": null,
+        "ci95_hi": null,
+        "hedges_g": 0.7260215733613846,
+        "n_dims_with_valid_g": 5,
+        "ci_excludes_zero": true,
+        "n_sig_dims": 3,
+        "n_total_dims": 5
+      },
+      "part1_prediction": null,
+      "part2_conformity": {
+        "delta": -0.07176568223443222,
+        "ci95_lo": -0.11539136904761903,
+        "ci95_hi": -0.028654847756410248,
+        "hedges_g": -0.6249534887474044,
+        "welch_t": -3.213265955793217,
+        "welch_p": 0.0018192833205324835,
+        "ci_excludes_zero": true,
+        "n_a": 64,
+        "n_b": 40
+      },
+      "part2_bfi10": {
+        "delta": 0.9125,
+        "ci95_lo": 0.6046484375000001,
+        "ci95_hi": 1.240625,
+        "hedges_g": 0.956627587592892,
+        "welch_t": 5.53518396963148,
+        "welch_p": 2.655644065667794e-07,
+        "ci_excludes_zero": true,
+        "n_a": 64,
+        "n_b": 40
+      },
+      "part2_consistency": {
+        "delta": 0.05084406250000001,
+        "ci95_lo": 0.04022903906249997,
+        "ci95_hi": 0.06172769531249999,
+        "hedges_g": 1.736781634740697,
+        "welch_t": 9.199778825214421,
+        "welch_p": 7.0506566982663905e-15,
+        "ci_excludes_zero": true,
+        "n_a": 64,
+        "n_b": 40
+      }
+    },
+    "(2) \u2212 (3)": {
+      "description": "Seed effect, conditional on interaction",
+      "part1_allocation": {
+        "delta": -0.014000000000000146,
+        "ci95_lo": null,
+        "ci95_hi": null,
+        "hedges_g": 0.0948792674142043,
+        "n_dims_with_valid_g": 5,
+        "ci_excludes_zero": false,
+        "n_sig_dims": 0,
+        "n_total_dims": 5
+      },
+      "part1_prediction": {
+        "delta": 0.5374479166666668,
+        "wilcoxon_one_sided_p": 6.303017708585615e-10,
+        "ci_excludes_zero": true,
+        "a_effect_out_minus_in": 2.8945312500000004,
+        "b_condition": "C3"
+      },
+      "part2_conformity": {
+        "delta": -0.016523008241758216,
+        "ci95_lo": -0.06595321085164833,
+        "ci95_hi": 0.031367430746337,
+        "hedges_g": -0.13575500295045764,
+        "welch_t": -0.6725139828302036,
+        "welch_p": 0.5031818537001628,
+        "ci_excludes_zero": false,
+        "n_a": 64,
+        "n_b": 40
+      },
+      "part2_bfi10": {
+        "delta": 0.26249999999999996,
+        "ci95_lo": -0.1578124999999999,
+        "ci95_hi": 0.6734374999999999,
+        "hedges_g": 0.23973646056005046,
+        "welch_t": 1.2265979917109437,
+        "welch_p": 0.22320313480199483,
+        "ci_excludes_zero": false,
+        "n_a": 64,
+        "n_b": 40
+      },
+      "part2_consistency": {
+        "delta": -0.012210937500000019,
+        "ci95_lo": -0.025173445312500008,
+        "ci95_hi": 0.00034176562500000754,
+        "hedges_g": -0.3731633251914722,
+        "welch_t": -1.8343053084671548,
+        "welch_p": 0.07040088135104454,
+        "ci_excludes_zero": false,
+        "n_a": 64,
+        "n_b": 40
+      }
+    },
+    "(2) \u2212 (1)": {
+      "description": "Joint effect of segregation + seed asymmetry (C1 uses symmetric seed)",
+      "part1_allocation": {
+        "delta": 2.361857142857143,
+        "ci95_lo": null,
+        "ci95_hi": null,
+        "hedges_g": 0.8158051381952687,
+        "n_dims_with_valid_g": 5,
+        "ci_excludes_zero": false,
+        "n_sig_dims": 1,
+        "n_total_dims": 5
+      },
+      "part1_prediction": null,
+      "part2_conformity": {
+        "delta": 0.02745331305599165,
+        "ci95_lo": -0.0177095495650183,
+        "ci95_hi": 0.0713920742575876,
+        "hedges_g": 0.21948315766688373,
+        "welch_t": 1.20001583669436,
+        "welch_p": 0.23265566681079222,
+        "ci_excludes_zero": false,
+        "n_a": 64,
+        "n_b": 56
+      },
+      "part2_bfi10": {
+        "delta": 0.4196428571428572,
+        "ci95_lo": 0.09709821428571419,
+        "ci95_hi": 0.75,
+        "hedges_g": 0.43810732174906386,
+        "welch_t": 2.48264762027507,
+        "welch_p": 0.01459579706421367,
+        "ci_excludes_zero": true,
+        "n_a": 64,
+        "n_b": 56
+      },
+      "part2_consistency": {
+        "delta": 0.003714062500000004,
+        "ci95_lo": -0.0075309095982142625,
+        "ci95_hi": 0.015314056919642795,
+        "hedges_g": 0.11703207580668247,
+        "welch_t": 0.6437775405906548,
+        "welch_p": 0.5209909355465255,
+        "ci_excludes_zero": false,
+        "n_a": 64,
+        "n_b": 56
+      }
+    },
+    "(2) \u2212 (5)": {
+      "description": "Total effect (seed \u00d7 interaction)",
+      "part1_allocation": {
+        "delta": 3.882,
+        "ci95_lo": null,
+        "ci95_hi": null,
+        "hedges_g": 1.19005090692004,
+        "n_dims_with_valid_g": 5,
+        "ci_excludes_zero": true,
+        "n_sig_dims": 4,
+        "n_total_dims": 5
+      },
+      "part1_prediction": {
+        "delta": 2.8945312500000004,
+        "wilcoxon_one_sided_p": 6.303017708585615e-10,
+        "ci_excludes_zero": true,
+        "a_effect_out_minus_in": 2.8945312500000004,
+        "b_condition": null
+      },
+      "part2_conformity": {
+        "delta": -0.05370402167277166,
+        "ci95_lo": -0.1039515128968254,
+        "ci95_hi": -0.005777649000305287,
+        "hedges_g": -0.4607843767275698,
+        "welch_t": -2.053323927339883,
+        "welch_p": 0.045703816157472536,
+        "ci_excludes_zero": true,
+        "n_a": 64,
+        "n_b": 24
+      },
+      "part2_bfi10": {
+        "delta": 0.6458333333333334,
+        "ci95_lo": 0.26041666666666674,
+        "ci95_hi": 1.0364583333333335,
+        "hedges_g": 0.6215310539188967,
+        "welch_t": 3.2210103692110357,
+        "welch_p": 0.0019772051009641863,
+        "ci_excludes_zero": true,
+        "n_a": 64,
+        "n_b": 24
+      },
+      "part2_consistency": {
+        "delta": 0.04467656249999999,
+        "ci95_lo": 0.03441264322916664,
+        "ci95_hi": 0.05505839843749996,
+        "hedges_g": 1.55830552001334,
+        "welch_t": 8.490872080006149,
+        "welch_p": 1.3979436302179646e-12,
+        "ci_excludes_zero": true,
+        "n_a": 64,
+        "n_b": 24
+      }
+    },
+    "(3) \u2212 (5)": {
+      "description": "Interaction alone  (C3 critical ablation)",
+      "part1_allocation": {
+        "delta": 3.899,
+        "ci95_lo": null,
+        "ci95_hi": null,
+        "hedges_g": 1.4248577288469453,
+        "n_dims_with_valid_g": 5,
+        "ci_excludes_zero": true,
+        "n_sig_dims": 4,
+        "n_total_dims": 5
+      },
+      "part1_prediction": {
+        "delta": 2.3570833333333336,
+        "wilcoxon_one_sided_p": 4.584444073359686e-05,
+        "ci_excludes_zero": true,
+        "a_effect_out_minus_in": 2.3570833333333336,
+        "b_condition": null
+      },
+      "part2_conformity": {
+        "delta": -0.037181013431013446,
+        "ci95_lo": -0.09288099053724053,
+        "ci95_hi": 0.019336767399267377,
+        "hedges_g": -0.31335502053599024,
+        "welch_t": -1.279041058643761,
+        "welch_p": 0.20628321954285517,
+        "ci_excludes_zero": false,
+        "n_a": 40,
+        "n_b": 24
+      },
+      "part2_bfi10": {
+        "delta": 0.3833333333333334,
+        "ci95_lo": -0.02093749999999983,
+        "ci95_hi": 0.8125,
+        "hedges_g": 0.41455300955032914,
+        "welch_t": 1.7811338113773447,
+        "welch_p": 0.07988794312914883,
+        "ci_excludes_zero": false,
+        "n_a": 40,
+        "n_b": 24
+      },
+      "part2_consistency": {
+        "delta": 0.05688750000000001,
+        "ci95_lo": 0.0446657083333333,
+        "ci95_hi": 0.06936341666666666,
+        "hedges_g": 1.9491800421618988,
+        "welch_t": 8.89892010437186,
+        "welch_p": 1.3501240003569333e-12,
+        "ci_excludes_zero": true,
+        "n_a": 40,
+        "n_b": 24
+      }
+    }
+  }
+}
