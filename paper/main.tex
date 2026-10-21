@@ -8,6 +8,7 @@
 \usepackage[table]{xcolor}
 \usepackage{flafter}
 \usepackage{hyperref}
+\makeatletter\g@addto@macro\UrlBreaks{\do\-}\makeatother
 \hypersetup{colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black}
 \setcitestyle{numbers,square,comma,sort&compress}
 \newcommand{\tableinput}[1]{\csname @@input\endcsname #1 }
@@ -18,7 +19,7 @@
 \definecolor{gateshade}{HTML}{EAF4FB}
 \definecolor{verdictshade}{HTML}{EAF7EE}
 \definecolor{promptbg}{RGB}{246,246,250}
-\newcommand{\codeurl}{\url{https://github.com/koanatakiyo/cogsociety}}
+\newcommand{\codeurl}{\url{https://github.com/koanatakiyo/social-interaction-breaks-replicate-independence-in-controlled-clone-llm-agents}}
 % Final-size box for a hand-drawn figure that is not drawn yet.
 \newcommand{\handdrawn}[3]{\fbox{\parbox[c][#2][c]{\dimexpr#1-2\fboxsep-2\fboxrule\relax}{\centering\footnotesize\textbf{[Hand-drawn figure, to be drawn]}\\[3pt]\itshape #3}}}
 \title{Social Interaction Breaks Replicate Independence in Controlled-Clone LLM Agents}
