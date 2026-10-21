@@ -9,11 +9,9 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776ab.svg)](https://www.python.org/)
 [![Offline reproduction](https://img.shields.io/badge/reproduce-offline%2C%20no%20GPU-2e8b57.svg)](#reproduce-the-paper-numbers-offline)
 
-**Yandan Zheng**<sup>1</sup>, **Haoran Luo**<sup>1,\*</sup>, **Anh Tuan Luu**<sup>1,2</sup>
+**Yandan Zheng**<sup>1</sup>, **Haoran Luo**<sup>1</sup>, **Anh Tuan Luu**<sup>1,2</sup>
 
 <sup>1</sup>Nanyang Technological University, Singapore &nbsp;&nbsp; <sup>2</sup>VinUniversity, Vietnam
-
-<sup>\*</sup>Corresponding author: `haoran.luo@ntu.edu.sg`
 
 </div>
 
