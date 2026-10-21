@@ -170,4 +170,4 @@ If you find this work helpful for your research, please cite:
 
 ## 📬 Contact
 
-For questions, please open an issue or contact the corresponding author at `haoran.luo@ntu.edu.sg`.
+For questions, please open an issue or contact the corresponding author at `yandan.zheng@ntu.edu.sg`.
