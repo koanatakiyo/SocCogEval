@@ -1,6 +1,6 @@
 # SocCogEval
 
-Official resources of **"Social Interaction Breaks Replicate Independence in Controlled-Clone LLM Agents"**. Yandan Zheng, Haoran Luo, Anh Tuan Luu. **NeurIPS 2026** \[[paper](./paper/main.pdf)\].
+Official resources of **"Social Interaction Breaks Replicate Independence in Controlled-Clone LLM Agents"**. Yandan Zheng, Haoran Luo, Anh Tuan Luu. **NeurIPS 2026** \[paper: arXiv link coming soon\].
 
 ## Overview
 
@@ -43,7 +43,7 @@ python run_c6.py --scenario greenfield --replica 0 --seed 6200 \
   --tokenizer-path "$LOCAL_MODEL_CACHE/qwen3-122b-fp8" --run-id new_c6 --output-dir data --batch-size 8
 ```
 
-> For data coverage and reproducibility limits, please refer to [docs/DATA.md](./docs/DATA.md) and [docs/REPRODUCIBILITY.md](./docs/REPRODUCIBILITY.md). The camera-ready LaTeX source, table scripts and editable figures are in the [paper](./paper) folder.
+> For data coverage and reproducibility limits, please refer to [docs/DATA.md](./docs/DATA.md) and [docs/REPRODUCIBILITY.md](./docs/REPRODUCIBILITY.md).
 
 ## BibTex
 
@@ -59,7 +59,3 @@ If you find this work is helpful for your research, please cite:
 ```
 
 For further questions, please open an issue in this repository.
-
-## Acknowledgement
-
-This repo benefits from [HyperGraphRAG](https://github.com/LHRLAB/HyperGraphRAG), [OASIS](https://github.com/camel-ai/oasis), FutureMap, KnowledgeClaw and MiroFish. Thanks for their wonderful works.

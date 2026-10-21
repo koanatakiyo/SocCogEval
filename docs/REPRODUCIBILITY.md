@@ -44,13 +44,3 @@ The local model service must expose the model name passed to the runner. Configu
 Install and pin the semantic embedding model for SRM. The source can fall back if that dependency is unavailable; such a fallback is a different experimental environment and must be recorded. Historical request sampling seeds and full serving revisions were not captured. Recording a Python seed alone does not make hosted model calls deterministically reproducible.
 
 `run_experiment.py` writes timestamped experiment directories under `data/`. Use a distinct `--run-id` for new work. The fixed selection manifest keeps new runs out of the published offline estimates. C6 requires an inspectable local vLLM process matching its frozen TP=1, max-context 8192, max-sequences 8 serving profile and a checkpoint/tokenizer path. The full protocol and amendment are in `docs/protocols/`.
-
-## Paper build
-
-```bash
-cd paper
-python make_tables.py && python make_tables_cr.py   # table fragments from evidence/, evidence_sub/, evidence_cr/
-latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
-```
-
-`paper/figscripts/` regenerates the result plots (matplotlib; Georgia must be installed, or matplotlib falls back to a default serif). `paper/figures_src/` holds the editable draw.io sources of Figures 1–4 and the scripts that set their 8pt labels. `paper/analysis/` contains the camera-ready run-level analyses. They read `data/` and `results/reference/` only, except `belief_time_course.py`, which needs the per-round probe files that this compact release leaves out.
