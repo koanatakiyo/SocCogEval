@@ -6,6 +6,8 @@
 
 [![NeurIPS 2026](https://img.shields.io/badge/NeurIPS-2026-4b44ce.svg)](https://neurips.cc/)
 [![arXiv](https://img.shields.io/badge/arXiv-coming%20soon-b31b1b.svg)](#)
+[![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
+[![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-lightgrey.svg)](LICENSE-DATA)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776ab.svg)](https://www.python.org/)
 [![Offline reproduction](https://img.shields.io/badge/reproduce-offline%2C%20no%20GPU-2e8b57.svg)](#reproduce-the-paper-numbers-offline)
 
@@ -150,6 +152,10 @@ docs/               data coverage, reproducibility limits, frozen C6 protocols
 ## 🔎 Scope
 
 BFI-10 serves as a fixed, off-topic response-profile probe. We report response-profile drift, not human personality change. The evidence covers post-interaction transfer within the tested configurations (eight agents, 30 rounds, two scenarios).
+
+## ⚖️ License
+
+The code is released under the [MIT License](LICENSE). The data, run records, analysis outputs and scenario materials (`data/`, `results/`, `scenarios/`) are released under [CC BY 4.0](LICENSE-DATA). Models, instruments and dependencies keep their own licenses and terms ([THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)).
 
 ## 📝 BibTeX
 
