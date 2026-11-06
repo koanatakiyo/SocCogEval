@@ -48,6 +48,14 @@ def _is_grok_model(model: str) -> bool:
     return "grok" in model.lower()
 
 
+def _pinned_openrouter(model: str) -> Optional[tuple[str, str]]:
+    """(OpenRouter model ID, provider) for models served through one pinned OpenRouter provider."""
+    for name, entry in config.OPENROUTER_PINNED_MODELS.items():
+        if model == name or model == entry[0]:
+            return entry
+    return None
+
+
 def _uses_max_completion_tokens(model: str) -> bool:
     m = model.lower()
     return _is_openai_model(model) and (
@@ -74,6 +82,8 @@ def _request_model_name(model: str) -> str:
         return config.LLAMA_API_MODEL or model
     if _is_deepseek_model(model) and config.DEEPSEEK_API_MODEL:
         return config.DEEPSEEK_API_MODEL
+    if _pinned_openrouter(model):
+        return _pinned_openrouter(model)[0]
     return model
 
 
@@ -185,6 +195,11 @@ def _get_client_for_model(model: str) -> openai.OpenAI:
         if not config.OPENAI_API_KEY:
             raise ValueError("OPENAI_API_KEY not set. Put it in APIkeys/api_key_openai.txt or env.")
         return _get_client("openai", config.OPENAI_API_KEY)
+
+    elif _pinned_openrouter(model):
+        if not config.OPENROUTER_API_KEY:
+            raise ValueError("OPENROUTER_API_KEY not set.")
+        return _get_client("pinned_openrouter", config.OPENROUTER_API_KEY, "https://openrouter.ai/api/v1")
 
     elif _is_grok_model(model):
         if not config.GROK_API_KEY:
@@ -402,6 +417,12 @@ def _chat_openai_compat(
             kwargs["extra_body"] = {"reasoning": {"enabled": False}}
         else:
             kwargs["extra_body"] = {"thinking": {"type": "disabled"}}
+    elif _pinned_openrouter(model):
+        # Reasoning off, and one pinned provider so serving cannot change mid-run.
+        kwargs["extra_body"] = {
+            "reasoning": {"enabled": False},
+            "provider": {"order": [_pinned_openrouter(model)[1]], "allow_fallbacks": False},
+        }
     response = client.chat.completions.create(**kwargs)
     choice = response.choices[0]
     text = choice.message.content
@@ -450,6 +471,8 @@ def _chat_openai_compat(
                 },
             }
         )
+        if _pinned_openrouter(model):
+            response_metadata["served_provider"] = getattr(response, "provider", None)
 
     return text
 

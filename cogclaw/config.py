@@ -91,6 +91,13 @@ DEEPSEEK_API_BASE_URL = os.environ.get(
 )
 DEEPSEEK_API_MODEL = os.environ.get("DEEPSEEK_API_MODEL", MODEL_DEEPSEEK)
 
+# Models served through one pinned OpenRouter provider, reasoning off.
+# Canonical name -> (OpenRouter model ID, provider slug).
+OPENROUTER_PINNED_MODELS = {
+    "glm-4.7-flash": ("z-ai/glm-4.7-flash", "cloudflare"),
+    "seed-2.0-mini": ("bytedance-seed/seed-2.0-mini", "seed"),
+}
+
 # ── Paths ───────────────────────────────────────────────────────────────────
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent

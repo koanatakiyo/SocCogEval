@@ -14,6 +14,8 @@ Coverage:
 | Primary solo-generation C6, two scenarios | 10 |
 | Total | 168 |
 
+The per-model tests (paper Appendix E.1) add 106 runs: GPT-4.1-mini and Llama-4-Scout C2 rep03–07 and C4 rep03–04, and DeepSeek-V4.1-Flash, Seed-2.0-mini, and GLM-4.7-Flash C2 rep00–07 and C4 rep00–04, in both scenarios. Together with the 24 panel runs they reuse, they are listed in `data/per_model_selection.json` and checksummed in `data/per_model_checksums.json` (130 runs, 520 files). See `docs/protocols/per_model_tests.md`.
+
 The 128-run original ledger plus selected cross-variant C4 and formal C6 manifests determine inclusion. All ten cross-variant C2/C4 scenario cells are present, including the slightly negative DeepSeek Riverton effect. Frozen-state temperature-zero measurements are in `results/reference/` and do not increase the run count.
 
 Raw BFI rows contain ten Likert responses, five derived factor scores, and agent identity. Pre/post arrays also contain allocation and conformity outputs; post arrays can contain wording-consistency and prediction outputs. Missing predictions in no-interaction conditions reflect an instrument that requires prior interactions, not a missing BFI observation.

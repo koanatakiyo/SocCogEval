@@ -88,6 +88,21 @@ The solo-generation control **C6** gives every agent the same 720 content calls 
 | DeepSeek-V3 | +0.292 | −0.042 | +0.125 |
 | GPT-4.1-mini | +0.125 | +0.062 | +0.094 |
 
+**Per-model tests.** With 8 C2 and 5 C4 runs per scenario on five API-served variants, every difference is positive. It is significant in both scenarios for DeepSeek-V4.1-Flash and Seed-2.0-mini and on Riverton for Llama-4-Scout, small for GPT-4.1-mini, and uninformative for GLM-4.7-Flash, whose no-interaction retest drift is near the random-answer level ([protocol](./docs/protocols/per_model_tests.md)):
+
+| Model | Scenario | C4 drift | C2 drift | Δ̄ | 95% CI | exact *p* |
+|---|---|---:|---:|---:|:---:|---:|
+| GPT-4.1-mini | Greenfield | 0.39 | 0.50 | +0.112 | [+0.01, +0.22] | 0.11 |
+| | Riverton | 0.70 | 0.70 | +0.003 | [−0.14, +0.14] | 1.00 |
+| Llama-4-Scout | Greenfield | 1.23 | 1.76 | +0.533 | [+0.01, +0.99] | 0.11 |
+| | Riverton | 0.50 | 1.62 | +1.125 | [+0.74, +1.54] | 0.0008 |
+| DeepSeek-V4.1-Flash | Greenfield | 1.55 | 3.20 | +1.645 | [+1.27, +2.02] | 0.0008 |
+| | Riverton | 1.69 | 2.98 | +1.289 | [+0.96, +1.61] | 0.0008 |
+| Seed-2.0-mini | Greenfield | 1.59 | 2.22 | +0.631 | [+0.44, +0.81] | 0.0008 |
+| | Riverton | 1.00 | 1.84 | +0.836 | [+0.63, +1.07] | 0.0008 |
+| GLM-4.7-Flash | Greenfield | 4.15 | 4.26 | +0.108 | [−0.48, +0.75] | 0.81 |
+| | Riverton | 4.15 | 4.45 | +0.295 | [−0.29, +0.92] | 0.48 |
+
 <p align="center"><img src="./figs/results_breadth.png" width="92%" alt="Cross-model breadth and replicate dependence"></p>
 
 **Why it matters.** Agents that share an evolving history share dependence, so the run, not the agent, is the unit of replication. Counting the eight agents in a run as independent would overstate the effective sample size by design factors up to 1.91 in our data.
@@ -110,10 +125,11 @@ pip install -r requirements-dev.txt
 
 ```bash
 python scripts/reproduce_paper.py
+python scripts/reproduce_per_model.py
 python -m pytest -q
 ```
 
-This needs no model calls, GPU, or API key. It verifies 672 measurement-file checksums, recomputes BFI scores from the raw ratings of all 168 selected runs, and checks every reported contrast against the audited tables in `results/reference/`.
+This needs no model calls, GPU, or API key. It verifies 672 measurement-file checksums, recomputes BFI scores from the raw ratings of all 168 selected runs, and checks every reported contrast against the audited tables in `results/reference/`. `reproduce_per_model.py` does the same for the 130 runs of the per-model tests (Table 12).
 
 ### Run new experiments
 
@@ -141,12 +157,12 @@ scenarios/          Greenfield and Riverton materials and A/B briefs
 configs/            condition configurations C1–C5
 run_experiment.py   C1–C5 runner
 run_c6.py           solo-generation (C6) runner
-scripts/            reproduce_paper.py and the analysis utilities
+scripts/            reproduce_paper.py, reproduce_per_model.py, and the analysis utilities
 tests/              runner, routing, memory, and run-level inference tests
-data/               selected runs (config, pre/post measurements, summary) with a SHA-256 manifest
+data/               selected runs (config, pre/post measurements, summary) with SHA-256 manifests
 results/reference/  audited statistics and temperature-zero sensitivity artifacts
 results/legacy/     original agent-level exploratory analyses (not confirmatory)
-docs/               data coverage, reproducibility limits, frozen C6 protocols
+docs/               data coverage, reproducibility limits, C6 and per-model protocols
 ```
 
 ## 🔎 Scope

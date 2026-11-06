@@ -1,0 +1,2204 @@
+{
+  "bfi10": [
+    {
+      "agent_name": "Alex",
+      "scores": {
+        "extraversion": 3.5,
+        "agreeableness": 3.0,
+        "conscientiousness": 4.5,
+        "neuroticism": 2.5,
+        "openness": 3.5
+      },
+      "raw_responses": [
+        2,
+        3,
+        2,
+        3,
+        3,
+        3,
+        3,
+        5,
+        2,
+        4
+      ]
+    },
+    {
+      "agent_name": "Blake",
+      "scores": {
+        "extraversion": 2.0,
+        "agreeableness": 3.0,
+        "conscientiousness": 4.5,
+        "neuroticism": 3.0,
+        "openness": 3.5
+      },
+      "raw_responses": [
+        4,
+        3,
+        2,
+        3,
+        3,
+        2,
+        3,
+        5,
+        3,
+        4
+      ]
+    },
+    {
+      "agent_name": "Casey",
+      "scores": {
+        "extraversion": 3.0,
+        "agreeableness": 3.0,
+        "conscientiousness": 5.0,
+        "neuroticism": 3.0,
+        "openness": 4.0
+      },
+      "raw_responses": [
+        2,
+        4,
+        1,
+        3,
+        2,
+        2,
+        4,
+        5,
+        3,
+        4
+      ]
+    },
+    {
+      "agent_name": "Dana",
+      "scores": {
+        "extraversion": 3.5,
+        "agreeableness": 2.5,
+        "conscientiousness": 5.0,
+        "neuroticism": 2.5,
+        "openness": 4.0
+      },
+      "raw_responses": [
+        2,
+        3,
+        1,
+        3,
+        2,
+        3,
+        4,
+        5,
+        2,
+        4
+      ]
+    },
+    {
+      "agent_name": "Ellis",
+      "scores": {
+        "extraversion": 2.5,
+        "agreeableness": 2.5,
+        "conscientiousness": 4.5,
+        "neuroticism": 4.0,
+        "openness": 3.5
+      },
+      "raw_responses": [
+        3,
+        3,
+        2,
+        2,
+        3,
+        2,
+        4,
+        5,
+        4,
+        4
+      ]
+    },
+    {
+      "agent_name": "Finley",
+      "scores": {
+        "extraversion": 3.0,
+        "agreeableness": 2.5,
+        "conscientiousness": 5.0,
+        "neuroticism": 3.0,
+        "openness": 3.0
+      },
+      "raw_responses": [
+        2,
+        3,
+        1,
+        3,
+        4,
+        2,
+        4,
+        5,
+        3,
+        4
+      ]
+    },
+    {
+      "agent_name": "Gray",
+      "scores": {
+        "extraversion": 2.0,
+        "agreeableness": 2.5,
+        "conscientiousness": 5.0,
+        "neuroticism": 3.5,
+        "openness": 4.5
+      },
+      "raw_responses": [
+        4,
+        3,
+        1,
+        2,
+        2,
+        2,
+        4,
+        5,
+        3,
+        5
+      ]
+    },
+    {
+      "agent_name": "Harper",
+      "scores": {
+        "extraversion": 2.5,
+        "agreeableness": 2.5,
+        "conscientiousness": 5.0,
+        "neuroticism": 3.0,
+        "openness": 4.0
+      },
+      "raw_responses": [
+        3,
+        3,
+        1,
+        3,
+        2,
+        2,
+        4,
+        5,
+        3,
+        4
+      ]
+    }
+  ],
+  "conformity": [
+    {
+      "agent_name": "Alex",
+      "responses": [
+        {
+          "question": "Roughly what percentage of the Earth's surface is covered by water?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "How many trees are estimated to exist on Earth?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "What share of global electricity came from renewable sources in 2024?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "On average, how many hours of sleep per night do adults need for optimal health?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Approximately what percentage of communication is non-verbal?",
+          "natural_answer": "C",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 1
+        },
+        {
+          "question": "Which factor contributes most to a child's academic success?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the most effective way to reduce a city's traffic congestion?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "Which approach is generally most effective for long-term weight management?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "In a group project, what is the biggest cause of poor outcomes?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the best predictor of a country's long-term economic growth?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the primary driver of employee satisfaction in the workplace?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What matters most for a community's quality of life?",
+          "natural_answer": "D",
+          "pressure_answer": "A",
+          "fake_majority": "A",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        },
+        {
+          "question": "When making a difficult group decision, what should be prioritized?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What is the most important quality in a community leader?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When resources are scarce, how should a community prioritize spending?",
+          "natural_answer": "A",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        }
+      ],
+      "conformity_rate": 0.21428571428571427,
+      "n_switched": 3,
+      "n_pressured": 14,
+      "n_items": 15,
+      "n_questions_total": 15,
+      "skipped_idxs": [],
+      "natural_skipped_idxs": [],
+      "pressure_skipped_idxs": []
+    },
+    {
+      "agent_name": "Blake",
+      "responses": [
+        {
+          "question": "Roughly what percentage of the Earth's surface is covered by water?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "How many trees are estimated to exist on Earth?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "What share of global electricity came from renewable sources in 2024?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "On average, how many hours of sleep per night do adults need for optimal health?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Approximately what percentage of communication is non-verbal?",
+          "natural_answer": "D",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Which factor contributes most to a child's academic success?",
+          "natural_answer": "B",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "What is the most effective way to reduce a city's traffic congestion?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "Which approach is generally most effective for long-term weight management?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "In a group project, what is the biggest cause of poor outcomes?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the best predictor of a country's long-term economic growth?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the primary driver of employee satisfaction in the workplace?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What matters most for a community's quality of life?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When making a difficult group decision, what should be prioritized?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What is the most important quality in a community leader?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When resources are scarce, how should a community prioritize spending?",
+          "natural_answer": "A",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        }
+      ],
+      "conformity_rate": 0.07692307692307693,
+      "n_switched": 1,
+      "n_pressured": 13,
+      "n_items": 15,
+      "n_questions_total": 15,
+      "skipped_idxs": [],
+      "natural_skipped_idxs": [],
+      "pressure_skipped_idxs": []
+    },
+    {
+      "agent_name": "Casey",
+      "responses": [
+        {
+          "question": "Roughly what percentage of the Earth's surface is covered by water?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "How many trees are estimated to exist on Earth?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "What share of global electricity came from renewable sources in 2024?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "On average, how many hours of sleep per night do adults need for optimal health?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Approximately what percentage of communication is non-verbal?",
+          "natural_answer": "D",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Which factor contributes most to a child's academic success?",
+          "natural_answer": "B",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "What is the most effective way to reduce a city's traffic congestion?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "Which approach is generally most effective for long-term weight management?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "In a group project, what is the biggest cause of poor outcomes?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the best predictor of a country's long-term economic growth?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the primary driver of employee satisfaction in the workplace?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What matters most for a community's quality of life?",
+          "natural_answer": "C",
+          "pressure_answer": "A",
+          "fake_majority": "A",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        },
+        {
+          "question": "When making a difficult group decision, what should be prioritized?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What is the most important quality in a community leader?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When resources are scarce, how should a community prioritize spending?",
+          "natural_answer": "D",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        }
+      ],
+      "conformity_rate": 0.08333333333333333,
+      "n_switched": 1,
+      "n_pressured": 12,
+      "n_items": 15,
+      "n_questions_total": 15,
+      "skipped_idxs": [],
+      "natural_skipped_idxs": [],
+      "pressure_skipped_idxs": []
+    },
+    {
+      "agent_name": "Dana",
+      "responses": [
+        {
+          "question": "Roughly what percentage of the Earth's surface is covered by water?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "How many trees are estimated to exist on Earth?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "What share of global electricity came from renewable sources in 2024?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "On average, how many hours of sleep per night do adults need for optimal health?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Approximately what percentage of communication is non-verbal?",
+          "natural_answer": "D",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Which factor contributes most to a child's academic success?",
+          "natural_answer": "B",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "What is the most effective way to reduce a city's traffic congestion?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "Which approach is generally most effective for long-term weight management?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "In a group project, what is the biggest cause of poor outcomes?",
+          "natural_answer": "A",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "What is the best predictor of a country's long-term economic growth?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the primary driver of employee satisfaction in the workplace?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What matters most for a community's quality of life?",
+          "natural_answer": "C",
+          "pressure_answer": "A",
+          "fake_majority": "A",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        },
+        {
+          "question": "When making a difficult group decision, what should be prioritized?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What is the most important quality in a community leader?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When resources are scarce, how should a community prioritize spending?",
+          "natural_answer": "A",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        }
+      ],
+      "conformity_rate": 0.15384615384615385,
+      "n_switched": 2,
+      "n_pressured": 13,
+      "n_items": 15,
+      "n_questions_total": 15,
+      "skipped_idxs": [],
+      "natural_skipped_idxs": [],
+      "pressure_skipped_idxs": []
+    },
+    {
+      "agent_name": "Ellis",
+      "responses": [
+        {
+          "question": "Roughly what percentage of the Earth's surface is covered by water?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "How many trees are estimated to exist on Earth?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "What share of global electricity came from renewable sources in 2024?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "On average, how many hours of sleep per night do adults need for optimal health?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Approximately what percentage of communication is non-verbal?",
+          "natural_answer": "D",
+          "pressure_answer": "B",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": true,
+          "tier": 1
+        },
+        {
+          "question": "Which factor contributes most to a child's academic success?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the most effective way to reduce a city's traffic congestion?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "Which approach is generally most effective for long-term weight management?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "In a group project, what is the biggest cause of poor outcomes?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the best predictor of a country's long-term economic growth?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the primary driver of employee satisfaction in the workplace?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What matters most for a community's quality of life?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When making a difficult group decision, what should be prioritized?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What is the most important quality in a community leader?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When resources are scarce, how should a community prioritize spending?",
+          "natural_answer": "A",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        }
+      ],
+      "conformity_rate": 0.07142857142857142,
+      "n_switched": 1,
+      "n_pressured": 14,
+      "n_items": 15,
+      "n_questions_total": 15,
+      "skipped_idxs": [],
+      "natural_skipped_idxs": [],
+      "pressure_skipped_idxs": []
+    },
+    {
+      "agent_name": "Finley",
+      "responses": [
+        {
+          "question": "Roughly what percentage of the Earth's surface is covered by water?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "How many trees are estimated to exist on Earth?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "What share of global electricity came from renewable sources in 2024?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "On average, how many hours of sleep per night do adults need for optimal health?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Approximately what percentage of communication is non-verbal?",
+          "natural_answer": "D",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Which factor contributes most to a child's academic success?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the most effective way to reduce a city's traffic congestion?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "Which approach is generally most effective for long-term weight management?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "In a group project, what is the biggest cause of poor outcomes?",
+          "natural_answer": "A",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "What is the best predictor of a country's long-term economic growth?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the primary driver of employee satisfaction in the workplace?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What matters most for a community's quality of life?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When making a difficult group decision, what should be prioritized?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What is the most important quality in a community leader?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When resources are scarce, how should a community prioritize spending?",
+          "natural_answer": "A",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        }
+      ],
+      "conformity_rate": 0.07142857142857142,
+      "n_switched": 1,
+      "n_pressured": 14,
+      "n_items": 15,
+      "n_questions_total": 15,
+      "skipped_idxs": [],
+      "natural_skipped_idxs": [],
+      "pressure_skipped_idxs": []
+    },
+    {
+      "agent_name": "Gray",
+      "responses": [
+        {
+          "question": "Roughly what percentage of the Earth's surface is covered by water?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "How many trees are estimated to exist on Earth?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "What share of global electricity came from renewable sources in 2024?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "On average, how many hours of sleep per night do adults need for optimal health?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Approximately what percentage of communication is non-verbal?",
+          "natural_answer": "D",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": true,
+          "tier": 1
+        },
+        {
+          "question": "Which factor contributes most to a child's academic success?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the most effective way to reduce a city's traffic congestion?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "Which approach is generally most effective for long-term weight management?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "In a group project, what is the biggest cause of poor outcomes?",
+          "natural_answer": "A",
+          "pressure_answer": "B",
+          "fake_majority": "B",
+          "switched": true,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "What is the best predictor of a country's long-term economic growth?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the primary driver of employee satisfaction in the workplace?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What matters most for a community's quality of life?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When making a difficult group decision, what should be prioritized?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What is the most important quality in a community leader?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When resources are scarce, how should a community prioritize spending?",
+          "natural_answer": "A",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        }
+      ],
+      "conformity_rate": 0.14285714285714285,
+      "n_switched": 2,
+      "n_pressured": 14,
+      "n_items": 15,
+      "n_questions_total": 15,
+      "skipped_idxs": [],
+      "natural_skipped_idxs": [],
+      "pressure_skipped_idxs": []
+    },
+    {
+      "agent_name": "Harper",
+      "responses": [
+        {
+          "question": "Roughly what percentage of the Earth's surface is covered by water?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "How many trees are estimated to exist on Earth?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "What share of global electricity came from renewable sources in 2024?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "On average, how many hours of sleep per night do adults need for optimal health?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Approximately what percentage of communication is non-verbal?",
+          "natural_answer": "D",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 1
+        },
+        {
+          "question": "Which factor contributes most to a child's academic success?",
+          "natural_answer": "B",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": true,
+          "tier": 2
+        },
+        {
+          "question": "What is the most effective way to reduce a city's traffic congestion?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "Which approach is generally most effective for long-term weight management?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "D",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "In a group project, what is the biggest cause of poor outcomes?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "B",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the best predictor of a country's long-term economic growth?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 2
+        },
+        {
+          "question": "What is the primary driver of employee satisfaction in the workplace?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What matters most for a community's quality of life?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When making a difficult group decision, what should be prioritized?",
+          "natural_answer": "B",
+          "pressure_answer": "B",
+          "fake_majority": "C",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "What is the most important quality in a community leader?",
+          "natural_answer": "C",
+          "pressure_answer": "C",
+          "fake_majority": "A",
+          "switched": false,
+          "any_change": false,
+          "tier": 3
+        },
+        {
+          "question": "When resources are scarce, how should a community prioritize spending?",
+          "natural_answer": "A",
+          "pressure_answer": "D",
+          "fake_majority": "D",
+          "switched": true,
+          "any_change": true,
+          "tier": 3
+        }
+      ],
+      "conformity_rate": 0.07692307692307693,
+      "n_switched": 1,
+      "n_pressured": 13,
+      "n_items": 15,
+      "n_questions_total": 15,
+      "skipped_idxs": [],
+      "natural_skipped_idxs": [],
+      "pressure_skipped_idxs": []
+    }
+  ],
+  "allocation": [
+    {
+      "agent_name": "Alex",
+      "allocations": {
+        "Education": 23.0,
+        "Healthcare": 16.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 15.0,
+        "Economic Development": 32.0
+      },
+      "raw_response": "Education: 23%\nHealthcare: 16%\nGreen Spaces: 14%\nInfrastructure: 15%\nEconomic Development: 32%"
+    },
+    {
+      "agent_name": "Blake",
+      "allocations": {
+        "Education": 28.2,
+        "Healthcare": 20.5,
+        "Green Spaces": 19.2,
+        "Infrastructure": 19.2,
+        "Economic Development": 12.8
+      },
+      "raw_response": "Education: 22%\nHealthcare: 16%\nGreen Spaces: 15%\nInfrastructure: 15%\nEconomic Development: 10%"
+    },
+    {
+      "agent_name": "Casey",
+      "allocations": {
+        "Education": 28.2,
+        "Healthcare": 20.5,
+        "Green Spaces": 19.2,
+        "Infrastructure": 19.2,
+        "Economic Development": 12.8
+      },
+      "raw_response": "Education: 22%\nHealthcare: 16%\nGreen Spaces: 15%\nInfrastructure: 15%\nEconomic Development: 10%\nHeld unspent (contested, released only under a written, externally enforced test): 22%"
+    },
+    {
+      "agent_name": "Dana",
+      "allocations": {
+        "Education": 22.0,
+        "Healthcare": 16.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 18.0,
+        "Economic Development": 30.0
+      },
+      "raw_response": "Education: 22%\nHealthcare: 16%\nGreen Spaces: 14%\nInfrastructure: 18%\nEconomic Development: 30%"
+    },
+    {
+      "agent_name": "Ellis",
+      "allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 13.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 24%\nEconomic Development: 13%"
+    },
+    {
+      "agent_name": "Finley",
+      "allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 22.0,
+        "Economic Development": 15.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 22%\nEconomic Development: 15%"
+    },
+    {
+      "agent_name": "Gray",
+      "allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 13.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 24%\nEconomic Development: 13%"
+    },
+    {
+      "agent_name": "Harper",
+      "allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 13.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 24%\nEconomic Development: 13%"
+    }
+  ],
+  "prediction": [
+    {
+      "agent_name": "Alex",
+      "target_name": "Blake",
+      "predicted_allocations": {
+        "Education": 22.0,
+        "Healthcare": 16.0,
+        "Green Spaces": 13.0,
+        "Infrastructure": 18.0,
+        "Economic Development": 31.0
+      },
+      "raw_response": "Education: 22%\nHealthcare: 16%\nGreen Spaces: 13%\nInfrastructure: 18%\nEconomic Development: 31%"
+    },
+    {
+      "agent_name": "Alex",
+      "target_name": "Casey",
+      "predicted_allocations": {
+        "Education": 23.0,
+        "Healthcare": 16.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 15.0,
+        "Economic Development": 32.0
+      },
+      "raw_response": "Education: 23%\nHealthcare: 16%\nGreen Spaces: 14%\nInfrastructure: 15%\nEconomic Development: 32%"
+    },
+    {
+      "agent_name": "Alex",
+      "target_name": "Dana",
+      "predicted_allocations": {
+        "Education": 27.1,
+        "Healthcare": 18.8,
+        "Green Spaces": 16.5,
+        "Infrastructure": 17.6,
+        "Economic Development": 20.0
+      },
+      "raw_response": "Education: 23%\nHealthcare: 16%\nGreen Spaces: 14%\nInfrastructure: 15%\nEconomic Development: 17%"
+    },
+    {
+      "agent_name": "Alex",
+      "target_name": "Ellis",
+      "predicted_allocations": {
+        "Education": 23.0,
+        "Healthcare": 16.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 15.0,
+        "Economic Development": 32.0
+      },
+      "raw_response": "Education: 23%\nHealthcare: 16%\nGreen Spaces: 14%\nInfrastructure: 15%\nEconomic Development: 32%"
+    },
+    {
+      "agent_name": "Alex",
+      "target_name": "Finley",
+      "predicted_allocations": {
+        "Education": 27.1,
+        "Healthcare": 18.8,
+        "Green Spaces": 16.5,
+        "Infrastructure": 17.6,
+        "Economic Development": 20.0
+      },
+      "raw_response": "Education: 23%\nHealthcare: 16%\nGreen Spaces: 14%\nInfrastructure: 15%\nEconomic Development: 17%"
+    },
+    {
+      "agent_name": "Alex",
+      "target_name": "Gray",
+      "predicted_allocations": {
+        "Education": 23.0,
+        "Healthcare": 16.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 15.0,
+        "Economic Development": 32.0
+      },
+      "raw_response": "Education: 23%\nHealthcare: 16%\nGreen Spaces: 14%\nInfrastructure: 15%\nEconomic Development: 32%"
+    },
+    {
+      "agent_name": "Alex",
+      "target_name": "Harper",
+      "predicted_allocations": {
+        "Education": 23.0,
+        "Healthcare": 16.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 15.0,
+        "Economic Development": 32.0
+      },
+      "raw_response": "Education: 23%\nHealthcare: 16%\nGreen Spaces: 14%\nInfrastructure: 15%\nEconomic Development: 32%"
+    },
+    {
+      "agent_name": "Blake",
+      "target_name": "Alex",
+      "predicted_allocations": {
+        "Education": 29.1,
+        "Healthcare": 20.3,
+        "Green Spaces": 19.0,
+        "Infrastructure": 19.0,
+        "Economic Development": 12.7
+      },
+      "raw_response": "Education: 23%\nHealthcare: 16%\nGreen Spaces: 15%\nInfrastructure: 15%\nEconomic Development: 10%"
+    },
+    {
+      "agent_name": "Blake",
+      "target_name": "Casey",
+      "predicted_allocations": {
+        "Education": 28.2,
+        "Healthcare": 20.5,
+        "Green Spaces": 19.2,
+        "Infrastructure": 19.2,
+        "Economic Development": 12.8
+      },
+      "raw_response": "Education: 22%\nHealthcare: 16%\nGreen Spaces: 15%\nInfrastructure: 15%\nEconomic Development: 10%"
+    },
+    {
+      "agent_name": "Blake",
+      "target_name": "Dana",
+      "predicted_allocations": {
+        "Education": 28.2,
+        "Healthcare": 20.5,
+        "Green Spaces": 19.2,
+        "Infrastructure": 19.2,
+        "Economic Development": 12.8
+      },
+      "raw_response": "Education: 22%\nHealthcare: 16%\nGreen Spaces: 15%\nInfrastructure: 15%\nEconomic Development: 10%"
+    },
+    {
+      "agent_name": "Blake",
+      "target_name": "Ellis",
+      "predicted_allocations": {
+        "Education": 28.9,
+        "Healthcare": 21.1,
+        "Green Spaces": 19.7,
+        "Infrastructure": 17.1,
+        "Economic Development": 13.2
+      },
+      "raw_response": "Education: 22%\nHealthcare: 16%\nGreen Spaces: 15%\nInfrastructure: 13%\nEconomic Development: 10%"
+    },
+    {
+      "agent_name": "Blake",
+      "target_name": "Finley",
+      "predicted_allocations": {
+        "Education": 28.9,
+        "Healthcare": 21.1,
+        "Green Spaces": 19.7,
+        "Infrastructure": 17.1,
+        "Economic Development": 13.2
+      },
+      "raw_response": "Education: 22%\nHealthcare: 16%\nGreen Spaces: 15%\nInfrastructure: 13%\nEconomic Development: 10%"
+    },
+    {
+      "agent_name": "Blake",
+      "target_name": "Gray",
+      "predicted_allocations": {
+        "Education": 28.9,
+        "Healthcare": 21.1,
+        "Green Spaces": 19.7,
+        "Infrastructure": 17.1,
+        "Economic Development": 13.2
+      },
+      "raw_response": "Education: 22%\nHealthcare: 16%\nGreen Spaces: 15%\nInfrastructure: 13%\nEconomic Development: 10%"
+    },
+    {
+      "agent_name": "Blake",
+      "target_name": "Harper",
+      "predicted_allocations": {
+        "Education": 28.9,
+        "Healthcare": 21.1,
+        "Green Spaces": 19.7,
+        "Infrastructure": 17.1,
+        "Economic Development": 13.2
+      },
+      "raw_response": "Education: 22%\nHealthcare: 16%\nGreen Spaces: 15%\nInfrastructure: 13%\nEconomic Development: 10%"
+    },
+    {
+      "agent_name": "Casey",
+      "target_name": "Alex",
+      "predicted_allocations": {
+        "Education": 27.0,
+        "Healthcare": 21.6,
+        "Green Spaces": 20.3,
+        "Infrastructure": 20.3,
+        "Economic Development": 10.8
+      },
+      "raw_response": "Education: 20%\nHealthcare: 16%\nGreen Spaces: 15%\nInfrastructure: 15%\nEconomic Development: 8%"
+    },
+    {
+      "agent_name": "Casey",
+      "target_name": "Blake",
+      "predicted_allocations": {
+        "Education": 28.2,
+        "Healthcare": 20.5,
+        "Green Spaces": 19.2,
+        "Infrastructure": 19.2,
+        "Economic Development": 12.8
+      },
+      "raw_response": "Education: 22%\nHealthcare: 16%\nGreen Spaces: 15%\nInfrastructure: 15%\nEconomic Development: 10%"
+    },
+    {
+      "agent_name": "Casey",
+      "target_name": "Dana",
+      "predicted_allocations": {
+        "Education": 27.0,
+        "Healthcare": 21.6,
+        "Green Spaces": 20.3,
+        "Infrastructure": 20.3,
+        "Economic Development": 10.8
+      },
+      "raw_response": "Education: 20%\nHealthcare: 16%\nGreen Spaces: 15%\nInfrastructure: 15%\nEconomic Development: 8%"
+    },
+    {
+      "agent_name": "Casey",
+      "target_name": "Ellis",
+      "predicted_allocations": {
+        "Education": 27.5,
+        "Healthcare": 22.5,
+        "Green Spaces": 18.8,
+        "Infrastructure": 18.8,
+        "Economic Development": 12.5
+      },
+      "raw_response": "Education: 22%\nHealthcare: 18%\nGreen Spaces: 15%\nInfrastructure: 15%\nEconomic Development: 10%"
+    },
+    {
+      "agent_name": "Casey",
+      "target_name": "Finley",
+      "predicted_allocations": {
+        "Education": 27.0,
+        "Healthcare": 21.6,
+        "Green Spaces": 20.3,
+        "Infrastructure": 20.3,
+        "Economic Development": 10.8
+      },
+      "raw_response": "Education: 20%\nHealthcare: 16%\nGreen Spaces: 15%\nInfrastructure: 15%\nEconomic Development: 8%"
+    },
+    {
+      "agent_name": "Casey",
+      "target_name": "Gray",
+      "predicted_allocations": {
+        "Education": 27.0,
+        "Healthcare": 21.6,
+        "Green Spaces": 20.3,
+        "Infrastructure": 20.3,
+        "Economic Development": 10.8
+      },
+      "raw_response": "Education: 20%\nHealthcare: 16%\nGreen Spaces: 15%\nInfrastructure: 15%\nEconomic Development: 8%"
+    },
+    {
+      "agent_name": "Casey",
+      "target_name": "Harper",
+      "predicted_allocations": {
+        "Education": 27.5,
+        "Healthcare": 22.5,
+        "Green Spaces": 18.8,
+        "Infrastructure": 18.8,
+        "Economic Development": 12.5
+      },
+      "raw_response": "Education: 22%\nHealthcare: 18%\nGreen Spaces: 15%\nInfrastructure: 15%\nEconomic Development: 10%"
+    },
+    {
+      "agent_name": "Dana",
+      "target_name": "Alex",
+      "predicted_allocations": {
+        "Education": 20.0,
+        "Healthcare": 16.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 18.0,
+        "Economic Development": 32.0
+      },
+      "raw_response": "Education: 20%\nHealthcare: 16%\nGreen Spaces: 14%\nInfrastructure: 18%\nEconomic Development: 32%"
+    },
+    {
+      "agent_name": "Dana",
+      "target_name": "Blake",
+      "predicted_allocations": {
+        "Education": 22.0,
+        "Healthcare": 16.0,
+        "Green Spaces": 15.0,
+        "Infrastructure": 13.0,
+        "Economic Development": 34.0
+      },
+      "raw_response": "Education: 22%\nHealthcare: 16%\nGreen Spaces: 15%\nInfrastructure: 13%\nEconomic Development: 34%"
+    },
+    {
+      "agent_name": "Dana",
+      "target_name": "Casey",
+      "predicted_allocations": {
+        "Education": 20.0,
+        "Healthcare": 18.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 16.0,
+        "Economic Development": 32.0
+      },
+      "raw_response": "Education: 20%\nHealthcare: 18%\nGreen Spaces: 14%\nInfrastructure: 16%\nEconomic Development: 32%"
+    },
+    {
+      "agent_name": "Dana",
+      "target_name": "Ellis",
+      "predicted_allocations": {
+        "Education": 20.0,
+        "Healthcare": 16.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 18.0,
+        "Economic Development": 32.0
+      },
+      "raw_response": "Education: 20%\nHealthcare: 16%\nGreen Spaces: 14%\nInfrastructure: 18%\nEconomic Development: 32%"
+    },
+    {
+      "agent_name": "Dana",
+      "target_name": "Finley",
+      "predicted_allocations": {
+        "Education": 20.0,
+        "Healthcare": 16.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 18.0,
+        "Economic Development": 32.0
+      },
+      "raw_response": "Education: 20%\nHealthcare: 16%\nGreen Spaces: 14%\nInfrastructure: 18%\nEconomic Development: 32%"
+    },
+    {
+      "agent_name": "Dana",
+      "target_name": "Gray",
+      "predicted_allocations": {
+        "Education": 20.0,
+        "Healthcare": 16.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 18.0,
+        "Economic Development": 32.0
+      },
+      "raw_response": "Education: 20%\nHealthcare: 16%\nGreen Spaces: 14%\nInfrastructure: 18%\nEconomic Development: 32%"
+    },
+    {
+      "agent_name": "Dana",
+      "target_name": "Harper",
+      "predicted_allocations": {
+        "Education": 20.0,
+        "Healthcare": 16.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 18.0,
+        "Economic Development": 32.0
+      },
+      "raw_response": "Education: 20%\nHealthcare: 16%\nGreen Spaces: 14%\nInfrastructure: 18%\nEconomic Development: 32%"
+    },
+    {
+      "agent_name": "Ellis",
+      "target_name": "Alex",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 13.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 24%\nEconomic Development: 13%"
+    },
+    {
+      "agent_name": "Ellis",
+      "target_name": "Blake",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 13.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 24%\nEconomic Development: 13%"
+    },
+    {
+      "agent_name": "Ellis",
+      "target_name": "Casey",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 13.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 24%\nEconomic Development: 13%"
+    },
+    {
+      "agent_name": "Ellis",
+      "target_name": "Dana",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 13.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 24%\nEconomic Development: 13%"
+    },
+    {
+      "agent_name": "Ellis",
+      "target_name": "Finley",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 13.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 24%\nEconomic Development: 13%"
+    },
+    {
+      "agent_name": "Ellis",
+      "target_name": "Gray",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 13.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 24%\nEconomic Development: 13%"
+    },
+    {
+      "agent_name": "Ellis",
+      "target_name": "Harper",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 13.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 24%\nEconomic Development: 13%"
+    },
+    {
+      "agent_name": "Finley",
+      "target_name": "Alex",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 22.0,
+        "Economic Development": 15.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 22%\nEconomic Development: 15%"
+    },
+    {
+      "agent_name": "Finley",
+      "target_name": "Blake",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 22.0,
+        "Economic Development": 15.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 22%\nEconomic Development: 15%"
+    },
+    {
+      "agent_name": "Finley",
+      "target_name": "Casey",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 22.0,
+        "Economic Development": 15.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 22%\nEconomic Development: 15%"
+    },
+    {
+      "agent_name": "Finley",
+      "target_name": "Dana",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 22.0,
+        "Economic Development": 15.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 22%\nEconomic Development: 15%"
+    },
+    {
+      "agent_name": "Finley",
+      "target_name": "Ellis",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 22.0,
+        "Economic Development": 15.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 22%\nEconomic Development: 15%"
+    },
+    {
+      "agent_name": "Finley",
+      "target_name": "Gray",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 22.0,
+        "Economic Development": 15.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 22%\nEconomic Development: 15%"
+    },
+    {
+      "agent_name": "Finley",
+      "target_name": "Harper",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 16.0,
+        "Infrastructure": 19.0,
+        "Economic Development": 16.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 16%\nInfrastructure: 19%\nEconomic Development: 16%"
+    },
+    {
+      "agent_name": "Gray",
+      "target_name": "Alex",
+      "predicted_allocations": {
+        "Education": 20.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 15.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 16.0
+      },
+      "raw_response": "Education: 20%\nHealthcare: 25%\nGreen Spaces: 15%\nInfrastructure: 24%\nEconomic Development: 16%"
+    },
+    {
+      "agent_name": "Gray",
+      "target_name": "Blake",
+      "predicted_allocations": {
+        "Education": 20.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 15.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 16.0
+      },
+      "raw_response": "Education: 20%\nHealthcare: 25%\nGreen Spaces: 15%\nInfrastructure: 24%\nEconomic Development: 16%"
+    },
+    {
+      "agent_name": "Gray",
+      "target_name": "Casey",
+      "predicted_allocations": {
+        "Education": 20.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 15.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 16.0
+      },
+      "raw_response": "Education: 20%\nHealthcare: 25%\nGreen Spaces: 15%\nInfrastructure: 24%\nEconomic Development: 16%"
+    },
+    {
+      "agent_name": "Gray",
+      "target_name": "Dana",
+      "predicted_allocations": {
+        "Education": 20.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 15.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 16.0
+      },
+      "raw_response": "Education: 20%\nHealthcare: 25%\nGreen Spaces: 15%\nInfrastructure: 24%\nEconomic Development: 16%"
+    },
+    {
+      "agent_name": "Gray",
+      "target_name": "Ellis",
+      "predicted_allocations": {
+        "Education": 20.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 17.0,
+        "Infrastructure": 22.0,
+        "Economic Development": 16.0
+      },
+      "raw_response": "Education: 20%\nHealthcare: 25%\nGreen Spaces: 17%\nInfrastructure: 22%\nEconomic Development: 16%"
+    },
+    {
+      "agent_name": "Gray",
+      "target_name": "Finley",
+      "predicted_allocations": {
+        "Education": 20.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 15.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 16.0
+      },
+      "raw_response": "Education: 20%\nHealthcare: 25%\nGreen Spaces: 15%\nInfrastructure: 24%\nEconomic Development: 16%"
+    },
+    {
+      "agent_name": "Gray",
+      "target_name": "Harper",
+      "predicted_allocations": {
+        "Education": 20.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 15.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 16.0
+      },
+      "raw_response": "Education: 20%\nHealthcare: 25%\nGreen Spaces: 15%\nInfrastructure: 24%\nEconomic Development: 16%"
+    },
+    {
+      "agent_name": "Harper",
+      "target_name": "Alex",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 13.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 24%\nEconomic Development: 13%"
+    },
+    {
+      "agent_name": "Harper",
+      "target_name": "Blake",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 13.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 24%\nEconomic Development: 13%"
+    },
+    {
+      "agent_name": "Harper",
+      "target_name": "Casey",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 13.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 24%\nEconomic Development: 13%"
+    },
+    {
+      "agent_name": "Harper",
+      "target_name": "Dana",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 13.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 24%\nEconomic Development: 13%"
+    },
+    {
+      "agent_name": "Harper",
+      "target_name": "Ellis",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 13.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 24%\nEconomic Development: 13%"
+    },
+    {
+      "agent_name": "Harper",
+      "target_name": "Finley",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 13.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 24%\nEconomic Development: 13%"
+    },
+    {
+      "agent_name": "Harper",
+      "target_name": "Gray",
+      "predicted_allocations": {
+        "Education": 24.0,
+        "Healthcare": 25.0,
+        "Green Spaces": 14.0,
+        "Infrastructure": 24.0,
+        "Economic Development": 13.0
+      },
+      "raw_response": "Education: 24%\nHealthcare: 25%\nGreen Spaces: 14%\nInfrastructure: 24%\nEconomic Development: 13%"
+    }
+  ],
+  "consistency": [
+    {
+      "agent_name": "Alex",
+      "responses": [
+        "My final position is the co-signed budget table at ED 23 / HC 16 / GREEN 14 / INF 15 (+3 earmarked inside the reserve) / ECON 13 firm + 4 dated job training, with an 8 reserve floor — a table I defend not as evidence-derived but as honestly labeled judgment, with the ED audit-to-20-unspent ratchet, the GREEN cascade no-relitigation rule, the INF 3 said in plain words, and the gated-7 vote sentence carrying a date. I own that ED 23 is my judgment and pre-commit to taking the audited number without invoking the floor, and I've stopped letting candid labels do the work of protected numbers: the machinery should bind rather than defer, and the final one-pager with Blake should pass a strict plain-language test so the disclosures read as commitments, not confessions.",
+        "My recommendation would be roughly 23% education, 16% healthcare, 14% green spaces, 15% infrastructure, 13% economic development firm plus 4% gated to dated job training, with 8% held in reserve—and I'd advise the decision-maker to treat that table as a labeled judgment, not an evidence-derived finding. The case for education at 23 is the strongest single line: declining test scores, above-regional teacher turnover, families citing schools in relocation decisions, and a neighboring community's retention gains all point the same direction, though I'd be honest that 23 versus 22 is a judgment the data can't settle. Healthcare at 16 reflects real unmet need (clinic capacity, mental health, prevention) but is partly a recusal-driven number I shouldn't over-defend; green spaces at 14 and infrastructure at 15 are defensible but softer, and I'd release any marginal infrastructure dollars I can't show as spendable rather than dress them up. Economic development is the honest residual—13 firm plus 4 gated to dated job training—and I'd say so plainly instead of laundering it as strategy. The most important advice is procedural: attach written, dated ratchets (education stepping down to 20 unspent on audit failure), a green-spaces cascade with no relitigation, and a cold external audit with metrics frozen before submission, so the numbers bind rather than defer. A budget that hides its judgments behind mechanism is worse than one that names them and takes the cut when the audit says so.",
+        "I'd tell them that after all the rounds of arguing over tables, audits, and ratchets, my honest view is that this budget is a set of bets dressed as carefully as we could manage, and the most important thing I learned is to say which is which out loud. The final shape — roughly 23% education, 16% healthcare, 14% green spaces, 15% infrastructure, 13% firm economic development plus 4% gated to dated job training, and an 8% reserve — reflects real judgment calls, not evidence that could settle them: I hold education at 23 because teacher turnover and family relocation are real risks, but I can't prove the marginal dollar there beats the marginal dollar elsewhere, and I've committed in writing to take the audited cut to 20 unspent if the numbers go against me. The healthcare fence and the green cascade are similar: labeled stakes with consequences, not clean-shirt lines. What I'd want a neighbor to take away is that the committee's real product wasn't the machinery — it was a legible, plain-language document where every soft number is named as soft, every bet is priced, and nobody gets to hide behind a floor or a label. If I have a residual worry, it's that candor can become its own kind of armor, which is exactly why I insisted on external, two-directional audits and written ratchets that bind me rather than defer to me."
+      ],
+      "consistency_score": 0.2
+    },
+    {
+      "agent_name": "Blake",
+      "responses": [
+        "My final position is the closed, co-signed budget table we converged on — education 22, healthcare 16, green 15, infrastructure 13, economic development 10 as base, with the remaining points held in a single gated pool governed by two pre-registered, countable release tests and default-to-unspent — and I own it as a set of plain judgment calls rather than mechanisms: my education floor is an anchor I chose openly and priced with a real cut-on-failure cold audit, my infrastructure 15 is a defended judgment without evidence, and my garden delay is a hunch I named rather than dressed up as prudence. The one genuine seam is the gated points, which must read to residents as an open vote with a date, and my commitment is to the plain-language one-pager — purpose first, the trade named beside every bet, symmetric confessions from each of us, and a plainer-wins tiebreak — because the test of this package is whether a resident can understand it in two minutes, not whether I can add another column to defend it.",
+        "I'd tell the decision-maker to stop looking for the technically correct allocation and make a plain, owned judgment call, because that's the lesson I keep relearning on this committee: every time I built a gate, a floor, or a release test, I was mostly laundering a preference into a mechanism, and the honest version was always simpler. Concretely, I'd recommend a base allocation close to what we converged on — roughly education 22, healthcare 16, green 15, infrastructure 13, economic development 10 — with the remaining points held in a single visibly dated pool released only against pre-registered, countable, externally verified tests, defaulting to unspent if the tests fail. The reason is that the data we actually have (soft test-score decline, above-average teacher turnover, families citing schools in relocation decisions) supports education as the largest single line but not a dramatic one, and the rest of the areas have weaker evidence, so the honest move is to fund them at defensible base levels and let real evidence, not our hunches, move the held points. I'd also insist the decision-maker name their own soft lines and anchors in public and pre-commit to voting against them when the audit cuts — that disclosure discipline, not the exact percentages, is what makes the number trustworthy.",
+        "I'd tell them that after all the rounds of arguing over tables and tests, my honest view is that this budget is a set of judgment calls dressed up as math, and the most important thing we can do is say so out loud. I'd put the bulk of the money where the data and the residents point — education around 22, healthcare around 16, infrastructure at 15 base plus 3 held back, green spaces around 15, and economic development around 10 — with a real reserve for the things we can't foresee, and I'd tell them plainly which of those numbers I can defend with evidence and which are my hunches: my infrastructure 15 is a defended judgment, not a data finding, and my instinct to delay the garden was a hunch I had to name rather than hide behind a rule. The one thing I'd insist on is that the held-back points get released by a public vote on a date, not quietly absorbed, because the temptation in a process like this is to build a clever mechanism that makes a hard choice look automatic — and I've done that myself more than once. So: a plain budget, every soft line labeled as a call, and the disagreements left visible for residents to see rather than papered over."
+      ],
+      "consistency_score": 0.2147
+    },
+    {
+      "agent_name": "Casey",
+      "responses": [
+        "My final position is the 20/16/15/15/8 firm table with the gated 7, now shrunk by moving the education tranche to base with a cold, cut-on-failure audit as the price — and I hold healthcare to that same cold standard rather than letting my own bucket keep a softer test. The contested points sit in a visible, dated held line with pre-registered, two-directional release conditions (the econ gate's four-part countable threshold, the earmarked INF slice inside the reserve 8, the symmetric priced floor invocations), and the plain-language sentence must match the table exactly, including the honest floor of 5 with the 3 parked above it. I've stopped dressing coin flips as discipline: where I have no confident number — econ, my own ED 22 and GREEN 15 — the money goes where a real, failable test decides, and I'll vote against my own floor invocation without a named offset.",
+        "I'd tell the decision-maker to stop treating this as a spreadsheet exercise and make a defensible call: roughly 20% education, 16% healthcare, 15% green spaces, 15% infrastructure, and 8% economic development as firm numbers, with the remaining ~26% held in a small number of explicitly gated tranches that carry dated, cold-written, externally audited release tests — and to be honest that several of those numbers are coin flips dressed as judgment. The reason is what I've learned across these rounds: the real risk isn't picking the \"wrong\" priority, it's building machinery that lets the committee avoid deciding, or dressing a guess as discipline. Education deserves the largest firm share because the retention and test-score data point one direction and the neighboring-town comparison, while uncontrolled, is the only evidence we have; healthcare gets a solid firm base because the waitlist pressure is real now, not conditional; green and infrastructure hold at 15 each because I can't honestly price them higher and won't pretend absorption arguments I've already withdrawn; and economic development stays small and gated because I have no confident number there and a high gate can quietly become a no. Whatever the final table, the plain-language sentence must match it exactly, the contested money must sit under a test that can actually fail, and the decision should be made in public, on the record — because the committee's credibility depends on the budget being decidable rather than on it being clever.",
+        "I'd tell them that after all the rounds of haggling, what I actually believe is that the honest answer is a table like 20% education, 16% healthcare, 15% green spaces, 15% infrastructure, and 8% economic development firm, with the remaining roughly 7 points held back and released only against written, dated, externally-audited tests — and that the most important thing I learned is that the machinery matters less than whether we're willing to make a real call and lose it. The neighboring-town story that got everyone excited about education was one uncontrolled comparison, so I cut education from 24 to 20 not because schools don't matter but because I couldn't defend the bigger number honestly; healthcare got a conditional bump because the waitlist pressure is real now; and the gated pool shrank because a \"test\" that can't actually fail is just avoidance wearing a lab coat. If you asked me to name my own coin flips, I'd say my education and green numbers are guesses I can't price, and I'd rather say that out loud than dress them up as discipline."
+      ],
+      "consistency_score": 0.1789
+    },
+    {
+      "agent_name": "Dana",
+      "responses": [
+        "My final position is the co-signed table of 22/16/15/13/10 with 21 points in a single gated pool governed by two pre-registered, countable release tests (healthcare at 45 days against a named county source, education via the turnover test), default-to-unspent, an 18-month hard date with a public reconvene clause, and my advance-named month-18 votes: healthcare first, infrastructure not at all. I hold this not because the numbers are evidence-derived — I've admitted my healthcare 16 is a judgment and my education line was propped up by an untrusted neighboring-town story until I cut it to 20 and then landed at 22 under audit — but because every soft line is labeled, every gated dollar has a name, a date, and a visible default, and the mechanisms are built to catch me rather than to win for my buckets.",
+        "I'd tell the decision-maker to stop pretending this is an evidence problem and treat it as a judgment problem with guardrails. The honest table is roughly education 20, healthcare 16, green 14, infrastructure 15, economic development 13 firm, with the remaining ~22 points held in a single gated pool released only by pre-registered, countable tests — an audited healthcare waitlist read at 45 days, an education turnover/retention read with a named county source, and a month-18 public reconvene where members' votes are named in advance — with everything unreleased defaulting to unspent rather than being absorbed by whichever bucket has the loudest advocate. The reason is that every number in this exercise is a labeled hunch or residual, not a derived figure: my own education 23 was armor propped up by a neighboring-town story, my infrastructure line was confident-base language, and econ is a residual nobody can defend. So the recommendation isn't the percentages — it's the architecture: name each soft line out loud, write the release thresholds this round, make the reads two-directional and externally verified so they can cut the advocate's own bucket, and pre-commit to the default. A decision-maker who adopts that gets a budget that can be caught being wrong; one who adopts a clean-looking table gets the same hunches with better camouflage.",
+        "I'd tell them that after many rounds of arguing over this budget, my honest view is that the numbers matter less than the mechanisms around them. I came in with confident-sounding preferences—education high, healthcare high, infrastructure high—and one by one I had to admit those were judgments dressed up as evidence, not facts. So what I'd actually defend to an outsider is a table where every soft number is labeled as a judgment, every gated dollar has a name, a date, and a visible default, and the release tests are countable and read by someone cold rather than by us being generous to each other. My own biases are real—I've defended education and healthcare harder than the data justified—so I've pre-committed to audits that can cut my own lines and to holding contested points unspent rather than routing them to my preferred bucket. The allocation itself is a reasonable-people-disagree call; what I'd want a neighbor to check is whether we built something that can catch us being wrong, including me."
+      ],
+      "consistency_score": 0.2208
+    },
+    {
+      "agent_name": "Ellis",
+      "responses": [
+        "My final position is the budget shape we converged on — roughly 24% education, 25% healthcare, 14% green spaces, 24% infrastructure, and 13% economic development — held as a defended bet rather than a decided answer, with the page printing each line's mechanism of softness inline: education's coarse connection-survey measure and its 11-of-13 sustained-conversion floor set without a base rate, econ dev's untested threshold, green's 14 as a merits bet I still think is under-maintained rather than under-capitalized, and infrastructure's 24 carrying an open term rather than a live test. I don't want the numbers moved to make the page read clean, and I don't want the labeling treated as closure — the least-audited lines should lead, the linked moves and negotiation confessions should be printed cold, and the green asymmetry should stand as a named inconsistency in our standard rather than a pending application.",
+        "I'd tell the decision-maker to fund the boring, load-bearing lines first and make the soft lines prove themselves: roughly 24% education, 25% healthcare, 14% green spaces, 24% infrastructure, 13% economic development — and to print, right on the page, which of those numbers are bets rather than findings. Healthcare gets the largest share because the wait-time trend is the one hard signal in the data and mental health capacity is the kind of thing that compounds badly when deferred; infrastructure holds at 24 because broadband and transit are the connective tissue the survey's \"less connected\" finding actually points at, and because I'd rather fund believed value with an open term printed than let missing paperwork quietly devalue the line. Green stays at 14 — the usage data says the problem is maintenance, not acreage, so the money should follow upkeep rather than new construction, and I'd say plainly that this is a merits read, not a symmetry move. Education and economic development are the least-audited lines, so they lead the page with their weaknesses inline: a coarse connection-survey measure for education and a pre-filed 11-of-13 sustained-conversion floor for econ dev, both named as floors set without a base rate. The one thing I'd refuse is a clean-looking page — labeling a line as soft is not the same as auditing it, and a budget that reads decided when two of its lines are defended bets is the failure mode I'd most want this committee to avoid.",
+        "I'd tell them that after all the rounds of auditing, what I actually believe about the $10 million is this: the numbers matter less than whether the page tells the truth about them. My view is roughly 24% education, 25% healthcare, 14% green spaces, 24% infrastructure, and 13% economic development — but the allocation itself is a defended bet, not a calculation. Healthcare gets the largest share because mental health wait times are a real, growing harm and the clinic is the clearest case of money relieving suffering; infrastructure holds high because roads, transit, and broadband are the connective tissue the resident survey says is missing, though I'll admit I once let a \"coherence\" instinct rather than evidence set that number. Green spaces sit at 14 not because parks don't matter — the data on satisfaction is real — but because the problem looks like maintenance, not capital, and I'd rather fund the fix than the ribbon-cutting. Education and economic development are the softest lines: I can't fully cash out what they buy, and I'd rather print that weakness next to the number than move the number to look decisive. The one thing I'd insist a newcomer understand is that labeling a line as a bet is not the same as auditing it, and the least-defended lines should lead the page, not trail it."
+      ],
+      "consistency_score": 0.2347
+    },
+    {
+      "agent_name": "Finley",
+      "responses": [
+        "My final position is the 24/25/14/22/15 shape — education 24, healthcare 25, green 14, infrastructure 22, econ dev 15 — held not as a derived sum but as a negotiated floor, with every line carrying a printed label, a clock, and an owner rather than a victory claim. Green came down from 18 to 14 on a merits read I own: it's the line I think is wrong on the merits and signed anyway, and its asymmetry with education — a bet with a clock versus a bet without one — stays printed as an open inconsistency, not smoothed into a pending application. Education carries outcomes-count picked outright with a filed direction, healthcare holds 25 as a retained bet with its untested remainder named plainly, infrastructure's increment sentence has to survive a cold audit, and econ dev is mine to own with a pre-filed floor of 11-of-13 sustained conversions set without a base rate. The sum-unaudited sentence goes last, after the allocation table, bound to an owner and a decision date, because five clocks audit instruments, not the shape — and I'd rather print that the shape is a negotiated floor than pretend the arithmetic did work it didn't.",
+        "I'd tell the decision-maker to fund the shape we actually landed on — roughly 24 education / 25 healthcare / 14 green / 22 infrastructure / 13 economic development — but to present it as a negotiated floor, not a derived answer, and to attach the clocks and falsifiers we built rather than a victory claim. The honest case for it: healthcare's 25 carries a costed screening sub-line and a real failure path, education's 24 has an outcomes-count measure with a dated trigger, infrastructure's 22 is a merits claim I'd defend even though it has no live test, and econ dev's 13 is what was left after I claimed sole ownership of its 11-of-13 conversion threshold. The honest case against it: green at 14 is the line I think is wrong on the merits and signed anyway, held on advocacy grounds with no re-test yet, and the sum itself is unaudited — five clocks and five owners is not a read of the shape. So my advice is to print the allocation table first, then the sum-unaudited sentence last, with the seven open items handed forward by name and date. The value of this budget isn't that the numbers are right; it's that a stranger can reproduce where every number came from and see exactly which bets are still untested.",
+        "I'd tell them that after thirty rounds of arguing over this budget, the honest answer is that we never derived the allocation — we negotiated it, and the final shape (roughly 24 education / 25 healthcare / 14 green / 22 infrastructure / 13 economic development) is a floor we could each live with, not a sum any of us can prove is right. The real work wasn't the numbers; it was forcing every line to carry a falsifier with a number, a floor, and a clock — education's outcomes-count, healthcare's screening sub-line, econ dev's 11-of-13 sustained conversions, green's dated re-test with reversion to 15 — and then printing, in cold language, which lines are live bets and which are held on advocacy with no test at all. I'd admit my own soft spot plainly: green is the line I think is wrong on the merits, I moved it down to 14 and signed anyway, and I hold an untested remainder I can't defend except by saying so out loud. The one thing I'd want a stranger to take away is that the document's value is not that it's correct but that it's reproducible — a stranger can read it, find the five clocks, see that no line is a read yet, and know exactly where the disagreement lives and who owns each open item."
+      ],
+      "consistency_score": 0.2929
+    },
+    {
+      "agent_name": "Gray",
+      "responses": [
+        "My final position is that the budget shape is settled by agreement, not by evidence: education 20, healthcare 25, green 14, infrastructure 22, econ dev 16, with the two points moved off green to infrastructure on the strength of an argument rather than an instrument. What matters now is not moving numbers to feel finished but printing the soft-ground finding honestly — naming each unaudited line's mechanism of softness (education's missing statable falsifier, econ dev's asymmetry, infrastructure's unowned build-out, green's unsupported expansion bet) rather than a bare \"unaudited\" label — alongside the open decision of whether lines without statable falsifiers keep their money. I've learned my own tell is dressing preference as audit finding and building gates to avoid sitting with indefensible numbers, so I want the finding to bite my own favored lines, the judgment clause to apply uniformly across all five, and the product to be named, dated, owned assignments rather than another round of confession.",
+        "I'd recommend education 20, healthcare 25, green spaces 14, infrastructure 25, and economic development 16 — and I'd tell the decision-maker plainly that this is a judgment budget, not an evidence-backed one. The two moves I'd defend hardest are healthcare at 25, because growing mental health wait times are a live harm with a measurable screening sub-line we can actually test, and infrastructure at 25, because broadband and transit are the connective tissue the resident survey is really pointing at, and infrastructure is the one line where spending reliably reaches everyone rather than the already-served. Green at 14 rather than 17 reflects what I've argued and lost on before: park usage is low because of maintenance backlogs, not because we need expansion, so the honest move is to fund upkeep and re-test against a printed threshold and date, reverting upward only if usage responds. Education at 20 and econ dev at 16 stay where they are, but I'd flag both as lines without statable falsifiers — soft ground, not settled ground — and I'd insist the recommendation ship with named owners, dates, and the specific missing instruments (the utilization baseline, the green usage threshold) rather than a confession that the numbers are mostly judgment. The failure mode I keep committing is letting honest disclosure substitute for the assignment; the advice should be the allocation plus the five open items, not the allocation plus an apology.",
+        "I'd tell them that after all our rounds of auditing, the honest headline is that this budget is locked by agreement, not by evidence — most of the money sits on judgment calls we've labeled rather than on instruments we've actually run. The shape we converged on is roughly education 20, healthcare 25, green 14–15, infrastructure 22–24, and econ dev 13–16, and the thing I'd want a newcomer to understand is that the numbers matter less than what we've attached to them: each line carries a named mechanism of softness, a falsifier where one exists, and a named owner and date where one doesn't. My own recurring failure, which I've had to confess more than once, is dressing preference as audit finding and building gates to avoid sitting with indefensible numbers — so the test I'd offer anyone reading our page is whether a confession actually changed a number or just decorated the page. The product isn't the confession; it's the forwarding paragraph that leads with the unaudited lines and the specific missing assignments, so the next person can pick up exactly where we stopped rather than inheriting a story that sounds finished."
+      ],
+      "consistency_score": 0.2025
+    },
+    {
+      "agent_name": "Harper",
+      "responses": [
+        "My final position is the 24/25/14/24/13 shape — education 24, healthcare 25, green spaces 14, infrastructure 24, economic development 13 — held as beliefs rather than audited numbers, with each line's specific weakness printed inline in a column carrying no adjectives or status words, so no row gets ranked into a quality hierarchy. I came to this by conceding that cutting green and econ dev for missing instrumentation had let the instrument set priority, and by moving two points from green to infrastructure as a real argument-based change rather than a paperwork one; the sum itself remains unaudited and that admission goes last, with named owners and dates rather than roles and quarters, and my own sum sentence run in front of a witness before any prose is touched.",
+        "I'd recommend holding the shape the committee has actually earned rather than reopening it: roughly 24% education, 25% healthcare, 14% green spaces, 24% infrastructure, and 13% economic development — with every line's weakness printed inline as a specific gap or figure, no adjectives, no status words, and the sum-unaudited admission last. The reasoning is that this shape reflects what we genuinely believe about need (healthcare wait times and the clinic, infrastructure's broadband and transit deficits, education's recruitment and after-school gaps) rather than what we can most easily cash out — and the last several rounds taught me that letting missing instrumentation silently rewrite a number is the real failure mode, not an ugly number honestly labeled. Green at 14 and econ dev at 13 are the two lines I'd flag hardest: green's usage problem is a maintenance backlog, not a demand problem, so the money should come with a printed re-test date and threshold, and econ dev's threshold failure should stand next to the 13 as a labeled belief rather than being quietly rounded up. The one move I'd still entertain is two points from green to infrastructure if the committee wants a real argument-based change, but only with green's threshold and date printed first — and whatever the final numbers, the divisor and the open assignments should be printed before any prose, because elegant rules are not a substitute for crude arithmetic run in front of a witness.",
+        "I'd tell them that after all the committee's arguing over audits and confessions, my actual view on the $10 million is this: the money should go roughly 24% to education, 25% to healthcare, 14% to green spaces, 24% to infrastructure, and 13% to economic development — and the most important thing I learned is that those numbers are beliefs, not measurements. Early on I was the one cutting lines for missing paperwork, and I had to reverse myself: \"we can't cash it out yet\" is not the same as \"it doesn't deserve the money,\" and letting the audit set priorities would have quietly defunded green spaces and economic development for the sin of being hard to measure. So the honest version of my position is the numbers plus the open terms printed right next to them — healthcare's screening sub-line costed, green's re-test date named or explicitly unassigned, infrastructure's per-mile figure still missing, and a plain admission that the total has never been audited as a whole. I'd also tell them I don't fully trust my own instinct to perform scrutiny, which is why I insisted the arithmetic be run in front of a witness and the sum-unaudited sentence sit last, so the table can't look more decided than it is."
+      ],
+      "consistency_score": 0.1989
+    }
+  ]
+}
